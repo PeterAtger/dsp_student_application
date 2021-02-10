@@ -27,3 +27,7 @@ samples, guidance on mobile development, and a full API reference.
    When you create one put it in theme.dart in a class called AppGradients, to be reused throuoght the whole Project
 5. Any component used in different pages you can put in a seperate widget and put it outside the page in /components folder.
 6. All SVGS we used are in (https://drive.google.com/drive/folders/1MiVKw6pZnT7w6b2WqULQWW8VAuyyAedT?usp=sharing)
+7. Please use AutoSizeText widget in package (https://pub.dev/packages/auto_size_text) instead of normal Text widget to make
+    the app looks the same even on very small screens.
+ 8. Never set an exact width to a widget, make it fill the screen (using the Expanded Widget).
+
