@@ -27,14 +27,14 @@ class main_screen extends StatelessWidget {
     return AppBar(
       toolbarHeight: 122,
       leading: Icon(Icons.menu, size:32, color:Color(0xFF5D5D5D),) ,
-      title: Text('Tashkeel', style: AppFonts.heading2),
+      title: Text('Tashkeel', style: AppFonts.heading2.copyWith(color: AppColors.cDarkGrey)),
        backgroundColor: Colors.transparent,
        elevation: 0,
   );
   }
 
-///////////////////////////////////////////////
-//////////////////////////////////////////////
+/////////////////////////////////////////////
+////////////////////////////////////////////
 Column applicationBody() {
     return Column(  
     children:[
