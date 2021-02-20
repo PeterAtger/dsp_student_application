@@ -6,7 +6,7 @@ class AppFonts {
   static final TextStyle heading1 =
       TextStyle(fontSize: 48, fontFamily: _fontfamily);
   static final TextStyle heading2 =
-      TextStyle(fontSize: 32, fontFamily: _fontfamily, color:Color(0xFF5D5D5D));
+      TextStyle(fontSize: 32, fontFamily: _fontfamily);
   static final TextStyle heading3 = TextStyle(
       fontSize: 22, fontFamily: _fontfamily, fontWeight: FontWeight.bold);
 
