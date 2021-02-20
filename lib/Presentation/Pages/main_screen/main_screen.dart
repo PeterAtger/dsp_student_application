@@ -9,10 +9,12 @@ import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 // String input=""; You can save the input sentence 
 // in this variable useing onchanged properity in textfield widget.
 
+
 class main_screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
     appBar: applicationBar(),
     body: applicationBody(),
     bottomNavigationBar:navBar(),
