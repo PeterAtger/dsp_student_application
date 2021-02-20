@@ -129,7 +129,7 @@ TextField fileUpload() {
       iconSize: 25,  
       elevation: 2,
         //onTap: _onItemTapped,  
-      backgroundColor: Color(0xFF474F8F),
+      backgroundColor: AppColors.cPurple,
       type: BottomNavigationBarType.fixed,
       items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
