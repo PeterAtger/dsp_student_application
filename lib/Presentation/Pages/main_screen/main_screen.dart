@@ -15,17 +15,19 @@ class main_screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       
+    ////
     appBar: applicationBar(),
     body: applicationBody(),
     bottomNavigationBar:navBar(),
     );
   }
+
 }
   AppBar applicationBar() {
     return AppBar(
       toolbarHeight: 122,
       leading: Icon(Icons.menu, size:32, color:Color(0xFF5D5D5D),) ,
-      title: Text('Tashkeel', style: AppFonts.heading2,),
+      title: Text('Tashkeel', style: AppFonts.heading2),
        backgroundColor: Colors.transparent,
        elevation: 0,
   );
