@@ -1,5 +1,13 @@
+import 'package:dsp_student_application/Presentation/Pages/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+
+//Here Sara Uncomment to test her screen (Not finished)
+void main() => runApp(MaterialApp(
+  home : main_screen(),
+)
+);
+/*
 
 void main() {
   runApp(MyApp());
@@ -115,10 +123,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        //onPressed: _incrementCounter,
+        onPressed: mainscreen();
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+*/
