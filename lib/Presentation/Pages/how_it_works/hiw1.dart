@@ -20,24 +20,78 @@ class HIW1 extends StatelessWidget {
             height: size.height * 2,
             width: size.width * 1.5,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.cWhite,
               shape: BoxShape.circle,
             ),
           )),
       Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
+          SizedBox(
             height: size.height / 5,
           ),
-          Text(
-            'How it Works',
-            textAlign: TextAlign.center,
-            style: AppFonts.heading1,
+          GradientHeading(
+            text: 'How it works',
           )
         ],
-      )
+      ),
+      Positioned(
+          width: size.width,
+          bottom: size.height / 24,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 24,
+                width: 24,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle, color: AppColors.cGreen),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                height: 12,
+                width: 12,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle, color: AppColors.cWhite),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                height: 12,
+                width: 12,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle, color: AppColors.cWhite),
+              ),
+            ],
+          ))
     ]));
+  }
+}
+
+class GradientHeading extends StatelessWidget {
+  final String text;
+  const GradientHeading({
+    Key key,
+    this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+        shaderCallback: (Rect bounds) => LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [AppColors.cGreen, AppColors.cPurple]).createShader(bounds),
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: AppFonts.heading1.copyWith(
+            color: AppColors.cWhite,
+          ),
+        ));
   }
 }
 
