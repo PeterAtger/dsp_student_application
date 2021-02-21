@@ -26,7 +26,7 @@ class main_screen extends StatelessWidget {
   AppBar applicationBar() {
     return AppBar(
       toolbarHeight: 122,
-      leading: Icon(Icons.menu, size:32, color:Color(0xFF5D5D5D),) ,
+      leading: Icon(Icons.menu, size:32, color:AppColors.cDarkGrey,) ,
       title: Text('Tashkeel', style: AppFonts.heading2.copyWith(color: AppColors.cDarkGrey)),
        backgroundColor: Colors.transparent,
        elevation: 0,
@@ -70,7 +70,7 @@ TextField search() {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
           borderSide: BorderSide(
-            color: Colors.yellow,
+            color: AppColors.cLightGrey,
             style: BorderStyle.solid,
           ),
         ),
@@ -91,7 +91,7 @@ TextField newQuary() {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.0),
           borderSide: BorderSide(
-            color: Color(0xFF1BB7A5),
+            color: AppColors.cGreen,
             style: BorderStyle.solid,
           ),
         ),
@@ -110,7 +110,7 @@ TextField fileUpload() {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
           borderSide: BorderSide(
-            color: Colors.yellow,
+            color: AppColors.cLightGrey,
             style: BorderStyle.solid,
             //width: 3,
           ),
@@ -129,7 +129,7 @@ TextField fileUpload() {
       iconSize: 25,  
       elevation: 2,
         //onTap: _onItemTapped,  
-      backgroundColor: AppColors.cPurple,
+      backgroundColor: AppColors.cGreen,
       type: BottomNavigationBarType.fixed,
       items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
