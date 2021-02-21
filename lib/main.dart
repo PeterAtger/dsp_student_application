@@ -1,6 +1,7 @@
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/hiw1.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,6 +11,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark));
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
