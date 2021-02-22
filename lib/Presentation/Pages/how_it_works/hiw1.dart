@@ -1,6 +1,9 @@
-import 'package:adobe_xd/adobe_xd.dart';
+import 'package:dsp_student_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
+
+import 'components/ArabicImage.dart';
+import 'components/BackGroundGradient.dart';
 
 class HIW1 extends StatelessWidget {
   @override
@@ -35,112 +38,6 @@ class HIW1 extends StatelessWidget {
           )
         ],
       ),
-      Positioned(
-          width: size.width,
-          bottom: size.height / 24,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 24,
-                width: 24,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: AppColors.cGreen),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                height: 12,
-                width: 12,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: AppColors.cWhite),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                height: 12,
-                width: 12,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: AppColors.cWhite),
-              ),
-            ],
-          ))
     ]));
-  }
-}
-
-class GradientHeading extends StatelessWidget {
-  final String text;
-  const GradientHeading({
-    Key key,
-    this.text,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ShaderMask(
-        shaderCallback: (Rect bounds) => LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [AppColors.cGreen, AppColors.cPurple]).createShader(bounds),
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: AppFonts.heading1.copyWith(
-            color: AppColors.cWhite,
-          ),
-        ));
-  }
-}
-
-class BackGroundGradient extends StatelessWidget {
-  const BackGroundGradient({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      constraints: BoxConstraints.expand(),
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.bottomRight,
-              end: Alignment.topLeft,
-              stops: [0, 1],
-              colors: [AppColors.cPurple, AppColors.cGreen])),
-    );
-  }
-}
-
-class ArabicImage extends StatelessWidget {
-  final double bottom;
-  final double top;
-  final double size;
-
-  const ArabicImage({
-    Key key,
-    this.bottom,
-    this.top,
-    this.size,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      left: -size / 2,
-      bottom: this.bottom,
-      top: this.top,
-      child: BlendMask(
-        opacity: 0.5,
-        blendMode: BlendMode.saturation,
-        child: Image(
-          height: size,
-          width: size,
-          image: AssetImage('lib/Presentation/Images/ArabicCircle.png'),
-        ),
-      ),
-    );
   }
 }
