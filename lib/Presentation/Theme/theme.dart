@@ -128,7 +128,7 @@ class AppColors {
   static final MaterialColor cLightGrey =
       MaterialColor(0xFFE7E7E7, _ColorMaps.cLightGreyMap);
   static final MaterialColor cDarkGrey =
-      MaterialColor(0xFFD5D5D5, _ColorMaps.cDarkGreyMap);
+      MaterialColor(0xFF5D5D5D, _ColorMaps.cDarkGreyMap);
   static final MaterialColor cWhite =
       MaterialColor(0xFFFFFFFF, _ColorMaps.cWhite);
 
