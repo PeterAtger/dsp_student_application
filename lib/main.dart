@@ -1,10 +1,11 @@
+import 'package:dsp_student_application/Presentation/Pages/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+//import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 
-void main() {
-  runApp(MyApp());
+void main() => runApp(MaterialApp(home:MainScreen(),) );
+/*void main() {
+  //runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -121,4 +123,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-}
+}*/
