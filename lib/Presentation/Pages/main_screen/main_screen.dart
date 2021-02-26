@@ -152,8 +152,14 @@ Container fileupload(){
 //////////////////////////////////////////
 //Layer_4
 //4.1 search text field
-class SearchField extends StatelessWidget {
+class SearchField extends StatefulWidget {
+  @override
+  _SearchFieldState createState() => _SearchFieldState();
+}
+
+class _SearchFieldState extends State<SearchField> {
   String serch="";
+
   @override
   Widget build(BuildContext context) {
     return TextField(
