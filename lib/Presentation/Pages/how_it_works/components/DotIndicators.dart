@@ -2,14 +2,24 @@ import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class DotIndicatiors extends StatelessWidget {
-  final index;
+  final activeCircleIndex;
 
   /// Creates a 3 dot indicator
   ///
   /// Takes Index as an argument to know which dot should be active
   DotIndicatiors({
-    this.index,
+    this.activeCircleIndex,
   });
+
+  double circleSize(containerIndex) {
+    return this.activeCircleIndex == containerIndex ? 24 : 12;
+  }
+
+  circleColor(containerIndex) {
+    return this.activeCircleIndex == containerIndex
+        ? AppColors.cGreen
+        : AppColors.cLightGrey;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,29 +28,26 @@ class DotIndicatiors extends StatelessWidget {
       children: [
         AnimatedContainer(
           duration: Duration(milliseconds: 500),
-          width: this.index == 0 ? 24 : 12,
-          height: this.index == 0 ? 24 : 12,
-          decoration: BoxDecoration(
-              color: this.index == 0 ? AppColors.cGreen : AppColors.cLightGrey,
-              shape: BoxShape.circle),
-        ),
-        SizedBox(width: 12),
-        AnimatedContainer(
-          duration: Duration(milliseconds: 200),
-          width: this.index == 1 ? 24 : 12,
-          height: this.index == 1 ? 24 : 12,
-          decoration: BoxDecoration(
-              color: this.index == 1 ? AppColors.cGreen : AppColors.cLightGrey,
-              shape: BoxShape.circle),
+          width: circleSize(0),
+          height: circleSize(0),
+          decoration:
+              BoxDecoration(color: circleColor(0), shape: BoxShape.circle),
         ),
         SizedBox(width: 12),
         AnimatedContainer(
           duration: Duration(milliseconds: 500),
-          width: this.index == 2 ? 24 : 12,
-          height: this.index == 2 ? 24 : 12,
-          decoration: BoxDecoration(
-              color: this.index == 2 ? AppColors.cGreen : AppColors.cLightGrey,
-              shape: BoxShape.circle),
+          width: circleSize(1),
+          height: circleSize(1),
+          decoration:
+              BoxDecoration(color: circleColor(1), shape: BoxShape.circle),
+        ),
+        SizedBox(width: 12),
+        AnimatedContainer(
+          duration: Duration(milliseconds: 500),
+          width: circleSize(2),
+          height: circleSize(2),
+          decoration:
+              BoxDecoration(color: circleColor(2), shape: BoxShape.circle),
         ),
       ],
     ));

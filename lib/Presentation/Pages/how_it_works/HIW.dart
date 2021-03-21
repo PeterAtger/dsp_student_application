@@ -21,9 +21,9 @@ class _HIWState extends State<HIW> {
     // Get size of phone
     final Size size = MediaQuery.of(context).size;
 
-    // Ret
+    // Returns Three Pages of how it works
     return Scaffold(
-      body: Stack(children: <Widget>[
+      body: Stack(alignment: Alignment.center, children: <Widget>[
         PageView(
           controller: controller,
           onPageChanged: (index) {
@@ -40,11 +40,10 @@ class _HIWState extends State<HIW> {
           ],
         ),
         Positioned(
-          left: size.width / 2 - 40,
           bottom: 50,
           height: 24,
           child: DotIndicatiors(
-            index: pageIndex,
+            activeCircleIndex: pageIndex,
           ),
         ),
       ]),
