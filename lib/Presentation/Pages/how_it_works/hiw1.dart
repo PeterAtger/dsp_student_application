@@ -9,7 +9,7 @@ class HIW1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final bool isPortrait = size.height > size.width ? true : false;
+    final bool isPortrait = size.height > size.width;
 
     return Scaffold(
         body: Stack(children: <Widget>[
@@ -35,7 +35,7 @@ class HIW1 extends StatelessWidget {
           ),
           GradientHeading(
             text: 'How it works',
-          )
+          ),
         ],
       ),
     ]));

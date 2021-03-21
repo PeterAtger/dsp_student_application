@@ -25,6 +25,7 @@ dependencies:
     sdk: flutter
   adobe_xd: ^1.1.0+1
   rive: ^0.6.8
+  introduction_screen: ^1.0.9
 
 
 
