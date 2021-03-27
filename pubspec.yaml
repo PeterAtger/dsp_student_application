@@ -57,6 +57,7 @@ flutter:
     - lib/Presentation/Images/location.svg
     - lib/Presentation/Images/phone.svg
     - lib/Presentation/Images/email2.svg
+    - lib/Presentation/Images/profile.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

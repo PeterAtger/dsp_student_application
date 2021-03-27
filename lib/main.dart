@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => Settings(),
+          '/': (context) => Notifications(),
         });
   }
 }
