@@ -24,14 +24,14 @@ class _NotificationsState extends State<Notifications> {
               height: size.height / 1.5,
               child: BlendMask(
                   blendMode: BlendMode.srcOver,
-                  opacity: 0.1,
+                  opacity: 0.05,
                   child:
                       Image.asset('lib/Presentation/Images/ArabicCircle.png')),
             ),
           ),
           Column(
             children: [
-              SizedBox(height: 200),
+              SizedBox(height: 64),
               Row(
                 children: [
                   SizedBox(width: 32),
@@ -86,7 +86,7 @@ class _NotificationsState extends State<Notifications> {
                   ),
                 ),
               ),
-              SizedBox(width: 32, height: 10),
+              SizedBox(height: 30),
               Container(
                 width: size.width - 80,
                 height: 50,

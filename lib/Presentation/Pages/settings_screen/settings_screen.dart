@@ -24,13 +24,13 @@ class _SettingsState extends State<Settings> {
               height: size.height / 1.5,
               child: BlendMask(
                   blendMode: BlendMode.srcOver,
-                  opacity: 0.1,
+                  opacity: 0.05,
                   child:
                       Image.asset('lib/Presentation/Images/ArabicCircle.png')),
             ),
           ),
           Column(children: [
-            SizedBox(height: 100),
+            SizedBox(height: 50),
             Row(
               children: [
                 SizedBox(width: 32),
@@ -50,7 +50,7 @@ class _SettingsState extends State<Settings> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 50),
             Row(children: <Widget>[
               SizedBox(width: 32),
               Text(
@@ -134,11 +134,11 @@ class _SettingsState extends State<Settings> {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 30),
             Center(
               child: Container(
                 height: 1,
-                width: size.width - 50,
+                width: size.width * 0.8,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.centerLeft,
@@ -147,7 +147,7 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 30),
             Row(children: <Widget>[
               SizedBox(width: 32),
               Text(
@@ -155,7 +155,7 @@ class _SettingsState extends State<Settings> {
                 style: AppFonts.heading3.copyWith(color: AppColors.cDarkGrey),
               ),
             ]),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             Row(
               children: [
                 SizedBox(width: 32),

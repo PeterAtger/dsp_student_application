@@ -21,13 +21,12 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  adobe_xd: ^1.1.0+1
-  flutter_svg: ^0.19.0+1
   flutter:
     sdk: flutter
   adobe_xd: ^1.1.0+1
   rive: ^0.6.8
   introduction_screen: ^1.0.9
+  flutter_svg: ^0.20.0-nullsafety.3
 
 
 
