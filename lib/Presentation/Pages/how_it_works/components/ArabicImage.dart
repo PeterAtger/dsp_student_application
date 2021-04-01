@@ -24,7 +24,7 @@ class ArabicImage extends StatelessWidget {
       bottom: this.bottom,
       top: this.top,
       child: BlendMask(
-        opacity: 0.5,
+        opacity: 1,
         blendMode: BlendMode.saturation,
         child: Image(
           height: size,

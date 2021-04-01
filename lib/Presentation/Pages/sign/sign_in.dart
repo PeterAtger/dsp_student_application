@@ -1,3 +1,4 @@
+import 'package:dsp_student_application/Presentation/Pages/how_it_works/components/ArabicImage.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/top_curve.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -42,49 +43,62 @@ class _SignInState extends State<SignIn> {
               height: size.height / 2,
             ),
           ),
-          Column(
+          ArabicImage(top: -150, bottom: null, size: size.height / 1.5),
+          CustomPaint(
+            painter: TopCurvePainterRev(),
+            child: SizedBox(
+              width: size.width,
+              height: size.height / 2,
+            ),
+          ),
+          Stack(
             children: [
-              SizedBox(
-                height: size.height / 2,
-              ),
-              Center(
-                child: Container(
-                  width: size.width * 0.8,
-                  child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                width: 1, color: AppColors.cDarkGrey)),
-                      ),
-                      value: _selectedItem,
-                      dropdownColor: AppColors.cWhite,
-                      elevation: 0,
-                      onChanged: (value) {
-                        setState(() {
-                          _selectedItem = value.toString();
-                          print(_selectedItem);
-                        });
-                      },
-                      items: _gradeList
-                          .map((v) => DropdownMenuItem(
-                              value: v[0],
-                              child: Row(
-                                children: [
-                                  Container(
-                                      height: 24,
-                                      width: 24,
-                                      child: SvgPicture.asset(v[1])),
-                                  SizedBox(width: 12),
-                                  Text(v[0],
-                                      style: AppFonts.smallButtonText.copyWith(
-                                        color: AppColors.cDarkGrey,
-                                        fontWeight: FontWeight.w700,
-                                      )),
-                                ],
-                              )))
-                          .toList()),
-                ),
-              ),
+              Column(
+                children: [
+                  Container(
+                    height: size.height / 2,
+                  ),
+                  Center(
+                    child: Container(
+                      width: size.width * 0.8,
+                      child: DropdownButtonFormField(
+                          decoration: InputDecoration(
+                            enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                    width: 1, color: AppColors.cDarkGrey)),
+                          ),
+                          value: _selectedItem,
+                          dropdownColor: AppColors.cWhite,
+                          elevation: 0,
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedItem = value.toString();
+                              print(_selectedItem);
+                            });
+                          },
+                          items: _gradeList
+                              .map((v) => DropdownMenuItem(
+                                  value: v[0],
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                          height: 24,
+                                          width: 24,
+                                          child: SvgPicture.asset(v[1])),
+                                      SizedBox(width: 12),
+                                      Text(v[0],
+                                          style:
+                                              AppFonts.smallButtonText.copyWith(
+                                            color: AppColors.cDarkGrey,
+                                            fontWeight: FontWeight.w700,
+                                          )),
+                                    ],
+                                  )))
+                              .toList()),
+                    ),
+                  ),
+                ],
+              )
             ],
           )
         ],
