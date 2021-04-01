@@ -26,6 +26,7 @@ dependencies:
   adobe_xd: ^1.1.0+1
   rive: ^0.6.8
   introduction_screen: ^1.0.9
+  flutter_svg: ^0.20.0-nullsafety.3
 
 
 
@@ -53,6 +54,12 @@ flutter:
       - lib/Presentation/Images/ArabicCircle.png
       - lib/Presentation/Animations/dots.riv
       - lib/Presentation/Images/arrow.svg
+      - lib/Presentation/Images/grade.svg
+      - lib/Presentation/Images/boy.svg
+      - lib/Presentation/Images/girl.svg
+      - lib/Presentation/Images/secondaryboy.svg
+      
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,5 +1,6 @@
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/HIW.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/profile_page.dart';
+import 'package:dsp_student_application/Presentation/Pages/sign/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter/services.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => HIW(),
+        '/': (context) => SignIn(),
       },
     );
   }
