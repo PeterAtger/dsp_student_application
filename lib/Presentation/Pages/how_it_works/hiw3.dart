@@ -1,9 +1,6 @@
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:rive/rive.dart' hide LinearGradient;
-
 import 'components/ArabicImage.dart';
 import 'components/BackGroundGradient.dart';
 

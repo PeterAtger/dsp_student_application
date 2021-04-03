@@ -2,6 +2,7 @@ import 'package:dsp_student_application/Presentation/Pages/how_it_works/componen
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/hiw1.dart';
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/hiw2.dart';
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/hiw3.dart';
+import 'package:dsp_student_application/Presentation/Pages/how_it_works/lets_get_started.dart';
 import 'package:flutter/material.dart';
 
 class HIW extends StatefulWidget {
@@ -37,6 +38,7 @@ class _HIWState extends State<HIW> {
             HIW1(),
             HIW2(),
             HIW3(),
+            GetStarted(),
           ],
         ),
         Positioned(
