@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
-//import 'package:dsp_student_application/Presentation/Pages/main_screen/main_screen.dart';
 
 class NavBar extends StatefulWidget {
   @override
@@ -11,23 +10,23 @@ class NavBar extends StatefulWidget {
 
 class _NavBarState extends State<NavBar> {
   
-  int _selectedIndex;
-    /*List<Widget> _widgetOptions = <Widget>[
-    main_screen(),
-    main_screen(),
-    main_screen(),
-    main_screen(),
-    main_screen(),
-  ];*/
+    List<String> _widgetOptions = [
+    '/profile',
+    '/setting',
+    '/MainScreen',
+    '/profile',
+    '/profile',
+  ];
   void _onItemTap(int index) {
     setState(() {
-      _selectedIndex = index;
+    Navigator.pushReplacementNamed(context, _widgetOptions[index]);
+     //(index==2)?Navigator.popUntil(context, ModalRoute.withName('/QuestionsList')):Navigator.pushNamed(context, _widgetOptions[index]);
     });
+
   }
   @override
   Widget build(BuildContext context) {
     return ConvexAppBar(
-        backgroundColor: AppColors.cPurple[800],
         style: TabStyle.fixedCircle,
         height: MediaQuery.of(context).size.height*0.09,
         gradient: LinearGradient(
@@ -39,15 +38,15 @@ class _NavBarState extends State<NavBar> {
         ),
 
         items: [
-          TabItem(icon: ImageIcon(Svg("assets/user_outlined.svg") ,color:AppColors.cLightGrey , size: 28,)),
-          TabItem(icon: Icon(Icons.settings, color:AppColors.cGreen, size:28,)),
-          TabItem(icon: Icon(Icons.home_outlined, color:Colors.black, size:33)),
-          TabItem(icon: ImageIcon(Svg("assets/question.svg") ,color:AppColors.cLightGrey , size: 28,)),
+          TabItem(icon: SvgPicture.asset('lib/Presentation/Images/user_outlined.svg' ,color:AppColors.cLightGrey , height: 28,)),
+          TabItem(icon: SvgPicture.asset('lib/Presentation/Images/setting.svg' ,color:AppColors.cLightGrey , height: 28,)),
+          TabItem(icon: Icon(Icons.home_rounded, color:AppColors.cDarkGrey[900], size:45)),
+          TabItem(icon: SvgPicture.asset('lib/Presentation/Images/question.svg' ,color:AppColors.cLightGrey , height: 28,)),
           TabItem(icon: Icon(Icons.check_circle_outline_sharp, color:AppColors.cLightGrey, size:28)),
         ],
         //initialActiveIndex: 0,
         onTap: _onItemTap,
-       // onTap:(int index){},
+        
       );
   }
 }
