@@ -12,8 +12,9 @@ class HIW3 extends StatelessWidget {
     return Scaffold(
         body: Stack(children: <Widget>[
       BackGroundGradient(),
-      ArabicImage(top: -150, bottom: null, size: size.height / 1.5),
-      ArabicImage(bottom: -150, top: null, size: size.height / 1.5),
+      ArabicImage(top: -150, left: size.height / 6, size: size.height / 1.5),
+      ArabicImage(
+          bottom: -150, right: size.height / 6, size: size.height / 1.5),
       Positioned(
           top: -size.height * 0.85,
           left: -size.width * 0.4,

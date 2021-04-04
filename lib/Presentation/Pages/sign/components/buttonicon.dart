@@ -6,6 +6,7 @@ class ButtonIcon extends StatelessWidget {
   const ButtonIcon({
     Key key,
     @required this.size,
+    @required this.onButtonPress,
     this.text,
     this.icon,
     this.iconcolor,
@@ -21,18 +22,18 @@ class ButtonIcon extends StatelessWidget {
   final MaterialColor textcolor;
   final MaterialColor buttoncolor;
   final MaterialColor frame;
+  final Function onButtonPress;
+
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints:
           BoxConstraints.tightFor(width: size.width * 0.35, height: 50),
       child: ElevatedButton.icon(
-        onPressed: () {
-          // Respond to button press
-        },
+        onPressed: onButtonPress,
         icon: Padding(
           padding:
-              const EdgeInsets.only(top: 15, left: 0, right: 0, bottom: 15),
+              const EdgeInsets.only(top: 16, left: 0, right: 0, bottom: 16),
           child: Container(
             width: 24,
             height: 24,
@@ -48,12 +49,12 @@ class ButtonIcon extends StatelessWidget {
           ),
         ),
         style: ButtonStyle(
-          overlayColor: MaterialStateProperty.all(buttoncolor),
+          overlayColor: MaterialStateProperty.all(AppColors.cDarkGrey[500]),
           backgroundColor: MaterialStateProperty.all(buttoncolor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(32.0),
-                side: BorderSide(width: 1, color: frame)),
+              borderRadius: BorderRadius.circular(32.0),
+            ),
           ),
         ),
       ),

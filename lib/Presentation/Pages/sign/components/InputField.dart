@@ -6,6 +6,7 @@ Widget inputfield(var size, MaterialColor linecolor, MaterialColor hintcolor,
     MaterialColor iconcolor, String hint, String icon, bool coloredicone,
     {bool isPass = false}) {
   return TextFormField(
+    style: AppFonts.appText.copyWith(color: hintcolor),
     obscureText: isPass,
     cursorColor: AppColors.cWhite,
     decoration: InputDecoration(

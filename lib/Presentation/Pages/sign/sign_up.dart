@@ -1,4 +1,4 @@
-import 'package:dsp_student_application/Presentation/Pages/how_it_works/HIW.dart';
+import 'package:dsp_student_application/Presentation/Pages/main_screen/main_screen.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/InputField.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/button.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/buttonicon.dart';
@@ -31,48 +31,50 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: AppColors.cWhite,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                CustomPaint(
-                  painter: TopCurvePainter(),
-                  child: SizedBox(
-                    width: size.width,
-                    height: size.height / 2,
-                  ),
-                ),
-                ArabicImage(
-                    top: -150,
-                    bottom: null,
-                    left: -200,
-                    size: size.height / 1.5,
-                    opacity: 2),
-                CustomPaint(
-                  painter: TopCurvePainterRev(),
-                  child: SizedBox(
-                    width: size.width,
-                    height: size.height / 2,
-                  ),
-                ),
-                Container(
-                  child: Positioned(
-                    top: size.height * 0.13,
-                    child: Text(
-                      'Sign Up',
-                      style:
-                          AppFonts.heading1.copyWith(color: AppColors.cWhite),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: size.height * 0.42,
-                  child: Container(
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          CustomPaint(
+            painter: TopCurvePainter(),
+            child: SizedBox(
+              width: size.width,
+              height: size.height / 2,
+            ),
+          ),
+          ArabicImage(
+              top: -150,
+              left: -size.height / 5,
+              size: size.height / 1.5,
+              opacity: 2),
+          CustomPaint(
+            painter: TopCurvePainterRev(),
+            child: SizedBox(
+              width: size.width,
+              height: size.height / 2,
+            ),
+          ),
+          Container(
+            child: Positioned(
+              top: size.height * 0.13,
+              child: Text(
+                'Sign Up',
+                style: AppFonts.heading1.copyWith(color: AppColors.cWhite),
+              ),
+            ),
+          ),
+          Container(
+            height: size.height,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 72),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
                       width: size.width * 0.8,
                       child: inputfield(
                           size,
@@ -82,138 +84,133 @@ class _SignUpState extends State<SignUp> {
                           'Full Name',
                           'name',
                           false)),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Container(
-                  width: size.width * 0.8,
-                  child: inputfield(
-                      size,
-                      AppColors.cLightGrey,
-                      AppColors.cDarkGrey,
-                      AppColors.cGreen,
-                      'Email',
-                      'email',
-                      true),
-                ),
-                SizedBox(
-                  height: 4, //bad value
-                ),
-                Container(
-                  width: size.width * 0.8,
-                  child: inputfield(
-                      size,
-                      AppColors.cLightGrey,
-                      AppColors.cDarkGrey,
-                      AppColors.cGreen,
-                      'Password',
-                      'key',
-                      true,
-                      isPass: true),
-                ),
-                SizedBox(
-                  height: 4, //bad value
-                ),
-                Container(
-                  width: size.width * 0.8,
-                  child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(
-                            top: 20, bottom: 10, left: 10, right: 12),
-                        isDense: true,
-                        enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                width: 1, color: AppColors.cLightGrey)),
-                      ),
-                      value: _selectedItem,
-                      dropdownColor: AppColors.cWhite,
-                      elevation: 0,
-                      onChanged: (value) {
-                        setState(() {
-                          _selectedItem = value.toString();
-                        });
+                  Container(
+                    width: size.width * 0.8,
+                    child: inputfield(
+                        size,
+                        AppColors.cLightGrey,
+                        AppColors.cDarkGrey,
+                        AppColors.cGreen,
+                        'Email',
+                        'email',
+                        true),
+                  ),
+                  SizedBox(
+                    height: 4, //bad value
+                  ),
+                  Container(
+                    width: size.width * 0.8,
+                    child: inputfield(
+                        size,
+                        AppColors.cLightGrey,
+                        AppColors.cDarkGrey,
+                        AppColors.cGreen,
+                        'Password',
+                        'key',
+                        true,
+                        isPass: true),
+                  ),
+                  SizedBox(
+                    height: 4, //bad value
+                  ),
+                  Container(
+                    width: size.width * 0.8,
+                    child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.only(
+                              top: 24, bottom: 12, left: 12, right: 12),
+                          isDense: true,
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 1, color: AppColors.cLightGrey)),
+                        ),
+                        value: _selectedItem,
+                        dropdownColor: AppColors.cWhite,
+                        elevation: 2,
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedItem = value.toString();
+                          });
+                        },
+                        items: _gradeList
+                            .map((item) => DropdownMenuItem(
+                                value: item[0],
+                                child: Row(
+                                  children: [
+                                    Container(
+                                        height: 24,
+                                        width: 24,
+                                        child: SvgPicture.asset(item[1])),
+                                    SizedBox(width: 12),
+                                    Text(item[0],
+                                        style: AppFonts.appText.copyWith(
+                                          color: AppColors.cDarkGrey,
+                                          fontWeight: FontWeight.normal,
+                                        )),
+                                  ],
+                                )))
+                            .toList()),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    width: size.width * 0.8,
+                    child: Button(
+                      size: size,
+                      text: 'Sign Up',
+                      textcolor: AppColors.cWhite,
+                      buttoncolor: AppColors.cGreen,
+                      onButtonPress: () {
+                        Navigator.of(context).pushReplacementNamed('/HIW');
                       },
-                      items: _gradeList
-                          .map((item) => DropdownMenuItem(
-                              value: item[0],
-                              child: Row(
-                                children: [
-                                  Container(
-                                      height: 24,
-                                      width: 24,
-                                      child: SvgPicture.asset(item[1])),
-                                  SizedBox(width: 12),
-                                  Text(item[0],
-                                      style: AppFonts.appText.copyWith(
-                                        color: AppColors.cDarkGrey,
-                                        fontWeight: FontWeight.normal,
-                                      )),
-                                ],
-                              )))
-                          .toList()),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                Container(
-                  width: size.width * 0.8,
-                  child: Button(
-                    size: size,
-                    text: 'Sign Up',
-                    textcolor: AppColors.cWhite,
-                    buttoncolor: AppColors.cGreen,
-                    destination: HIW(),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 24,
-                ),
-                Container(
-                  width: size.width * 0.8,
-                  child: DividingLine(
-                    size: size,
-                    text: 'Or Login With',
-                    color: AppColors.cDarkGrey,
+                  SizedBox(
+                    height: 24,
                   ),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                Container(
-                  width: size.width * 0.8,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ButtonIcon(
-                        size: size,
-                        text: 'Facebook',
-                        icon: 'facebook',
-                        iconcolor: Colors.blue,
-                        textcolor: Colors.blue,
-                        buttoncolor: AppColors.cWhite,
-                        frame: Colors.blue,
-                      ),
-                      SizedBox(
-                        width: size.width * 0.1,
-                      ),
-                      ButtonIcon(
-                        size: size,
-                        text: 'Google',
-                        icon: 'googlee',
-                        iconcolor: Colors.red,
-                        textcolor: AppColors.cDarkGrey,
-                        buttoncolor: AppColors.cWhite,
-                        frame: AppColors.cDarkGrey,
-                      ),
-                    ],
+                  Container(
+                    width: size.width * 0.8,
+                    child: DividingLine(
+                      size: size,
+                      text: 'Or Login With',
+                      color: AppColors.cDarkGrey,
+                    ),
                   ),
-                ),
-              ],
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    width: size.width * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ButtonIcon(
+                          size: size,
+                          text: 'Facebook',
+                          icon: 'facebook',
+                          iconcolor: Colors.blue,
+                          textcolor: Colors.blue,
+                          buttoncolor: AppColors.cWhite,
+                          onButtonPress: () {},
+                        ),
+                        ButtonIcon(
+                          size: size,
+                          text: 'Google',
+                          icon: 'googlee',
+                          iconcolor: Colors.red,
+                          textcolor: AppColors.cDarkGrey,
+                          buttoncolor: AppColors.cWhite,
+                          onButtonPress: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

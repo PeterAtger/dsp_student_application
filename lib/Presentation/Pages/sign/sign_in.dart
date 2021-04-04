@@ -1,105 +1,127 @@
-import 'package:dsp_student_application/Presentation/Pages/sign/components/top_curve.dart';
-import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:dsp_student_application/Presentation/Pages/how_it_works/components/BackGroundGradient.dart';
+import 'package:dsp_student_application/Presentation/Pages/sign/components/InputField.dart';
+import 'package:dsp_student_application/Presentation/Pages/sign/components/button.dart';
+import 'package:dsp_student_application/Presentation/Pages/sign/components/buttonicon.dart';
+import 'package:dsp_student_application/Presentation/Pages/sign/components/dividingline.dart';
+import 'package:dsp_student_application/Presentation/Pages/sign/sign_up.dart';
 import 'package:dsp_student_application/Presentation/global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 
 class SignIn extends StatefulWidget {
-  /// Creates swipeable How it Works pages
-  SignIn();
-
   @override
   _SignInState createState() => _SignInState();
 }
 
 class _SignInState extends State<SignIn> {
-  final _gradeList = [
-    ['Grade', 'lib/Presentation/Images/grade.svg'],
-    ['Primary', 'lib/Presentation/Images/boy.svg'],
-    ['Preparatory', 'lib/Presentation/Images/girl.svg'],
-    ['Secondary', 'lib/Presentation/Images/secondaryboy.svg']
-  ];
-  String _selectedItem;
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedItem = _gradeList[0][0];
-  }
-
   @override
   Widget build(BuildContext context) {
-    // Get size of phone
-    final Size size = MediaQuery.of(context).size;
-
-    // Returns Three Pages of how it works
+    var size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
-        children: [
-          CustomPaint(
-            painter: TopCurvePainter(),
-            child: SizedBox(
-              width: size.width,
-              height: size.height / 2,
-            ),
-          ),
-          ArabicImage(top: -150, bottom: null, size: size.height / 1.5),
-          CustomPaint(
-            painter: TopCurvePainterRev(),
-            child: SizedBox(
-              width: size.width,
-              height: size.height / 2,
-            ),
-          ),
-          Stack(
-            children: [
-              Column(
-                children: [
+        alignment: Alignment.center,
+        children: <Widget>[
+          BackGroundGradient(),
+          ArabicImage(top: -150, left: -200, size: size.height / 1.5),
+          ArabicImage(bottom: -150, left: -200, size: size.height / 1.5),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 72),
+            child: Container(
+              height: size.height,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
                   Container(
-                    height: size.height / 2,
+                    width: size.width * 0.8,
+                    child: inputfield(size, AppColors.cWhite, AppColors.cWhite,
+                        AppColors.cWhite, 'Email', 'email', true),
                   ),
-                  Center(
-                    child: Container(
-                      width: size.width * 0.8,
-                      child: DropdownButtonFormField(
-                          decoration: InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    width: 1, color: AppColors.cDarkGrey)),
-                          ),
-                          value: _selectedItem,
-                          dropdownColor: AppColors.cWhite,
-                          elevation: 0,
-                          onChanged: (value) {
-                            setState(() {
-                              _selectedItem = value.toString();
-                              print(_selectedItem);
-                            });
-                          },
-                          items: _gradeList
-                              .map((v) => DropdownMenuItem(
-                                  value: v[0],
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                          height: 24,
-                                          width: 24,
-                                          child: SvgPicture.asset(v[1])),
-                                      SizedBox(width: 12),
-                                      Text(v[0],
-                                          style:
-                                              AppFonts.smallButtonText.copyWith(
-                                            color: AppColors.cDarkGrey,
-                                            fontWeight: FontWeight.w700,
-                                          )),
-                                    ],
-                                  )))
-                              .toList()),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: size.width * 0.8,
+                    child: inputfield(size, AppColors.cWhite, AppColors.cWhite,
+                        AppColors.cWhite, 'Password', 'key', true,
+                        isPass: true),
+                  ),
+                  SizedBox(
+                    height: 32,
+                  ),
+                  Container(
+                    width: size.width * 0.8,
+                    child: Button(
+                      size: size,
+                      text: 'Login',
+                      textcolor: AppColors.cGreen,
+                      buttoncolor: AppColors.cWhite,
+                      onButtonPress: () {},
+                      // destination: , //main screen
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    width: size.width * 0.8,
+                    child: Button(
+                      size: size,
+                      text: 'Sign Up',
+                      textcolor: AppColors.cWhite,
+                      buttoncolor: AppColors.cGreen,
+                      onButtonPress: () {
+                        Navigator.of(context).pushNamed('/SignUp');
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Container(
+                    width: size.width * 0.8,
+                    child: DividingLine(
+                      size: size,
+                      text: 'Or Login With',
+                      color: AppColors.cWhite,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    width: size.width * 0.8,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ButtonIcon(
+                          size: size,
+                          text: 'Facebook',
+                          icon: 'facebook',
+                          iconcolor: Colors.blue,
+                          textcolor: Colors.blue,
+                          buttoncolor: AppColors.cWhite,
+                          frame: AppColors.cWhite,
+                          onButtonPress: () {},
+                        ),
+                        SizedBox(
+                          width: size.width * 0.1,
+                        ),
+                        ButtonIcon(
+                          size: size,
+                          text: 'Google',
+                          icon: 'googlee',
+                          iconcolor: Colors.red,
+                          textcolor: AppColors.cDarkGrey,
+                          buttoncolor: AppColors.cWhite,
+                          onButtonPress: () {},
+                        ),
+                      ],
                     ),
                   ),
                 ],
-              )
-            ],
+              ),
+            ),
           )
         ],
       ),
