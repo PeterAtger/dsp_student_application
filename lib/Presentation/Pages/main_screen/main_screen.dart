@@ -17,6 +17,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // resizeToAvoidBottomInset: false,
       drawer: SideMenu(),
       // appBar: screenBar(),
       body: ScreenBody(),
@@ -62,96 +63,87 @@ class _ScreenBodyState extends State<ScreenBody> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Stack(children: [
-      //Screen Backgroud
-      ArabicImage(
-        size: size.height / 1.5,
-        top: -170,
-        right: -250,
-        blendMode: BlendMode.srcATop,
-      ),
+    return Container(
+      width: size.width,
+      height: size.height,
+      child: Stack(alignment: Alignment.bottomCenter, children: [
+        //Screen Backgroud
+        ArabicImage(
+          size: size.height / 1.5,
+          top: -size.height / 6,
+          right: -250,
+          blendMode: BlendMode.srcATop,
+          opacity: 0.05,
+        ),
 
-      Column(
-        children: [
-          SizedBox(height: 72),
-          Row(
-            children: [
-              SizedBox(
-                width: 32,
-              ),
-            ],
-          )
-        ],
-      ),
+        //Screen content
+        SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(bottom: 72),
+            width: size.width * 0.8,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ///Creation of search text field
+                TextFieldCreation(
+                  width: size.width,
+                  height: size.height,
+                  text: 'Search',
+                  icon:
+                      Icon(Icons.search, size: 36, color: AppColors.cDarkGrey),
+                ),
 
-      //Screen content
-      Container(
-        height: size.height * 0.7,
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.08),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            ///Creation of search text field
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: TextFieldCreation(
-                width: size.width,
-                height: size.height,
-                text: 'Search',
-                icon: Icon(Icons.search,
-                    size: 35, color: AppColors.cDarkGrey[900]),
-              ),
-            ),
+                SizedBox(height: 36),
 
-            ///Creation of New Quary text field
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: GradientOutline(
-                radius: 35,
-                chld: Column(
+                ///Creation of New Quary text field
+                GradientOutline(
+                  radius: 36,
+                  chld: Column(
+                    children: [
+                      TextFieldCreation(
+                          width: size.width,
+                          height: size.height,
+                          text: 'Write a new Query',
+                          maximumLines: 12,
+                          border: false),
+                      UrgantBar(),
+                    ],
+                  ),
+                ),
+
+                SizedBox(height: 36),
+
+                Column(
                   children: [
+                    ///Creation of File upload textfield
                     TextFieldCreation(
                         width: size.width,
                         height: size.height,
-                        text: 'Write a new Query',
-                        maximumLines: 11,
-                        border: false),
-                    UrgantBar(),
+                        text: 'Upload Text file',
+                        icon: Icon(
+                          Icons.add_circle_outline,
+                          size: 36,
+                          color: AppColors.cGreen,
+                        )),
+
+                    SizedBox(height: 8),
+
+                    /// The Disclaimer
+                    Center(
+                      child: AutoSizeText(
+                        '*Disclaimer: The file size should not exceed 10 Mbs',
+                        style: AppFonts.versionControl,
+                        maxLines: 1,
+                      ),
+                    ),
                   ],
-                ),
-              ),
-            ),
-
-            Column(
-              children: [
-                ///Creation of File upload textfield
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(15, 0, 15, 8),
-                  child: TextFieldCreation(
-                      width: size.width,
-                      height: size.height,
-                      text: 'Upload Text file',
-                      icon: Icon(
-                        Icons.add_circle_outline,
-                        size: 35,
-                        color: AppColors.cGreen,
-                      )),
-                ),
-
-                /// The Disclaimer
-                Center(
-                  child: AutoSizeText(
-                    '*Disclaimer: The file size should not exceed 10 Mbs',
-                    style: AppFonts.versionControl,
-                    maxLines: 2,
-                  ),
                 ),
               ],
             ),
-          ],
+          ),
         ),
-      ),
-    ]);
+      ]),
+    );
   }
 }
 
@@ -185,7 +177,7 @@ class _UrgantBarState extends State<UrgantBar> {
           ]),
           SvgPicture.asset(
             "lib/Presentation/Images/check.svg",
-            color: AppColors.cGreen[900],
+            color: AppColors.cGreen,
           ),
         ],
       ),
