@@ -29,6 +29,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.7"
+
   boolean_selector:
     dependency: transitive
     description:
@@ -71,6 +72,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
+  convert:
+    dependency: transitive
+    description:
+      name: convert
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -104,6 +112,14 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.20.0-nullsafety.3"
+  flutter_picker:
+    dependency: "direct main"
+    description:
+      name: flutter_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
+
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -123,6 +139,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.9"
+
   matcher:
     dependency: transitive
     description:
@@ -151,6 +168,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.5.0-nullsafety.0"
+
   path_parsing:
     dependency: transitive
     description:
@@ -158,6 +176,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.0-nullsafety.0"
+
   petitparser:
     dependency: transitive
     description:
@@ -165,6 +184,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.2"
+
   rive:
     dependency: "direct main"
     description:
@@ -233,6 +253,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  wheel_chooser:
+    dependency: "direct main"
+    description:
+      name: wheel_chooser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   xml:
     dependency: transitive
     description:
@@ -243,3 +270,4 @@ packages:
 sdks:
   dart: ">=2.12.0 <3.0.0"
   flutter: ">=1.24.0-7.0"
+

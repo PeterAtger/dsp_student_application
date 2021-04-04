@@ -1,11 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/nav_bar.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/side_menu.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/creat_text_field.dart';
+import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_picker/flutter_picker.dart';
+import 'package:wheel_chooser/wheel_chooser.dart';
 
 class MainScreen extends StatefulWidget {
   @override

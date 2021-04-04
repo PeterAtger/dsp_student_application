@@ -1,4 +1,4 @@
-/*import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class BackGroundGradient extends StatelessWidget {
@@ -18,4 +18,4 @@ class BackGroundGradient extends StatelessWidget {
               colors: [AppColors.cPurple, AppColors.cGreen])),
     );
   }
-}*/
+}

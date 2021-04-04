@@ -1,4 +1,4 @@
-/*import 'package:adobe_xd/blend_mask.dart';
+import 'package:adobe_xd/blend_mask.dart';
 import 'package:flutter/material.dart';
 
 class ArabicImage extends StatelessWidget {
@@ -34,4 +34,4 @@ class ArabicImage extends StatelessWidget {
       ),
     );
   }
-}*/
+}
