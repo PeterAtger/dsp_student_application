@@ -51,13 +51,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - lib/Presentation/Images/ArabicCircle.png
-      - lib/Presentation/Animations/dots.riv
-      - lib/Presentation/Images/arrow.svg
-      - lib/Presentation/Images/grade.svg
-      - lib/Presentation/Images/boy.svg
-      - lib/Presentation/Images/girl.svg
-      - lib/Presentation/Images/secondaryboy.svg
+      - lib/Presentation/Images/
       
 
   #   - images/a_dot_ham.jpeg
