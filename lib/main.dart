@@ -1,14 +1,6 @@
-import 'package:dsp_student_application/Presentation/router.dart';
-import 'package:dsp_student_application/Presentation/Pages/sign/sign_in.dart';
-
 import 'package:flutter/material.dart';
-import 'package:dsp_student_application/Presentation/Pages/main_screen/main_screen.dart';
-import 'package:dsp_student_application/Presentation/Pages/settings_screen/profile_page.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/settings_screen.dart';
-import 'package:dsp_student_application/Presentation/Pages/splash_screen/splash_screen.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
-import 'package:dsp_student_application/Presentation/Pages/settings_screen/settings_screen.dart';
-import 'package:flutter/services.dart';
 
 void main() => runApp(App());
 

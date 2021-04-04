@@ -20,7 +20,6 @@ class _HIWState extends State<HIW> {
   @override
   Widget build(BuildContext context) {
     // Get size of phone
-    final Size size = MediaQuery.of(context).size;
 
     // Returns Three Pages of how it works
     return Scaffold(

@@ -180,12 +180,7 @@ class _UrgantBarState extends State<UrgantBar> {
               child: Switch(
                   value: isUrgent,
                   activeColor: AppColors.cGreen,
-                  onChanged: (value) {
-                    setState() {
-                      isUrgent = value;
-                      print(isUrgent);
-                    }
-                  }),
+                  onChanged: (value) {}),
             )
           ]),
           SvgPicture.asset(
