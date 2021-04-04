@@ -21,6 +21,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  flutter:
+    sdk: flutter
   adobe_xd: ^1.1.0+1
   rive: ^0.6.8
   convex_bottom_bar: ^3.0.0
@@ -28,10 +30,6 @@ dependencies:
   auto_size_text: ^2.1.0
   introduction_screen: ^1.0.9
   flutter_svg: ^0.20.0-nullsafety.3
-  flutter:
-    sdk: flutter
-  adobe_xd: ^1.1.0+1
-  rive: ^0.6.8
   flutter_picker: ^2.0.1
   wheel_chooser: ^0.1.1
 
