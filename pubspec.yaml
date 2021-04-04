@@ -25,10 +25,13 @@ dependencies:
     sdk: flutter
   adobe_xd: ^1.1.0+1
   rive: ^0.6.8
+  convex_bottom_bar: ^3.0.0
+  auto_size_text_field: ^0.1.7
+  auto_size_text: ^2.1.0
   introduction_screen: ^1.0.9
   flutter_svg: ^0.20.0-nullsafety.3
-
-
+  flutter_picker: ^2.0.1
+  wheel_chooser: ^0.1.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -55,7 +58,6 @@ flutter:
       
 
 
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -73,6 +75,5 @@ flutter:
       fonts:
         - asset: lib/Presentation/Theme/Fonts/Lato/Lato-Regular.ttf
         - asset: lib/Presentation/Theme/Fonts/Lato/Lato-Bold.ttf
-
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
