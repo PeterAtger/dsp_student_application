@@ -1,4 +1,5 @@
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/HIW.dart';
+import 'package:dsp_student_application/Presentation/Pages/sign/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class RouterGenerator {
@@ -8,6 +9,8 @@ class RouterGenerator {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => HIW());
+      case '/SignIn':
+        return MaterialPageRoute(builder: (_) => SignIn());
     }
   }
 }

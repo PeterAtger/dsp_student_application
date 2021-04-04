@@ -29,7 +29,7 @@ class GetStarted extends StatelessWidget {
             child: FloatingActionButton(
                 elevation: 0,
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed('/');
+                  Navigator.of(context).pushReplacementNamed('/SignIn');
                 },
                 child: SvgPicture.asset(
                   'lib/Presentation/Images/arrow.svg',
