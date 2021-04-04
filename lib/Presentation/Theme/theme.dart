@@ -7,6 +7,8 @@ class AppFonts {
 
   static final TextStyle heading1 =
       TextStyle(fontSize: 48, fontFamily: _fontfamily);
+  static final TextStyle andro =
+      TextStyle(fontSize: 15, fontFamily: _fontfamily);
   static final TextStyle heading2 =
       TextStyle(fontSize: 32, fontFamily: _fontfamily);
   static final TextStyle heading3 = TextStyle(
