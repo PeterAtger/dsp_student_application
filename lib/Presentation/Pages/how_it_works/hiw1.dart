@@ -16,6 +16,8 @@ class HIW1 extends StatelessWidget {
       ArabicImage(top: -150, left: size.height / 6, size: size.height / 1.5),
       ArabicImage(
           bottom: -150, right: size.height / 6, size: size.height / 1.5),
+
+      // White Circle
       Positioned(
           top: -size.height * 0.85,
           left: -size.width * 0.4,
@@ -27,6 +29,8 @@ class HIW1 extends StatelessWidget {
               shape: BoxShape.circle,
             ),
           )),
+
+      // Gradient Title 
       Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

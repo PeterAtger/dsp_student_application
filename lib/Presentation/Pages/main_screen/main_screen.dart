@@ -1,3 +1,4 @@
+import 'package:dsp_student_application/Presentation/Pages/main_screen/components/diff_nav_bar.dart';
 import 'package:dsp_student_application/Presentation/global_components/ArabicImage.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -16,39 +17,39 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
-      drawer: SideMenu(),
-      // appBar: screenBar(),
+      floatingActionButton: FAB(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      resizeToAvoidBottomInset: false,
+      drawer: SideMenu(
+        size: size,
+      ),
       body: ScreenBody(),
-      bottomNavigationBar: NavBar(),
+      bottomNavigationBar: DiffNavBar(),
     );
   }
+}
 
-  PreferredSize screenBar() {
-    return PreferredSize(
-      preferredSize: Size.fromHeight(MediaQuery.of(context).size.height * 0.14),
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-            vertical: MediaQuery.of(context).size.height * .03),
-        child: AppBar(
-          leading: Builder(
-            builder: (context) => IconButton(
-              icon: Icon(
-                Icons.menu,
-                size: 32,
-                color: AppColors.cDarkGrey[700],
-              ),
-              onPressed: () => Scaffold.of(context).openDrawer(),
-            ),
-          ),
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text('Tashkeel ',
-              style: AppFonts.heading2.copyWith(
-                color: AppColors.cDarkGrey[700],
-              )),
+class FAB extends StatelessWidget {
+  const FAB({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColors.cWhite, width: 8),
+        shape: BoxShape.circle,
+      ),
+      child: FloatingActionButton(
+        elevation: 0,
+        focusColor: AppColors.cGreen,
+        child: Icon(
+          Icons.home_filled,
         ),
+        onPressed: () {},
       ),
     );
   }
@@ -79,68 +80,96 @@ class _ScreenBodyState extends State<ScreenBody> {
         //Screen content
         SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.only(bottom: 72),
-            width: size.width * 0.8,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ///Creation of search text field
-                TextFieldCreation(
-                  width: size.width,
-                  height: size.height,
-                  text: 'Search',
-                  icon:
-                      Icon(Icons.search, size: 36, color: AppColors.cDarkGrey),
-                ),
+              padding: EdgeInsets.only(bottom: 72),
+              height: size.height - 56,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Menu bar
+                  Padding(
+                    padding: const EdgeInsets.only(top: 72),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 32,
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.menu,
+                            size: 32,
+                            color: AppColors.cDarkGrey,
+                          ),
+                          onPressed: () => Scaffold.of(context).openDrawer(),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text('Tashkeel ',
+                            style: AppFonts.heading2.copyWith(
+                              color: AppColors.cDarkGrey,
+                            )),
+                      ],
+                    ),
+                  ),
 
-                SizedBox(height: 36),
-
-                ///Creation of New Quary text field
-                GradientOutline(
-                  radius: 36,
-                  chld: Column(
+                  Column(
                     children: [
+                      ///Creation of search text field
                       TextFieldCreation(
-                          width: size.width,
-                          height: size.height,
-                          text: 'Write a new Query',
-                          maximumLines: 12,
-                          border: false),
-                      UrgantBar(),
+                        size: size,
+                        text: 'Search',
+                        icon: Icon(Icons.search,
+                            size: 32, color: AppColors.cDarkGrey),
+                      ),
+
+                      SizedBox(height: 32),
+
+                      ///Creation of New Quary text field
+                      GradientOutline(
+                        size: size,
+                        radius: 32,
+                        chld: Column(
+                          children: [
+                            TextFieldCreation(
+                                size: size,
+                                text: 'Write a new Query',
+                                maximumLines: 8,
+                                border: false),
+                            UrgantBar(),
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(height: 32),
+
+                      Column(
+                        children: [
+                          ///Creation of File upload textfield
+                          TextFieldCreation(
+                              size: size,
+                              text: 'Upload Text file',
+                              icon: Icon(
+                                Icons.add_circle_outline,
+                                size: 32,
+                                color: AppColors.cGreen,
+                              )),
+
+                          SizedBox(height: 8),
+
+                          /// The Disclaimer
+                          Center(
+                            child: AutoSizeText(
+                              '*Disclaimer: The file size should not exceed 10 Mbs',
+                              style: AppFonts.versionControl,
+                              maxLines: 1,
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
-                ),
-
-                SizedBox(height: 36),
-
-                Column(
-                  children: [
-                    ///Creation of File upload textfield
-                    TextFieldCreation(
-                        width: size.width,
-                        height: size.height,
-                        text: 'Upload Text file',
-                        icon: Icon(
-                          Icons.add_circle_outline,
-                          size: 36,
-                          color: AppColors.cGreen,
-                        )),
-
-                    SizedBox(height: 8),
-
-                    /// The Disclaimer
-                    Center(
-                      child: AutoSizeText(
-                        '*Disclaimer: The file size should not exceed 10 Mbs',
-                        style: AppFonts.versionControl,
-                        maxLines: 1,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+                ],
+              )),
         ),
       ]),
     );
@@ -159,7 +188,7 @@ class _UrgantBarState extends State<UrgantBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(30, 0, 30, 8),
+      padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -177,6 +206,7 @@ class _UrgantBarState extends State<UrgantBar> {
           ]),
           SvgPicture.asset(
             "lib/Presentation/Images/check.svg",
+            height: 32,
             color: AppColors.cGreen,
           ),
         ],

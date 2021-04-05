@@ -1,4 +1,3 @@
-import 'package:dsp_student_application/Presentation/Pages/main_screen/main_screen.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/InputField.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/button.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/buttonicon.dart';
@@ -50,7 +49,7 @@ class _SignUpState extends State<SignUp> {
               top: -150,
               left: -size.height / 5,
               size: size.height / 1.5,
-              opacity: 2),
+              opacity: 0.5),
           CustomPaint(
             painter: TopCurvePainterRev(),
             child: SizedBox(

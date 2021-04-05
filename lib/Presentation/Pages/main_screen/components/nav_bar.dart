@@ -27,12 +27,15 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     return ConvexAppBar(
       style: TabStyle.fixedCircle,
-      height: 50,
+      height: 52,
       gradient: LinearGradient(
-        stops: [0.7, 1],
-        begin: const FractionalOffset(0.0, 0.0),
-        end: const FractionalOffset(0.0, 0.0),
-        colors: [AppColors.cGreen, AppColors.cPurple],
+        stops: [0, 1],
+        begin: Alignment.bottomCenter,
+        end: Alignment.topCenter,
+        colors: [
+          AppColors.cPurple,
+          Color.fromARGB(255, 71, 86, 146),
+        ],
       ),
 
       items: [
@@ -49,8 +52,8 @@ class _NavBarState extends State<NavBar> {
           height: 24,
         )),
         TabItem(
-            icon: Icon(Icons.home_rounded,
-                color: AppColors.cDarkGrey[900], size: 48)),
+            icon:
+                Icon(Icons.home_rounded, color: AppColors.cDarkGrey, size: 32)),
         TabItem(
             icon: SvgPicture.asset(
           'lib/Presentation/Images/question.svg',
