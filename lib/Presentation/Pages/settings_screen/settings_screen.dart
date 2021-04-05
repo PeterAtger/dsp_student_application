@@ -1,7 +1,11 @@
 import 'package:adobe_xd/adobe_xd.dart';
+import 'package:dsp_student_application/Presentation/Global_components/GradientLine.dart';
+import 'package:dsp_student_application/Presentation/Global_components/NavBar.dart';
+import 'package:dsp_student_application/Presentation/Global_components/TitleBar.dart';
+import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/ContactUsList.dart';
+import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/IconListSetting.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -14,43 +18,28 @@ class _SettingsState extends State<Settings> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      bottomNavigationBar: DiffNavBar(),
+      floatingActionButton: FAB(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Stack(
         children: [
           Positioned(
-            right: -250,
-            top: -170,
+            right: -size.height / 3,
+            top: -size.height / 3,
             child: Container(
               width: size.height / 1.5,
               height: size.height / 1.5,
               child: BlendMask(
                   blendMode: BlendMode.srcOver,
-                  opacity: 0.05,
+                  opacity: 0.1,
                   child:
                       Image.asset('lib/Presentation/Images/ArabicCircle.png')),
             ),
           ),
           Column(children: [
-            SizedBox(height: 50),
-            Row(
-              children: [
-                SizedBox(width: 32),
-                Container(
-                  width: 24,
-                  height: 24,
-                  child: SvgPicture.asset(
-                    'lib/Presentation/Images/arrow.svg',
-                    semanticsLabel: 'Arrow',
-                    color: AppColors.cDarkGrey,
-                  ),
-                ),
-                SizedBox(width: 20.0),
-                Text(
-                  'Settings',
-                  style: AppFonts.heading2.copyWith(color: AppColors.cDarkGrey),
-                ),
-              ],
-            ),
-            SizedBox(height: 50),
+            SizedBox(height: 72),
+            TitleBar(title: 'Settings'),
+            SizedBox(height: 24),
             Row(children: <Widget>[
               SizedBox(width: 32),
               Text(
@@ -58,96 +47,29 @@ class _SettingsState extends State<Settings> {
                 style: AppFonts.heading3.copyWith(color: AppColors.cDarkGrey),
               ),
             ]),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                SizedBox(width: 32),
-                Container(
-                  width: 24,
-                  height: 24,
-                  child: SvgPicture.asset(
-                    'lib/Presentation/Images/notification.svg',
-                    semanticsLabel: 'notification',
-                  ),
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  'Notifications',
-                  style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
-                ),
-              ],
+            SizedBox(height: 24),
+            IconListSetting(
+              iconName: 'notification',
+              settingText: 'Notifications',
             ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                SizedBox(width: 32),
-                Container(
-                  width: 24,
-                  height: 24,
-                  child: SvgPicture.asset(
-                    'lib/Presentation/Images/book.svg',
-                    semanticsLabel: 'book',
-                  ),
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  'Terms of use',
-                  style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
-                ),
-              ],
+            SizedBox(height: 24),
+            IconListSetting(
+              iconName: 'book',
+              settingText: 'Terms of use',
             ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                SizedBox(width: 32),
-                Container(
-                  width: 24,
-                  height: 24,
-                  child: SvgPicture.asset(
-                    'lib/Presentation/Images/how_it_works_question_mark.svg',
-                    semanticsLabel: 'how_it_works_question_mark',
-                  ),
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  'How it works',
-                  style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
-                ),
-              ],
+            SizedBox(height: 24),
+            IconListSetting(
+              iconName: 'how_it_works_question_mark',
+              settingText: 'How it works',
             ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                SizedBox(width: 32),
-                Container(
-                  width: 24,
-                  height: 24,
-                  child: SvgPicture.asset(
-                    'lib/Presentation/Images/profile.svg',
-                    semanticsLabel: 'profile',
-                  ),
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  'Log out',
-                  style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
-                ),
-              ],
+            SizedBox(height: 24),
+            IconListSetting(
+              iconName: 'profile',
+              settingText: 'Log out',
             ),
-            SizedBox(height: 30),
-            Center(
-              child: Container(
-                height: 1,
-                width: size.width * 0.8,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [AppColors.cGreen, AppColors.cPurple]),
-                ),
-              ),
-            ),
-            SizedBox(height: 30),
+            SizedBox(height: 32),
+            GradientLine(size: size),
+            SizedBox(height: 8),
             Row(children: <Widget>[
               SizedBox(width: 32),
               Text(
@@ -155,86 +77,26 @@ class _SettingsState extends State<Settings> {
                 style: AppFonts.heading3.copyWith(color: AppColors.cDarkGrey),
               ),
             ]),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                SizedBox(width: 32),
-                Container(
-                  width: 24,
-                  height: 24,
-                  child: SvgPicture.asset(
-                    'lib/Presentation/Images/phone.svg',
-                    semanticsLabel: 'phone',
-                  ),
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  '+202 991 991 991',
-                  style: AppFonts.smallButtonText
-                      .copyWith(color: AppColors.cDarkGrey),
-                ),
-              ],
+            SizedBox(height: 8),
+            ContactUsList(
+              iconName: 'phone',
+              contactText: '+202 991 991 991',
             ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                SizedBox(width: 32),
-                Container(
-                  width: 24,
-                  height: 24,
-                  child: SvgPicture.asset(
-                    'lib/Presentation/Images/internet.svg',
-                    semanticsLabel: 'internet',
-                  ),
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  'www.rdi-eg.ai',
-                  style: AppFonts.smallButtonText
-                      .copyWith(color: AppColors.cDarkGrey),
-                ),
-              ],
+            SizedBox(height: 8),
+            ContactUsList(
+              iconName: 'internet',
+              contactText: 'www.rdi-eg.ai',
             ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                SizedBox(width: 32),
-                Container(
-                  width: 24,
-                  height: 24,
-                  child: SvgPicture.asset(
-                    'lib/Presentation/Images/email2.svg',
-                    semanticsLabel: 'Email',
-                  ),
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  'info@rdi-eg.ai',
-                  style: AppFonts.smallButtonText
-                      .copyWith(color: AppColors.cDarkGrey),
-                ),
-              ],
+            SizedBox(height: 8),
+            ContactUsList(
+              iconName: 'email2',
+              contactText: 'info@rdi-eg.ai',
             ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                SizedBox(width: 32),
-                Container(
-                  width: 24,
-                  height: 24,
-                  child: SvgPicture.asset(
-                    'lib/Presentation/Images/location.svg',
-                    semanticsLabel: 'location',
-                  ),
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  '3, Haroon st., Giza, Egypt',
-                  style: AppFonts.smallButtonText
-                      .copyWith(color: AppColors.cDarkGrey),
-                ),
-              ],
-            ),
+            SizedBox(height: 8),
+            ContactUsList(
+              iconName: 'location',
+              contactText: '3, Haroon st., Giza, Egypt',
+            )
           ]),
         ],
       ),

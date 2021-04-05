@@ -1,7 +1,11 @@
 import 'package:adobe_xd/adobe_xd.dart';
+import 'package:dsp_student_application/Presentation/Global_components/GradientLine.dart';
+import 'package:dsp_student_application/Presentation/Global_components/NavBar.dart';
+import 'package:dsp_student_application/Presentation/Global_components/TitleBar.dart';
+import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/QuestionButton.dart';
+import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/TeacherProfileInf.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -14,6 +18,9 @@ class _ProfileState extends State<Profile> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      bottomNavigationBar: DiffNavBar(),
+      floatingActionButton: FAB(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Stack(
         children: [
           Container(
@@ -27,8 +34,8 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Positioned(
-            right: -250,
-            top: -200,
+            right: -size.height / 3,
+            top: -size.height / 3,
             child: Container(
               width: size.height / 1.5,
               height: size.height / 1.5,
@@ -41,25 +48,10 @@ class _ProfileState extends State<Profile> {
           ),
           Column(
             children: [
-              SizedBox(height: 50),
-              Row(
-                children: [
-                  SizedBox(width: 32),
-                  Container(
-                    width: 24,
-                    height: 24,
-                    child: SvgPicture.asset(
-                      'lib/Presentation/Images/arrow.svg',
-                      semanticsLabel: 'Arrow',
-                      color: AppColors.cWhite,
-                    ),
-                  ),
-                  SizedBox(width: 10.0),
-                  Text(
-                    'Profile',
-                    style: AppFonts.heading2.copyWith(color: AppColors.cWhite),
-                  ),
-                ],
+              SizedBox(height: 48),
+              TitleBar(
+                title: 'Profile',
+                isTitleColorWhite: true,
               ),
               SizedBox(height: 32),
               Center(
@@ -74,8 +66,8 @@ class _ProfileState extends State<Profile> {
               ),
               Center(
                 child: Text(
-                  'Peter Atef',
-                  style: AppFonts.heading2.copyWith(color: AppColors.cWhite),
+                  'Habiba Ashraf',
+                  style: AppFonts.heading3.copyWith(color: AppColors.cWhite),
                 ),
               ),
             ],
@@ -91,125 +83,43 @@ class _ProfileState extends State<Profile> {
                   SizedBox(
                     height: 32,
                   ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 32,
-                      ),
-                      Text('Email : ',
-                          style: AppFonts.appText.copyWith(
-                            color: AppColors.cGreen,
-                          )),
-                      Text('Peter.Atef@example.com',
-                          style: AppFonts.appText
-                              .copyWith(color: AppColors.cDarkGrey)),
-                    ],
+                  TeacherProfileInf(
+                    field1: 'Email: ',
+                    field2: 'Habiba.Ash@example.com',
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 24,
                   ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 32,
-                      ),
-                      Text('Grade :  ',
-                          style: AppFonts.appText.copyWith(
-                            color: AppColors.cGreen,
-                          )),
-                      Text('Secondary',
-                          style: AppFonts.appText
-                              .copyWith(color: AppColors.cDarkGrey)),
-                    ],
+                  TeacherProfileInf(
+                    field1: 'Grade: ',
+                    field2: 'Secondary',
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 24,
                   ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 32,
-                      ),
-                      Text('User Since : ',
-                          style: AppFonts.appText.copyWith(
-                            color: AppColors.cGreen,
-                          )),
-                      Text('1+ years',
-                          style: AppFonts.appText
-                              .copyWith(color: AppColors.cDarkGrey)),
-                    ],
+                  TeacherProfileInf(
+                    field1: 'User since: ',
+                    field2: '1+ years',
                   ),
-                  SizedBox(
-                    height: 20,
+                  SizedBox(height: 32),
+                  GradientLine(size: size),
+                  SizedBox(height: 8),
+                  QuestionButton(
+                    size: size,
+                    text: 'Answered Questions: 3',
+                    green: false,
                   ),
-                  Container(
-                    height: 1,
-                    width: size.width - 20,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: [AppColors.cGreen, AppColors.cPurple])),
-                  ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Center(
-                          child: QuestionButton(
-                              size: size,
-                              text: 'Answered Questions: 3',
-                              green: false))
-                    ],
-                  ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      QuestionButton(
-                          size: size, text: 'Waiting Questions: 3', green: true)
-                    ],
+                  SizedBox(height: 16),
+                  QuestionButton(
+                    size: size,
+                    text: 'Waiting Questions: 3',
+                    green: true,
                   ),
                 ],
               ),
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class QuestionButton extends StatelessWidget {
-  const QuestionButton(
-      {Key key, @required this.size, @required this.text, @required this.green})
-      : super(key: key);
-
-  final Size size;
-  final String text;
-  final bool green;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: size.width * 0.8,
-      child: TextButton(
-        style: ButtonStyle(
-            overlayColor: MaterialStateProperty.all(AppColors.cDarkGrey[50]),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30))),
-            backgroundColor: MaterialStateProperty.all(
-                green ? AppColors.cGreen : AppColors.cLightGrey)),
-        onPressed: () {},
-        child: Center(
-          child: Text(
-            this.text,
-            style: AppFonts.buttonText
-                .copyWith(color: green ? AppColors.cWhite : AppColors.cGreen),
-          ),
-        ),
       ),
     );
   }
