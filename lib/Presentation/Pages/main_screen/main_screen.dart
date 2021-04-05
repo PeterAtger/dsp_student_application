@@ -71,8 +71,8 @@ class _ScreenBodyState extends State<ScreenBody> {
         //Screen Backgroud
         ArabicImage(
           size: size.height / 1.5,
-          top: -size.height / 6,
-          right: -250,
+          top: -size.height / 3,
+          right: -size.height / 3,
           blendMode: BlendMode.srcATop,
           opacity: 0.05,
         ),

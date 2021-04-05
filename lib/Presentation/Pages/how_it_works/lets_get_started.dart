@@ -12,7 +12,8 @@ class GetStarted extends StatelessWidget {
     return Scaffold(
         body: Stack(children: <Widget>[
       ArabicImage(
-        top: -150,
+        bottom: -size.height / 3,
+        left: -size.height / 3,
         size: size.height / 1.5,
         opacity: 0.05,
         blendMode: BlendMode.srcATop,
