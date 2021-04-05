@@ -40,8 +40,8 @@ class _ProfileState extends State<Profile> {
               width: size.height / 1.5,
               height: size.height / 1.5,
               child: BlendMask(
-                  blendMode: BlendMode.srcOver,
-                  opacity: 0.1,
+                  blendMode: BlendMode.saturation,
+                  opacity: 1,
                   child:
                       Image.asset('lib/Presentation/Images/ArabicCircle.png')),
             ),

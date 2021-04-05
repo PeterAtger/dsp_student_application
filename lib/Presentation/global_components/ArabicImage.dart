@@ -17,17 +17,15 @@ class ArabicImage extends StatelessWidget {
     this.size,
     this.left,
     this.right,
-    this.opacity = 0.5,
+    this.opacity = 1,
     this.blendMode = BlendMode.saturation,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: this.left,
-      bottom: this.bottom,
-      top: this.top,
       right: this.right,
+      top: this.top,
       child: BlendMask(
         opacity: this.opacity,
         blendMode: this.blendMode,
