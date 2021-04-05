@@ -48,17 +48,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/Presentation/Images/ArabicCircle.png
-    - lib/Presentation/Images/book.svg
-    - lib/Presentation/Images/arrow.svg
-    - lib/Presentation/Images/how_it_works_question_mark.svg
-    - lib/Presentation/Images/notification.svg
-    - lib/Presentation/Images/internet.svg
-    - lib/Presentation/Images/location.svg
-    - lib/Presentation/Images/phone.svg
-    - lib/Presentation/Images/email2.svg
-    - lib/Presentation/Images/profile.svg
-
+    - lib/Presentation/Images/
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
