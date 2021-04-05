@@ -1,8 +1,7 @@
-import 'package:dsp_student_application/Presentation/Pages/main_screen/components/diff_nav_bar.dart';
 import 'package:dsp_student_application/Presentation/global_components/ArabicImage.dart';
+import 'package:dsp_student_application/Presentation/global_components/NavBar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:dsp_student_application/Presentation/Pages/main_screen/components/nav_bar.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/side_menu.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/create_text_field.dart';
@@ -27,30 +26,6 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: ScreenBody(),
       bottomNavigationBar: DiffNavBar(),
-    );
-  }
-}
-
-class FAB extends StatelessWidget {
-  const FAB({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: AppColors.cWhite, width: 8),
-        shape: BoxShape.circle,
-      ),
-      child: FloatingActionButton(
-        elevation: 0,
-        focusColor: AppColors.cGreen,
-        child: Icon(
-          Icons.home_filled,
-        ),
-        onPressed: () {},
-      ),
     );
   }
 }
