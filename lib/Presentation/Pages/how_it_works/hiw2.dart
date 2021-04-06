@@ -4,6 +4,8 @@ import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
 
+import 'components/Instruction.dart';
+
 class HIW2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,13 @@ class HIW2 extends StatelessWidget {
           )
         ],
       ),
+      // Content
+      Instructions(
+        size: size,
+        instructionText:
+            'Can’t find the sentence  you are looking for ? Submit your unique question and we will notify you as soon as it’s answered',
+        instructionImage: 'hiw2',
+      )
     ]));
   }
 }

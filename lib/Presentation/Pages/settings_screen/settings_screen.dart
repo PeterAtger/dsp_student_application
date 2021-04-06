@@ -77,7 +77,7 @@ class _SettingsState extends State<Settings> {
                 style: AppFonts.heading3.copyWith(color: AppColors.cDarkGrey),
               ),
             ]),
-            SizedBox(height: 8),
+            SizedBox(height: 24),
             ContactUsList(
               iconName: 'phone',
               contactText: '+202 991 991 991',

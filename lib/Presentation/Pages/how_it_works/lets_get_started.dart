@@ -40,8 +40,9 @@ class GetStarted extends StatelessWidget {
                   Navigator.of(context).pushReplacementNamed('/MainScreen');
                 },
                 child: SvgPicture.asset(
-                  'lib/Presentation/Images/arrow.svg',
+                  'lib/Presentation/Images/arrow_f.svg',
                   semanticsLabel: 'Arrow',
+                  color: AppColors.cWhite,
                 )),
           )
         ],
