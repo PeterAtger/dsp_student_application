@@ -1,23 +1,23 @@
+import 'package:dsp_student_application/Presentation/Pages/how_it_works/components/BackGroundGradient.dart';
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
+import 'package:dsp_student_application/Presentation/Pages/how_it_works/components/Instruction.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:dsp_student_application/Presentation/global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:rive/rive.dart' hide LinearGradient;
-
-import 'components/ArabicImage.dart';
-import 'components/BackGroundGradient.dart';
 
 class HIW3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final bool isPortrait = size.height > size.width;
 
     return Scaffold(
         body: Stack(children: <Widget>[
       BackGroundGradient(),
-      ArabicImage(top: -150, bottom: null, size: size.height / 1.5),
-      ArabicImage(bottom: -150, top: null, size: size.height / 1.5),
+      ArabicImage(top: -150, left: size.height / 6, size: size.height / 1.5),
+      ArabicImage(
+          bottom: -150, right: size.height / 6, size: size.height / 1.5),
+
+      //White Circle
       Positioned(
           top: -size.height * 0.85,
           left: -size.width * 0.4,
@@ -29,6 +29,8 @@ class HIW3 extends StatelessWidget {
               shape: BoxShape.circle,
             ),
           )),
+
+      //Gradient Title
       Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -40,6 +42,14 @@ class HIW3 extends StatelessWidget {
           )
         ],
       ),
+
+      // Content
+      Instructions(
+        size: size,
+        instructionText:
+            'If you want to upload a full text file you can press this add button.',
+        instructionImage: 'hiw3',
+      )
     ]));
   }
 }
