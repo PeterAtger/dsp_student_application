@@ -89,31 +89,37 @@ class _SignInState extends State<SignIn> {
                     height: 16,
                   ),
                   Container(
+                    height: 48,
                     width: size.width * 0.8,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ButtonIcon(
-                          size: size,
-                          text: 'Facebook',
-                          icon: 'facebook',
-                          iconcolor: Colors.blue,
-                          textcolor: Colors.blue,
-                          buttoncolor: AppColors.cWhite,
-                          frame: AppColors.cWhite,
-                          onButtonPress: () {},
+                        Expanded(
+                          flex: 1,
+                          child: ButtonIcon(
+                            size: size,
+                            text: 'Facebook',
+                            icon: 'facebook',
+                            iconcolor: Colors.blue,
+                            textcolor: Colors.blue,
+                            buttoncolor: AppColors.cWhite,
+                            frame: AppColors.cWhite,
+                            onButtonPress: () {},
+                          ),
                         ),
                         SizedBox(
-                          width: size.width * 0.1,
+                          width: 32,
                         ),
-                        ButtonIcon(
-                          size: size,
-                          text: 'Google',
-                          icon: 'googlee',
-                          iconcolor: Colors.red,
-                          textcolor: AppColors.cDarkGrey,
-                          buttoncolor: AppColors.cWhite,
-                          onButtonPress: () {},
+                        Expanded(
+                          flex: 1,
+                          child: ButtonIcon(
+                            size: size,
+                            text: 'Google',
+                            icon: 'googlee',
+                            iconcolor: Colors.red,
+                            textcolor: AppColors.cDarkGrey,
+                            buttoncolor: AppColors.cWhite,
+                            onButtonPress: () {},
+                          ),
                         ),
                       ],
                     ),

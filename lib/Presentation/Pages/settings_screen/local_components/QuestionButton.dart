@@ -13,7 +13,7 @@ class QuestionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 52,
+      height: 48,
       width: size.width * 0.8,
       child: TextButton(
         style: ButtonStyle(

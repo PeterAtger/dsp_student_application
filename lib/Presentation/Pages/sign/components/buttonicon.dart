@@ -26,35 +26,30 @@ class ButtonIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints:
-          BoxConstraints.tightFor(width: size.width * 0.35, height: 50),
-      child: ElevatedButton.icon(
-        onPressed: onButtonPress,
-        icon: Padding(
-          padding:
-              const EdgeInsets.only(top: 16, left: 0, right: 0, bottom: 16),
-          child: Container(
-            width: 24,
-            height: 24,
-            child: SvgPicture.asset(
-              'lib/Presentation/Images/$icon.svg',
-            ),
+    return ElevatedButton.icon(
+      onPressed: onButtonPress,
+      icon: Padding(
+        padding: const EdgeInsets.only(top: 16, left: 0, right: 0, bottom: 16),
+        child: Container(
+          width: 24,
+          height: 24,
+          child: SvgPicture.asset(
+            'lib/Presentation/Images/$icon.svg',
           ),
         ),
-        label: Text(
-          text,
-          style: AppFonts.smallButtonText.copyWith(
-            color: textcolor,
-          ),
+      ),
+      label: Text(
+        text,
+        style: AppFonts.smallButtonText.copyWith(
+          color: textcolor,
         ),
-        style: ButtonStyle(
-          overlayColor: MaterialStateProperty.all(AppColors.cDarkGrey[500]),
-          backgroundColor: MaterialStateProperty.all(buttoncolor),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(32.0),
-            ),
+      ),
+      style: ButtonStyle(
+        overlayColor: MaterialStateProperty.all(AppColors.cDarkGrey[500]),
+        backgroundColor: MaterialStateProperty.all(buttoncolor),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32.0),
           ),
         ),
       ),

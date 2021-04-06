@@ -20,7 +20,7 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints.tightFor(width: size.width * 0.8, height: 50),
+      constraints: BoxConstraints.tightFor(width: size.width * 0.8, height: 48),
       child: ElevatedButton(
         onPressed: this.onButtonPress,
         child: Text(
