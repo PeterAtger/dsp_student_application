@@ -27,7 +27,7 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => Settings());
       case '/MainScreen/Profile':
         return MaterialPageRoute(builder: (_) => Profile());
-      case '/MainScreen/Notifications':
+      case '/MainScreen/Settings/Notifications':
         return MaterialPageRoute(builder: (_) => Notifications());
     }
   }

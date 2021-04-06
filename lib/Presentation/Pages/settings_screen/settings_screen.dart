@@ -51,21 +51,28 @@ class _SettingsState extends State<Settings> {
             IconListSetting(
               iconName: 'notification',
               settingText: 'Notifications',
+              onTab: () {
+                Navigator.of(context)
+                    .pushNamed('/MainScreen/Settings/Notifications');
+              },
             ),
             SizedBox(height: 24),
             IconListSetting(
               iconName: 'book',
               settingText: 'Terms of use',
+              onTab: () {},
             ),
             SizedBox(height: 24),
             IconListSetting(
               iconName: 'how_it_works_question_mark',
               settingText: 'How it works',
+              onTab: () {},
             ),
             SizedBox(height: 24),
             IconListSetting(
               iconName: 'profile',
               settingText: 'Log out',
+              onTab: () {},
             ),
             SizedBox(height: 32),
             GradientLine(size: size),

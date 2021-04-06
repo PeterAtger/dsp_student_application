@@ -5,31 +5,36 @@ import 'package:flutter_svg/flutter_svg.dart';
 class IconListSetting extends StatelessWidget {
   final String iconName;
   final String settingText;
+  final Function onTab;
   const IconListSetting({
     Key key,
     this.iconName,
     this.settingText,
+    @required this.onTab,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(width: 32),
-        Container(
-          width: 24,
-          height: 24,
-          child: SvgPicture.asset(
-            'lib/Presentation/Images/${this.iconName}.svg',
-            semanticsLabel: this.iconName,
+    return InkWell(
+      onTap: this.onTab,
+      child: Row(
+        children: [
+          SizedBox(width: 32),
+          Container(
+            width: 24,
+            height: 24,
+            child: SvgPicture.asset(
+              'lib/Presentation/Images/${this.iconName}.svg',
+              semanticsLabel: this.iconName,
+            ),
           ),
-        ),
-        SizedBox(width: 8),
-        Text(
-          this.settingText,
-          style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
-        ),
-      ],
+          SizedBox(width: 8),
+          Text(
+            this.settingText,
+            style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+          ),
+        ],
+      ),
     );
   }
 }
