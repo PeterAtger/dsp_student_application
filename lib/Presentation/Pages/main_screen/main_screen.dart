@@ -1,5 +1,5 @@
-import 'package:dsp_student_application/Presentation/global_components/ArabicImage.dart';
-import 'package:dsp_student_application/Presentation/global_components/NavBar.dart';
+import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
+import 'package:dsp_student_application/Presentation/Global_components/NavBar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/side_menu.dart';
