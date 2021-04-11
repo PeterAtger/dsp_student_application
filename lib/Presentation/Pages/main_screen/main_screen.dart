@@ -108,7 +108,7 @@ class _ScreenBodyState extends State<ScreenBody> {
                             TextFieldCreation(
                                 size: size,
                                 text: 'Write a new Query',
-                                maximumLines: 8,
+                                maximumLines: (size.height * 0.22 / 22).floor(),
                                 border: false),
                             UrgantBar(),
                           ],
