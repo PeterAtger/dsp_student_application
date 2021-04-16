@@ -198,7 +198,7 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                         SizedBox(
-                          width: 32,
+                          width: 16,
                         ),
                         Expanded(
                           flex: 1,

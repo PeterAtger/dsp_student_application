@@ -107,7 +107,7 @@ class _SignInState extends State<SignIn> {
                           ),
                         ),
                         SizedBox(
-                          width: 32,
+                          width: 16,
                         ),
                         Expanded(
                           flex: 1,
