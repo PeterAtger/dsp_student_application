@@ -21,7 +21,7 @@ class SideMenu extends StatelessWidget {
       ),
       // wrap with a sizedbox for a custom width [for more flexibility]
       child: SizedBox(
-        width: size.width / 1.5,
+        width: size.width * 0.8,
         child: Drawer(
           child: SidMenuBar(
             size: size,
@@ -102,8 +102,13 @@ class SidMenuBar extends StatelessWidget {
                 Column(
                   children: items
                       .map((e) => InkWell(
-                            onTap: () => Navigator.of(context)
-                                .pushNamed('/MainScreen/$e'),
+                            onTap: () async {
+                              await Future.delayed(Duration(milliseconds: 250),
+                                  () {
+                                Navigator.of(context)
+                                    .pushNamed('/MainScreen/$e');
+                              });
+                            },
                             child: Padding(
                               padding:
                                   const EdgeInsets.symmetric(vertical: 16.0),

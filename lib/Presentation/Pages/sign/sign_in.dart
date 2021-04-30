@@ -69,8 +69,10 @@ class _SignInState extends State<SignIn> {
                       text: 'Sign Up',
                       textcolor: AppColors.cWhite,
                       buttoncolor: AppColors.cGreen,
-                      onButtonPress: () {
-                        Navigator.of(context).pushNamed('/SignUp');
+                      onButtonPress: () async {
+                        await Future.delayed(Duration(milliseconds: 250), () {
+                          Navigator.of(context).pushNamed('/SignUp');
+                        });
                       },
                     ),
                   ),
