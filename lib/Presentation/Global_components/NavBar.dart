@@ -1,4 +1,3 @@
-import 'package:dsp_student_application/Presentation/Pages/main_screen/components/side_menu.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
