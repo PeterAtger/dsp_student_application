@@ -56,19 +56,16 @@ class _SettingsState extends State<Settings> {
                     .pushNamed('/MainScreen/Settings/Notifications');
               },
             ),
-            SizedBox(height: 24),
             IconListSetting(
               iconName: 'book',
               settingText: 'Terms of use',
               onTab: () {},
             ),
-            SizedBox(height: 24),
             IconListSetting(
               iconName: 'how_it_works_question_mark',
               settingText: 'How it works',
               onTab: () {},
             ),
-            SizedBox(height: 24),
             IconListSetting(
               iconName: 'profile',
               settingText: 'Log out',
@@ -76,7 +73,7 @@ class _SettingsState extends State<Settings> {
             ),
             SizedBox(height: 32),
             GradientLine(size: size),
-            SizedBox(height: 8),
+            SizedBox(height: 16),
             Row(children: <Widget>[
               SizedBox(width: 32),
               Text(
