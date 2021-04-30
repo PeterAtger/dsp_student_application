@@ -1,9 +1,16 @@
-
 import 'package:dsp_student_application/Presentation/router.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() => runApp(App());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: await getTemporaryDirectory(),
+  );
+  runApp(App());
+}
 
 class App extends StatelessWidget {
   @override
@@ -37,4 +44,3 @@ class App extends StatelessWidget {
     );
   }
 }
-
