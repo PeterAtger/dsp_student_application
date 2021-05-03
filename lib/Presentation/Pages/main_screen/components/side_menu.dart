@@ -1,6 +1,9 @@
+import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
+import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:dsp_student_application/Presentation/global_components/GradientLine.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 
 final Shader linearGradient = LinearGradient(
   colors: <Color>[AppColors.cPurple, AppColors.cGreen],
@@ -9,7 +12,7 @@ final Shader linearGradient = LinearGradient(
 class SideMenu extends StatelessWidget {
   final Size size;
 
-  const SideMenu({Key key, this.size}) : super(key: key);
+  const SideMenu({Key key, @required this.size}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class SideMenu extends StatelessWidget {
       ),
       // wrap with a sizedbox for a custom width [for more flexibility]
       child: SizedBox(
-        width: size.width * 0.8,
+        width: size.width / 1.2,
         child: Drawer(
           child: SidMenuBar(
             size: size,
@@ -34,7 +37,6 @@ class SideMenu extends StatelessWidget {
 
 class SidMenuBar extends StatelessWidget {
   final Size size;
-  static final List<String> items = ['Profile', 'Help', 'Settings', 'Log Out'];
 
   const SidMenuBar({Key key, this.size}) : super(key: key);
   @override
@@ -97,39 +99,49 @@ class SidMenuBar extends StatelessWidget {
                   ),
                 ]),
 
-                GradientLine(width: size.width / 1.5),
-
-                Column(
-                  children: items
-                      .map((e) => InkWell(
-                            onTap: () async {
-                              await Future.delayed(Duration(milliseconds: 250),
-                                  () {
-                                Navigator.of(context)
-                                    .pushNamed('/MainScreen/$e');
-                              });
-                            },
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 16.0),
-                              child: Row(
-                                children: [
-                                  SizedBox(
-                                    width: 64,
-                                  ),
-                                  Text(e,
-                                      style: AppFonts.appText.copyWith(
-                                        color: AppColors.cDarkGrey,
-                                      )),
-                                ],
-                              ),
-                            ),
-                          ))
-                      .toList(),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                  child: GradientLine(
+                    size: size,
+                  ),
                 ),
 
-                GradientLine(
-                  width: size.width / 1.5,
+                Column(children: [
+                  SettingTab(
+                    text: 'Profile',
+                    onTab: () {
+                      context.read<NavbarCubit>().goToProfile();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  SettingTab(
+                    text: 'Help',
+                    onTab: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  SettingTab(
+                    text: 'Settings',
+                    onTab: () {
+                      context.read<NavbarCubit>().goToSettings();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  SettingTab(
+                    text: 'LogOut',
+                    onTab: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ]),
+
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                  child: GradientLine(
+                    size: size,
+                  ),
                 ),
               ],
             ),
@@ -147,24 +159,33 @@ class SidMenuBar extends StatelessWidget {
   }
 }
 
-class GradientLine extends StatelessWidget {
-  final double width;
-
-  const GradientLine({Key key, this.width}) : super(key: key);
+class SettingTab extends StatelessWidget {
+  final String text;
+  final Function onTab;
+  const SettingTab({
+    Key key,
+    @required this.text,
+    @required this.onTab,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24),
-      child: Container(
-        height: 1,
-        width: width * 0.8,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [AppColors.cPurple, AppColors.cGreen],
-          ),
+    return InkWell(
+      onTap: () {
+        Future.delayed(Duration(milliseconds: 250), this.onTab);
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
+        child: Row(
+          children: [
+            SizedBox(
+              width: 64,
+            ),
+            Text(this.text,
+                style: AppFonts.appText.copyWith(
+                  color: AppColors.cDarkGrey,
+                )),
+          ],
         ),
       ),
     );

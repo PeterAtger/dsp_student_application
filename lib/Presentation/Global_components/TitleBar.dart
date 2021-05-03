@@ -1,14 +1,15 @@
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class TitleBar extends StatelessWidget {
   final String title;
   final bool isTitleColorWhite;
+  final bool hasBackButton;
   const TitleBar({
     Key key,
     this.title = '',
     this.isTitleColorWhite = false,
+    this.hasBackButton = false,
   }) : super(key: key);
 
   @override
@@ -16,15 +17,9 @@ class TitleBar extends StatelessWidget {
     return Row(
       children: [
         SizedBox(width: 32),
-        Container(
-          width: 24,
-          height: 24,
-          child: SvgPicture.asset(
-            'lib/Presentation/Images/arrow.svg',
-            semanticsLabel: 'Arrow',
-            color: isTitleColorWhite ? AppColors.cWhite : AppColors.cDarkGrey,
-          ),
-        ),
+        hasBackButton
+            ? BackButton(isTitleColorWhite: isTitleColorWhite) // Find Below
+            : SizedBox(),
         SizedBox(width: 8),
         Text(
           this.title,
@@ -33,6 +28,32 @@ class TitleBar extends StatelessWidget {
                   isTitleColorWhite ? AppColors.cWhite : AppColors.cDarkGrey),
         ),
       ],
+    );
+  }
+}
+
+// Back Button
+class BackButton extends StatelessWidget {
+  const BackButton({
+    Key key,
+    @required this.isTitleColorWhite,
+  }) : super(key: key);
+
+  final bool isTitleColorWhite;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        Future.delayed(Duration(milliseconds: 250), () {
+          Navigator.of(context).pop();
+        });
+      },
+      icon: Icon(
+        Icons.arrow_back_ios,
+        size: 32,
+        color: isTitleColorWhite ? AppColors.cWhite : AppColors.cDarkGrey,
+      ),
     );
   }
 }

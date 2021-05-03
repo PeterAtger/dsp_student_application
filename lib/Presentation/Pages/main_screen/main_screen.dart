@@ -1,32 +1,20 @@
 import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
-import 'package:dsp_student_application/Presentation/Global_components/NavBar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:dsp_student_application/Presentation/Pages/main_screen/components/side_menu.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/create_text_field.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      floatingActionButton: FAB(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      resizeToAvoidBottomInset: false,
-      drawer: SideMenu(
-        size: size,
-      ),
-      body: ScreenBody(),
-      bottomNavigationBar: DiffNavBar(),
-    );
+    return ScreenBody();
   }
 }
 

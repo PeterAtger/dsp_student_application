@@ -1,5 +1,6 @@
+import 'package:dsp_student_application/Presentation/Pages/error_screen/error_screen.dart';
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/HIW.dart';
-import 'package:dsp_student_application/Presentation/Pages/main_screen/main_screen.dart';
+import 'package:dsp_student_application/Presentation/main_page.Dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/notifications.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/profile_page.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/settings_screen.dart';
@@ -22,13 +23,15 @@ class RouterGenerator {
       case '/HIW':
         return MaterialPageRoute(builder: (_) => HIW());
       case '/MainScreen':
-        return MaterialPageRoute(builder: (_) => MainScreen());
+        return MaterialPageRoute(builder: (_) => MainPage());
       case '/MainScreen/Settings':
         return MaterialPageRoute(builder: (_) => Settings());
       case '/MainScreen/Profile':
         return MaterialPageRoute(builder: (_) => Profile());
       case '/MainScreen/Settings/Notifications':
         return MaterialPageRoute(builder: (_) => Notifications());
+      default:
+        return MaterialPageRoute(builder: (_) => ErorrScreen());
     }
   }
 }

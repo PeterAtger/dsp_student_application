@@ -18,9 +18,6 @@ class _SettingsState extends State<Settings> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      bottomNavigationBar: DiffNavBar(),
-      floatingActionButton: FAB(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Stack(
         children: [
           Positioned(
