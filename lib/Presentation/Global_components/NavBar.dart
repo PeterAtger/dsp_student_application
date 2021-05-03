@@ -1,5 +1,6 @@
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:dsp_student_application/Presentation/global_components/NavItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -35,73 +36,37 @@ class _DiffNavBarState extends State<DiffNavBar> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  InkWell(
-                    onTap: () {
-                      if (state.selectedPage != SelectedPage.profile) {
+                  NavItem(
+                      state: state,
+                      itemState: SelectedPage.profile,
+                      iconText: 'user',
+                      fn: () {
                         context.read<NavbarCubit>().goToProfile();
-                      }
-                    },
-                    child: SvgPicture.asset(
-                      state.selectedPage == SelectedPage.profile
-                          ? 'lib/Presentation/Images/user_filled.svg'
-                          : 'lib/Presentation/Images/user.svg',
-                      height: 24,
-                      color: state.selectedPage == SelectedPage.profile
-                          ? AppColors.cGreen
-                          : AppColors.cWhite,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      if (state.selectedPage != SelectedPage.settings) {
+                      }),
+                  NavItem(
+                      state: state,
+                      itemState: SelectedPage.settings,
+                      iconText: 'settings',
+                      fn: () {
                         context.read<NavbarCubit>().goToSettings();
-                      }
-                    },
-                    child: SvgPicture.asset(
-                      state.selectedPage == SelectedPage.settings
-                          ? 'lib/Presentation/Images/settings_filled.svg'
-                          : 'lib/Presentation/Images/settings.svg',
-                      height: 24,
-                      color: state.selectedPage == SelectedPage.settings
-                          ? AppColors.cGreen
-                          : AppColors.cWhite,
-                    ),
+                      }),
+                  SizedBox(
+                    width: 48,
                   ),
-                  Text(''),
-                  InkWell(
-                    onTap: () {
-                      if (state.selectedPage != SelectedPage.savedQuestions) {
+                  NavItem(
+                      state: state,
+                      itemState: SelectedPage.savedQuestions,
+                      iconText: 'question',
+                      fn: () {
                         context.read<NavbarCubit>().goToSavedQuestions();
-                      }
-                    },
-                    child: SvgPicture.asset(
-                      state.selectedPage == SelectedPage.savedQuestions
-                          ? 'lib/Presentation/Images/question_filled.svg'
-                          : 'lib/Presentation/Images/question.svg',
-                      height: 24,
-                      color: state.selectedPage == SelectedPage.savedQuestions
-                          ? AppColors.cGreen
-                          : AppColors.cWhite,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      if (state.selectedPage !=
-                          SelectedPage.answeredQuestions) {
+                      }),
+                  NavItem(
+                      state: state,
+                      itemState: SelectedPage.answeredQuestions,
+                      iconText: 'check',
+                      fn: () {
                         context.read<NavbarCubit>().goToAnsweredQuestions();
-                      }
-                    },
-                    child: SvgPicture.asset(
-                      state.selectedPage == SelectedPage.answeredQuestions
-                          ? 'lib/Presentation/Images/check.svg'
-                          : 'lib/Presentation/Images/check.svg',
-                      height: 24,
-                      color:
-                          state.selectedPage == SelectedPage.answeredQuestions
-                              ? AppColors.cGreen
-                              : AppColors.cWhite,
-                    ),
-                  ),
+                      }),
                 ],
               ),
             ),
