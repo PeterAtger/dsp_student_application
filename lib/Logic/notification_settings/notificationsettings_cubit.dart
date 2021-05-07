@@ -1,6 +1,5 @@
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:meta/meta.dart';
-
 part 'notificationsettings_state.dart';
 
 class NotificationSettingsCubit

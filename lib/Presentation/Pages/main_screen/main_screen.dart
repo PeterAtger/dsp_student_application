@@ -1,4 +1,6 @@
+import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
 import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
@@ -93,11 +95,19 @@ class _ScreenBodyState extends State<ScreenBody> {
                         radius: 32,
                         chld: Column(
                           children: [
-                            TextFieldCreation(
-                                size: size,
-                                text: 'Write a new Query',
-                                maximumLines: (size.height * 0.22 / 22).floor(),
-                                border: false),
+                            BlocBuilder<InternetconnectionCubit,
+                                InternetconnectionState>(
+                              builder: (context, state) {
+                                return TextFieldCreation(
+                                    size: size,
+                                    text: state.isConnected
+                                        ? 'Write a new Query'
+                                        : "No internet coneection",
+                                    maximumLines:
+                                        (size.height * 0.22 / 22).floor(),
+                                    border: false);
+                              },
+                            ),
                             UrgantBar(),
                           ],
                         ),

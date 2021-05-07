@@ -1,3 +1,4 @@
+import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Presentation/router.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +18,14 @@ Future<void> main() async {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NavbarCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<NavbarCubit>(
+          create: (context) => NavbarCubit(),
+        ),
+        BlocProvider<InternetconnectionCubit>(
+            create: (context) => InternetconnectionCubit())
+      ],
       child: MaterialApp(
         title: 'Student Demo',
         theme: ThemeData(

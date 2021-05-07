@@ -1,6 +1,6 @@
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
-import 'package:dsp_student_application/Presentation/global_components/GradientLine.dart';
+import 'package:dsp_student_application/Presentation/Global_components/GradientLine.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;

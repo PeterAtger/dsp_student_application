@@ -3,7 +3,7 @@ import 'package:dsp_student_application/Presentation/Pages/main_screen/component
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/profile_page.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/settings_screen.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/main_screen.dart';
-import 'package:dsp_student_application/Presentation/global_components/NavBar.dart';
+import 'package:dsp_student_application/Presentation/Global_components/NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
