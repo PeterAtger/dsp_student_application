@@ -1,7 +1,11 @@
+import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:dsp_student_application/Presentation/global_components/NavItem.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
+// NAVBAR
 class DiffNavBar extends StatefulWidget {
   @override
   _DiffNavBarState createState() => _DiffNavBarState();
@@ -10,60 +14,70 @@ class DiffNavBar extends StatefulWidget {
 class _DiffNavBarState extends State<DiffNavBar> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      child: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [
-                  AppColors.cPurple,
-                  Color.fromARGB(255, 71, 86, 146),
-                ])),
-            height: 56,
-          ),
-          Container(
-            height: 56,
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                InkWell(
-                  onTap: () {},
-                  child: SvgPicture.asset(
-                    'lib/Presentation/Images/user.svg',
-                    height: 24,
-                    color: AppColors.cWhite,
-                  ),
-                ),
-                SvgPicture.asset(
-                  'lib/Presentation/Images/settings.svg',
-                  height: 24,
-                  color: AppColors.cWhite,
-                ),
-                Text(''),
-                SvgPicture.asset(
-                  'lib/Presentation/Images/question.svg',
-                  height: 24,
-                  color: AppColors.cWhite,
-                ),
-                SvgPicture.asset(
-                  'lib/Presentation/Images/check.svg',
-                  height: 24,
-                  color: AppColors.cWhite,
-                ),
-              ],
+    return BlocBuilder<NavbarCubit, NavBarState>(builder: (context, state) {
+      return Container(
+        height: 56,
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                      colors: [
+                    AppColors.cPurple,
+                    Color.fromARGB(255, 71, 86, 146)
+                  ])),
+              height: 56,
             ),
-          ),
-        ],
-      ),
-    );
+            Container(
+              height: 56,
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  NavItem(
+                      state: state,
+                      itemState: SelectedPage.profile,
+                      iconText: 'user',
+                      fn: () {
+                        context.read<NavbarCubit>().goToProfile();
+                      }),
+                  NavItem(
+                      state: state,
+                      itemState: SelectedPage.settings,
+                      iconText: 'settings',
+                      fn: () {
+                        context.read<NavbarCubit>().goToSettings();
+                      }),
+                  SizedBox(
+                    width: 48,
+                  ),
+                  NavItem(
+                      state: state,
+                      itemState: SelectedPage.savedQuestions,
+                      iconText: 'question',
+                      fn: () {
+                        context.read<NavbarCubit>().goToSavedQuestions();
+                      }),
+                  NavItem(
+                      state: state,
+                      itemState: SelectedPage.answeredQuestions,
+                      iconText: 'check',
+                      fn: () {
+                        context.read<NavbarCubit>().goToAnsweredQuestions();
+                      }),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    });
   }
 }
 
+// FAB
 class FAB extends StatelessWidget {
   const FAB({
     Key key,
@@ -92,15 +106,23 @@ class FAB extends StatelessWidget {
               color: AppColors.cWhite,
               borderRadius: BorderRadius.all(Radius.circular(54)),
             ),
-            child: FloatingActionButton(
-              backgroundColor: AppColors.cWhite,
-              elevation: 0,
-              focusColor: AppColors.cWhite,
-              child: Icon(
-                Icons.home_filled,
-                color: AppColors.cGreen,
-              ),
-              onPressed: () {},
+            child: BlocBuilder<NavbarCubit, NavBarState>(
+              builder: (context, state) {
+                return FloatingActionButton(
+                  backgroundColor: AppColors.cWhite,
+                  elevation: 0,
+                  focusColor: AppColors.cWhite,
+                  child: SvgPicture.asset(
+                    state.selectedPage != SelectedPage.home
+                        ? 'lib/Presentation/Images/home_outlined.svg'
+                        : 'lib/Presentation/Images/home_colored.svg',
+                    color: AppColors.cGreen,
+                  ),
+                  onPressed: () {
+                    context.read<NavbarCubit>().goToHome();
+                  },
+                );
+              },
             ),
           ),
         ));

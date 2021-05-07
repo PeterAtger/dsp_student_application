@@ -17,23 +17,26 @@ class IconListSetting extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: this.onTab,
-      child: Row(
-        children: [
-          SizedBox(width: 32),
-          Container(
-            width: 24,
-            height: 24,
-            child: SvgPicture.asset(
-              'lib/Presentation/Images/${this.iconName}.svg',
-              semanticsLabel: this.iconName,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Row(
+          children: [
+            SizedBox(width: 32),
+            Container(
+              width: 24,
+              height: 24,
+              child: SvgPicture.asset(
+                'lib/Presentation/Images/${this.iconName}.svg',
+                semanticsLabel: this.iconName,
+              ),
             ),
-          ),
-          SizedBox(width: 8),
-          Text(
-            this.settingText,
-            style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
-          ),
-        ],
+            SizedBox(width: 8),
+            Text(
+              this.settingText,
+              style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -160,8 +160,10 @@ class _SignUpState extends State<SignUp> {
                       text: 'Sign Up',
                       textcolor: AppColors.cWhite,
                       buttoncolor: AppColors.cGreen,
-                      onButtonPress: () {
-                        Navigator.of(context).pushReplacementNamed('/HIW');
+                      onButtonPress: () async {
+                        await Future.delayed(Duration(milliseconds: 250), () {
+                          Navigator.of(context).pushReplacementNamed('/HIW');
+                        });
                       },
                     ),
                   ),
@@ -198,7 +200,7 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                         SizedBox(
-                          width: 32,
+                          width: 16,
                         ),
                         Expanded(
                           flex: 1,
