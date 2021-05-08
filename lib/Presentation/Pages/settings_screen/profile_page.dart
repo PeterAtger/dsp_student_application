@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:adobe_xd/adobe_xd.dart';
 import 'package:dsp_student_application/Logic/profile_image/profile_image_cubit.dart';
 import 'package:dsp_student_application/Presentation/Global_components/GradientLine.dart';
-import 'package:dsp_student_application/Presentation/Global_components/NavBar.dart';
 import 'package:dsp_student_application/Presentation/Global_components/TitleBar.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/QuestionButton.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/TeacherProfileInf.dart';
