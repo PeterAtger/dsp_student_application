@@ -1,4 +1,5 @@
 import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
+import 'package:dsp_student_application/Logic/load_file/loadfile_cubit.dart';
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Presentation/router.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,10 @@ class App extends StatelessWidget {
           create: (context) => NavbarCubit(),
         ),
         BlocProvider<InternetconnectionCubit>(
-            create: (context) => InternetconnectionCubit())
+            create: (context) => InternetconnectionCubit()),
+        BlocProvider<LoadfileCubit>(
+          create: (context) => LoadfileCubit(),
+        ),
       ],
       child: MaterialApp(
         title: 'Student Demo',
