@@ -1,11 +1,14 @@
+import 'package:dsp_student_application/Presentation/Global_components/DarkPageSnackBar.dart';
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/components/BackGroundGradient.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/InputField.dart';
+import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/button.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/buttonicon.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/dividingline.dart';
 import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -48,16 +51,26 @@ class _SignInState extends State<SignIn> {
                   SizedBox(
                     height: 32,
                   ),
-                  Container(
-                    width: size.width * 0.8,
-                    child: Button(
-                      size: size,
-                      text: 'Login',
-                      textcolor: AppColors.cGreen,
-                      buttoncolor: AppColors.cWhite,
-                      onButtonPress: () {},
-                      // destination: , //main screen
-                    ),
+                  BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
+                    builder: (context, state) {
+                      return Container(
+                        width: size.width * 0.8,
+                        child: Button(
+                          size: size,
+                          text: 'Login',
+                          textcolor: AppColors.cGreen,
+                          buttoncolor: AppColors.cWhite,
+                          onButtonPress: () {
+                            if (state.isConnected == false) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                            } else
+                              // destination: , //main screen
+                              print('go to main screen');
+                          },
+                        ),
+                      );
+                    },
                   ),
                   SizedBox(
                     height: 16,
@@ -97,15 +110,27 @@ class _SignInState extends State<SignIn> {
                       children: [
                         Expanded(
                           flex: 1,
-                          child: ButtonIcon(
-                            size: size,
-                            text: 'Facebook',
-                            icon: 'facebook',
-                            iconcolor: Colors.blue,
-                            textcolor: Colors.blue,
-                            buttoncolor: AppColors.cWhite,
-                            frame: AppColors.cWhite,
-                            onButtonPress: () {},
+                          child: BlocBuilder<InternetconnectionCubit,
+                              InternetconnectionState>(
+                            builder: (context, state) {
+                              return ButtonIcon(
+                                size: size,
+                                text: 'Facebook',
+                                icon: 'facebook',
+                                iconcolor: Colors.blue,
+                                textcolor: Colors.blue,
+                                buttoncolor: AppColors.cWhite,
+                                frame: AppColors.cWhite,
+                                onButtonPress: () {
+                                  if (state.isConnected == false) {
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(snackBar);
+                                  } else
+                                    // destination: , //main screen
+                                    print('go to main screen');
+                                },
+                              );
+                            },
                           ),
                         ),
                         SizedBox(
@@ -113,14 +138,26 @@ class _SignInState extends State<SignIn> {
                         ),
                         Expanded(
                           flex: 1,
-                          child: ButtonIcon(
-                            size: size,
-                            text: 'Google',
-                            icon: 'googlee',
-                            iconcolor: Colors.red,
-                            textcolor: AppColors.cDarkGrey,
-                            buttoncolor: AppColors.cWhite,
-                            onButtonPress: () {},
+                          child: BlocBuilder<InternetconnectionCubit,
+                              InternetconnectionState>(
+                            builder: (context, state) {
+                              return ButtonIcon(
+                                size: size,
+                                text: 'Google',
+                                icon: 'googlee',
+                                iconcolor: Colors.red,
+                                textcolor: AppColors.cDarkGrey,
+                                buttoncolor: AppColors.cWhite,
+                                onButtonPress: () {
+                                  if (state.isConnected == false) {
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(snackBar);
+                                  } else
+                                    // destination: , //main screen
+                                    print('go to main screen');
+                                },
+                              );
+                            },
                           ),
                         ),
                       ],

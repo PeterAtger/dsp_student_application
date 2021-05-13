@@ -8,6 +8,7 @@ import 'package:dsp_student_application/Presentation/Global_components/ArabicIma
 import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/create_text_field.dart';
+import 'package:dsp_student_application/Presentation/Global_components/LightPageSnackBar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -81,14 +82,31 @@ class _ScreenBodyState extends State<ScreenBody> {
                   Column(
                     children: [
                       ///Creation of search text field
-                      TextFieldCreation(
-                        size: size,
-                        text: 'Search',
-                        icon: Icon(Icons.search,
-                            size: 32, color: AppColors.cDarkGrey),
+                      BlocBuilder<InternetconnectionCubit,
+                          InternetconnectionState>(
+                        builder: (context, state) {
+                          return TextFieldCreation(
+                            size: size,
+                            text: 'Search',
+                            fieldicon: IconButton(
+                              icon: Icon(
+                                Icons.search,
+                                size: 32,
+                                color: AppColors.cDarkGrey,
+                              ),
+                              onPressed: () {
+                                if (state.isConnected)
+                                  print('search');
+                                else
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                              },
+                            ),
+                          );
+                        },
                       ),
 
-                      SizedBox(height: 32),
+                      SizedBox(height: 10),
 
                       ///Creation of New Quary text field
                       GradientOutline(
@@ -114,7 +132,7 @@ class _ScreenBodyState extends State<ScreenBody> {
                         ),
                       ),
 
-                      SizedBox(height: 32),
+                      SizedBox(height: 10),
 
                       BlocBuilder<LoadfileCubit, LoadfileState>(
                         builder: (context, state) {
@@ -221,10 +239,22 @@ class _UrgantBarState extends State<UrgantBar> {
                   onChanged: (value) {}),
             )
           ]),
-          SvgPicture.asset(
-            "lib/Presentation/Images/check.svg",
-            height: 32,
-            color: AppColors.cGreen,
+          BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
+            builder: (context, state) {
+              return IconButton(
+                icon: SvgPicture.asset(
+                  "lib/Presentation/Images/check.svg",
+                  height: 32,
+                  color: AppColors.cGreen,
+                ),
+                onPressed: () {
+                  if (state.isConnected)
+                    print('search');
+                  else
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+              );
+            },
           ),
         ],
       ),

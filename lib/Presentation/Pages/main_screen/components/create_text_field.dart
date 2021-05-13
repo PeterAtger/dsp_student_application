@@ -7,14 +7,14 @@ class TextFieldCreation extends StatelessWidget {
     Key key,
     @required this.size,
     @required this.text,
-    this.icon,
+    this.fieldicon,
     this.maximumLines = 1,
     this.border = true,
   }) : super(key: key);
 
   final Size size;
   final String text;
-  final Icon icon;
+  final IconButton fieldicon;
   final bool border;
   final int maximumLines;
 
@@ -45,7 +45,7 @@ class TextFieldCreation extends StatelessWidget {
               hintText: text,
               hintStyle: AppFonts.appText,
               border: InputBorder.none,
-              suffixIcon: icon,
+              suffixIcon: fieldicon,
             ),
           )),
     );
