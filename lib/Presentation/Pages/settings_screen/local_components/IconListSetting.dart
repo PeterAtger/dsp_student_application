@@ -33,7 +33,7 @@ class IconListSetting extends StatelessWidget {
             SizedBox(width: 8),
             Text(
               this.settingText,
-              style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+              style: AppFonts.bodyText1.copyWith(color: AppColors.cDarkGrey),
             ),
           ],
         ),

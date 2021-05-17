@@ -35,7 +35,7 @@ class TextFieldCreation extends StatelessWidget {
       child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: AutoSizeTextField(
-            style: AppFonts.appText,
+            style: AppFonts.bodyText1,
             controller: TextEditingController(),
             onChanged: (String txt) {
               print(txt);
@@ -43,7 +43,7 @@ class TextFieldCreation extends StatelessWidget {
             maxLines: maximumLines,
             decoration: InputDecoration(
               hintText: text,
-              hintStyle: AppFonts.appText,
+              hintStyle: AppFonts.bodyText1,
               border: InputBorder.none,
               suffixIcon: icon,
             ),

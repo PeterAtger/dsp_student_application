@@ -15,11 +15,11 @@ class TeacherTimeSettings extends StatelessWidget {
         children: [
           Text(
             '7:00 PM',
-            style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+            style: AppFonts.bodyText1.copyWith(color: AppColors.cDarkGrey),
           ),
           Text(
             '8:00 PM',
-            style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+            style: AppFonts.bodyText1.copyWith(color: AppColors.cDarkGrey),
           ),
         ],
       ),

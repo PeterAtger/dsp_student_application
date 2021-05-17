@@ -36,7 +36,7 @@ class DividingLine extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: AppFonts.andro.copyWith(color: color),
+            style: AppFonts.captionText.copyWith(color: color),
           ),
         ),
         Expanded(

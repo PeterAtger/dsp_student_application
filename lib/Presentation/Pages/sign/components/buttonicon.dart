@@ -40,7 +40,7 @@ class ButtonIcon extends StatelessWidget {
       ),
       label: Text(
         text,
-        style: AppFonts.smallButtonText.copyWith(
+        style: AppFonts.button.copyWith(
           color: textcolor,
         ),
       ),

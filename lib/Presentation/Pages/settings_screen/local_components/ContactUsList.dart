@@ -27,7 +27,7 @@ class ContactUsList extends StatelessWidget {
         SizedBox(width: 10.0),
         Text(
           this.contactText,
-          style: AppFonts.smallButtonText.copyWith(color: AppColors.cDarkGrey),
+          style: AppFonts.button.copyWith(color: AppColors.cDarkGrey),
         ),
       ],
     );

@@ -6,14 +6,14 @@ Widget inputfield(var size, MaterialColor linecolor, MaterialColor hintcolor,
     MaterialColor iconcolor, String hint, String icon, bool coloredicone,
     {bool isPass = false}) {
   return TextFormField(
-    style: AppFonts.appText.copyWith(color: hintcolor),
+    style: AppFonts.bodyText1.copyWith(color: hintcolor),
     obscureText: isPass,
     cursorColor: AppColors.cWhite,
     decoration: InputDecoration(
       contentPadding: EdgeInsets.only(top: 20, bottom: 10),
       isDense: true,
       hintText: hint,
-      hintStyle: AppFonts.appText.copyWith(
+      hintStyle: AppFonts.bodyText1.copyWith(
         color: hintcolor,
       ),
       suffixIcon: isPass

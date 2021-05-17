@@ -70,7 +70,7 @@ class _ScreenBodyState extends State<ScreenBody> {
                           width: 8,
                         ),
                         Text('Tashkeel ',
-                            style: AppFonts.heading2.copyWith(
+                            style: AppFonts.heading5.copyWith(
                               color: AppColors.cDarkGrey,
                             )),
                       ],
@@ -104,7 +104,7 @@ class _ScreenBodyState extends State<ScreenBody> {
                                         ? 'Write a new Query'
                                         : "No internet coneection",
                                     maximumLines:
-                                        (size.height * 0.22 / 22).floor(),
+                                        (size.height * 0.3 / 22).floor(),
                                     border: false);
                               },
                             ),
@@ -133,7 +133,7 @@ class _ScreenBodyState extends State<ScreenBody> {
                           Center(
                             child: AutoSizeText(
                               '*Disclaimer: The file size should not exceed 10 Mbs',
-                              style: AppFonts.versionControl,
+                              style: AppFonts.captionText,
                               maxLines: 1,
                             ),
                           ),
@@ -168,7 +168,7 @@ class _UrgantBarState extends State<UrgantBar> {
           Row(children: [
             Text(
               "Urgent ",
-              style: AppFonts.appText,
+              style: AppFonts.bodyText1,
             ),
             Container(
               child: Switch(

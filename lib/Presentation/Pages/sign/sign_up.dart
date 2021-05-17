@@ -62,7 +62,7 @@ class _SignUpState extends State<SignUp> {
               top: size.height * 0.13,
               child: Text(
                 'Sign Up',
-                style: AppFonts.heading1.copyWith(color: AppColors.cWhite),
+                style: AppFonts.heading3.copyWith(color: AppColors.cWhite),
               ),
             ),
           ),
@@ -142,7 +142,7 @@ class _SignUpState extends State<SignUp> {
                                         child: SvgPicture.asset(item[1])),
                                     SizedBox(width: 12),
                                     Text(item[0],
-                                        style: AppFonts.appText.copyWith(
+                                        style: AppFonts.bodyText1.copyWith(
                                           color: AppColors.cDarkGrey,
                                           fontWeight: FontWeight.normal,
                                         )),
@@ -200,7 +200,7 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                         SizedBox(
-                          width: 16,
+                          width: 8,
                         ),
                         Expanded(
                           flex: 1,

@@ -28,7 +28,7 @@ class SettingsToggle extends StatelessWidget {
           child: SwitchListTile(
             title: Text(
               this.toggleText,
-              style: AppFonts.heading3.copyWith(color: AppColors.cDarkGrey),
+              style: AppFonts.heading6.copyWith(color: AppColors.cDarkGrey),
             ),
             value: active,
             onChanged: onChanged,
