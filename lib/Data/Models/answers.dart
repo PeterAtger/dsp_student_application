@@ -1,6 +1,9 @@
-class Answer {
-  String answer;
-  String teacher;
+class Answers {
+  List<_Answer> answers;
+}
+
+class _Answer {
+  List<String> answerWord;
   String askedTime;
-  String answeredTime;
+  List<double> accuracy;
 }
