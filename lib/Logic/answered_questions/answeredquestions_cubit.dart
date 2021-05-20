@@ -29,7 +29,6 @@ List<String> answers = [
 class AnsweredQuestionsCubit extends Cubit<AnsweredQuestionsState> {
   AnsweredQuestionsCubit() : super(AnsweredQuestionsState(null));
   void goToAnsweredQuestions() {
-    print('i am done please kill me');
     List<Answer> templist = [];
     for (int i = 0; i < answers.length; i++) {
       templist.add(Answer(
