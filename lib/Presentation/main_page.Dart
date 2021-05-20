@@ -13,7 +13,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  PageController _controller = PageController(initialPage: 3);
+  PageController _controller = PageController(initialPage: 2);
   List<Widget> _screens = [
     Profile(),
     Settings(),
