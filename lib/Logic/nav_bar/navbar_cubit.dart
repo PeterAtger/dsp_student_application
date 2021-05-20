@@ -17,7 +17,7 @@ class NavbarCubit extends Cubit<NavBarState> {
     emit(NavBarState(SelectedPage.answeredQuestions));
   }
 
-  void goToSavedQuestions() {
+  void goToWaitingQuestions() {
     emit(NavBarState(SelectedPage.savedQuestions));
   }
 

@@ -1,5 +1,6 @@
 import 'package:adobe_xd/blend_mask.dart';
 import 'package:dsp_student_application/Logic/answered_questions/answeredquestions_cubit.dart';
+import 'package:dsp_student_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_student_application/Presentation/Global_components/TitleBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -32,9 +33,9 @@ class _WaitingQuestionsState extends State<WaitingQuestions> {
       SingleChildScrollView(
         child: Column(children: [
           SizedBox(height: 72),
-          TitleBar(title: 'Answered Questions'),
+          TitleBar(title: 'Waiting Questions'),
           SizedBox(height: 24),
-          BlocBuilder<AnsweredQuestionsCubit, AnsweredQuestionsState>(
+          BlocBuilder<WaitingQuestionsCubit, WaitingQuestionsState>(
             builder: (context, state) {
               return Column(
                 children: state.list == null ? [Container()] : state.list,

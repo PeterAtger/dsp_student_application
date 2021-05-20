@@ -1,4 +1,6 @@
+import 'package:dsp_student_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
+import 'package:dsp_student_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/global_components/NavItem.dart';
 import 'package:flutter/material.dart';
@@ -67,8 +69,10 @@ class _DiffNavBarState extends State<DiffNavBar> {
                     itemState: SelectedPage.savedQuestions,
                     iconText: 'question',
                     fn: () {
-                      context.read<NavbarCubit>().goToSavedQuestions();
-                      // context.read<WaitingQuestionsCubit>().filter('All');
+                      context.read<NavbarCubit>().goToWaitingQuestions();
+                      context
+                          .read<WaitingQuestionsCubit>()
+                          .goToWaitingQuestion();
                     }),
                 NavItem(
                     state: state,
@@ -76,9 +80,9 @@ class _DiffNavBarState extends State<DiffNavBar> {
                     iconText: 'check',
                     fn: () {
                       context.read<NavbarCubit>().goToAnsweredQuestions();
-                      // context
-                      //     .read<AnsweredQuestionsCubit>()
-                      //     .goToAnsweredQuestions();
+                      context
+                          .read<AnsweredQuestionsCubit>()
+                          .goToAnsweredQuestions();
                     }),
               ],
             ),

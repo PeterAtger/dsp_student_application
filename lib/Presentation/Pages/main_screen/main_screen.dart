@@ -79,130 +79,156 @@ class _ScreenBodyState extends State<ScreenBody> {
                     ),
                   ),
 
-                  Column(
-                    children: [
-                      ///Creation of search text field
-                      BlocBuilder<InternetconnectionCubit,
-                          InternetconnectionState>(
-                        builder: (context, state) {
-                          return TextFieldCreation(
-                            size: size,
-                            text: 'Search',
-                            fieldicon: IconButton(
-                              icon: Icon(
-                                Icons.search,
-                                size: 32,
-                                color: AppColors.cDarkGrey,
-                              ),
-                              onPressed: () {
-                                if (state.isConnected)
-                                  print('search');
-                                else
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackBar);
-                              },
-                            ),
-                          );
-                        },
-                      ),
-
-                      SizedBox(height: 10),
-
-                      ///Creation of New Quary text field
-                      GradientOutline(
-                        size: size,
-                        radius: 32,
-                        chld: Column(
-                          children: [
-                            BlocBuilder<InternetconnectionCubit,
-                                InternetconnectionState>(
-                              builder: (context, state) {
-                                return TextFieldCreation(
-                                    size: size,
-                                    text: state.isConnected
-                                        ? 'Write a new Query'
-                                        : "No internet coneection",
-                                    maximumLines:
-                                        (size.height * 0.3 / 22).floor(),
-                                    border: false);
-                              },
-                            ),
-                            UrgantBar(),
-                          ],
-                        ),
-                      ),
-
-                      SizedBox(height: 10),
-
-                      BlocBuilder<LoadfileCubit, LoadfileState>(
-                          builder: (context, state) {
-                        return Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(32),
-                                  border: Border.all(
-                                      color: AppColors.cDarkGrey, width: 2)),
-                              width: 0.8 * size.width,
-                              child: OutlinedButton(
-                                onPressed: () {
-                                  context.read<LoadfileCubit>().onButtonClick();
-                                },
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 8),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "Upload file",
-                                        style: AppFonts.bodyText1,
-                                      ),
-                                      Icon(
-                                        Icons.add_circle_outline,
-                                        size: 32,
-                                        color: AppColors.cGreen,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                style: ButtonStyle(
-                                  foregroundColor: MaterialStateProperty.all(
-                                      AppColors.cDarkGrey),
-                                  shadowColor: MaterialStateProperty.all(
-                                      AppColors.cDarkGrey),
-                                  overlayColor: MaterialStateProperty.all(
-                                      AppColors.cLightGrey),
-                                  backgroundColor: MaterialStateProperty.all(
-                                      AppColors.cWhite),
-                                  shape: MaterialStateProperty.all(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(32.0),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-
-                            SizedBox(height: 8),
-
-                            /// The Disclaimer
-                            Center(
-                              child: AutoSizeText(
-                                '*Disclaimer: The file size should not exceed 10 Mbs',
-                                style: AppFonts.captionText,
-                                maxLines: 1,
-                              ),
-                            ),
-                          ],
-                        );
-                      }),
-                    ],
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SearchBar(size: size),
+                        QueryField(size: size),
+                        UploadButton(size: size),
+                      ],
+                    ),
                   ),
                 ],
               )),
         ),
       ]),
+    );
+  }
+}
+
+class UploadButton extends StatelessWidget {
+  const UploadButton({
+    Key key,
+    @required this.size,
+  }) : super(key: key);
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LoadfileCubit, LoadfileState>(builder: (context, state) {
+      return Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(32),
+                border: Border.all(color: AppColors.cDarkGrey, width: 2)),
+            width: 0.8 * size.width,
+            child: OutlinedButton(
+              onPressed: () {
+                context.read<LoadfileCubit>().onButtonClick();
+              },
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Upload file",
+                      style: AppFonts.bodyText1,
+                    ),
+                    Icon(
+                      Icons.add_circle_outline,
+                      size: 32,
+                      color: AppColors.cGreen,
+                    ),
+                  ],
+                ),
+              ),
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all(AppColors.cDarkGrey),
+                shadowColor: MaterialStateProperty.all(AppColors.cDarkGrey),
+                overlayColor: MaterialStateProperty.all(AppColors.cLightGrey),
+                backgroundColor: MaterialStateProperty.all(AppColors.cWhite),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(32.0),
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          SizedBox(height: 8),
+
+          /// The Disclaimer
+          Center(
+            child: AutoSizeText(
+              '*Disclaimer: The file size should not exceed 10 Mbs',
+              style: AppFonts.captionText,
+              maxLines: 1,
+            ),
+          ),
+        ],
+      );
+    });
+  }
+}
+
+class QueryField extends StatelessWidget {
+  const QueryField({
+    Key key,
+    @required this.size,
+  }) : super(key: key);
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return GradientOutline(
+      size: size,
+      radius: 32,
+      chld: Column(
+        children: [
+          BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
+            builder: (context, state) {
+              return TextFieldCreation(
+                  size: size,
+                  text: state.isConnected
+                      ? 'Write a new Query'
+                      : "No internet coneection",
+                  maximumLines: (size.height * 0.3 / 22).floor(),
+                  border: false);
+            },
+          ),
+          UrgantBar(),
+        ],
+      ),
+    );
+  }
+}
+
+class SearchBar extends StatelessWidget {
+  const SearchBar({
+    Key key,
+    @required this.size,
+  }) : super(key: key);
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
+      builder: (context, state) {
+        return TextFieldCreation(
+          size: size,
+          text: 'Search',
+          fieldicon: IconButton(
+            icon: Icon(
+              Icons.search,
+              size: 32,
+              color: AppColors.cDarkGrey,
+            ),
+            onPressed: () {
+              if (state.isConnected)
+                print('search');
+              else
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
+          ),
+        );
+      },
     );
   }
 }
