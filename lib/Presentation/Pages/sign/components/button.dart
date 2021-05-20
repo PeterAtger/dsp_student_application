@@ -25,7 +25,7 @@ class Button extends StatelessWidget {
         onPressed: this.onButtonPress,
         child: Text(
           text,
-          style: AppFonts.buttonText.copyWith(
+          style: AppFonts.button.copyWith(
             color: textcolor,
           ),
         ),

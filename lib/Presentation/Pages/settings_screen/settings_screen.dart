@@ -40,7 +40,7 @@ class _SettingsState extends State<Settings> {
               SizedBox(width: 32),
               Text(
                 'App settings',
-                style: AppFonts.heading3.copyWith(color: AppColors.cDarkGrey),
+                style: AppFonts.heading5.copyWith(color: AppColors.cDarkGrey),
               ),
             ]),
             SizedBox(height: 24),
@@ -74,7 +74,7 @@ class _SettingsState extends State<Settings> {
               SizedBox(width: 32),
               Text(
                 'Contact Us',
-                style: AppFonts.heading3.copyWith(color: AppColors.cDarkGrey),
+                style: AppFonts.heading5.copyWith(color: AppColors.cDarkGrey),
               ),
             ]),
             SizedBox(height: 24),

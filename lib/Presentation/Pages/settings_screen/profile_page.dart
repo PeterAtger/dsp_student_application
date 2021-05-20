@@ -99,7 +99,7 @@ class _ProfileState extends State<Profile> {
                 Center(
                   child: Text(
                     'Habiba Ashraf',
-                    style: AppFonts.heading3.copyWith(color: AppColors.cWhite),
+                    style: AppFonts.heading5.copyWith(color: AppColors.cWhite),
                   ),
                 ),
               ],
@@ -135,7 +135,7 @@ class _ProfileState extends State<Profile> {
                     ),
                     SizedBox(height: 32),
                     GradientLine(size: size),
-                    SizedBox(height: 8),
+                    SizedBox(height: 16),
                     QuestionButton(
                       size: size,
                       text: 'Answered Questions: 3',

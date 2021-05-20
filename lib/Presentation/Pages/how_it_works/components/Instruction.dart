@@ -35,7 +35,7 @@ class Instructions extends StatelessWidget {
               child: Text(
                 this.instructionText,
                 textAlign: TextAlign.center,
-                style: AppFonts.appText.copyWith(
+                style: AppFonts.bodyText1.copyWith(
                   color: AppColors.cWhite,
                 ),
               ),

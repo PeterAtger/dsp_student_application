@@ -15,11 +15,11 @@ class FromToPanda extends StatelessWidget {
         children: [
           Text(
             'From',
-            style: AppFonts.appText.copyWith(color: AppColors.cGreen),
+            style: AppFonts.bodyText1.copyWith(color: AppColors.cGreen),
           ),
           Text(
             'To',
-            style: AppFonts.appText.copyWith(color: AppColors.cGreen),
+            style: AppFonts.bodyText1.copyWith(color: AppColors.cGreen),
           ),
         ],
       ),

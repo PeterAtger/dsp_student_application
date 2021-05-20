@@ -18,11 +18,11 @@ class TeacherProfileInf extends StatelessWidget {
           width: 32,
         ),
         Text('${this.field1} ',
-            style: AppFonts.appText.copyWith(
+            style: AppFonts.bodyText1.copyWith(
               color: AppColors.cGreen,
             )),
         Text('${this.field2}',
-            style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey)),
+            style: AppFonts.bodyText1.copyWith(color: AppColors.cDarkGrey)),
       ],
     );
   }

@@ -27,7 +27,7 @@ class QuestionButton extends StatelessWidget {
         child: Center(
           child: Text(
             this.text,
-            style: AppFonts.buttonText
+            style: AppFonts.button
                 .copyWith(color: green ? AppColors.cWhite : AppColors.cGreen),
           ),
         ),

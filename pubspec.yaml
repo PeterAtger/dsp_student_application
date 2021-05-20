@@ -29,12 +29,13 @@ dependencies:
   auto_size_text: ^2.1.0
   flutter_svg: ^0.20.0-nullsafety.3
   wheel_chooser: ^0.1.1
-  image_picker: ^0.7.4
+  image_picker: any
   bloc: ^7.0.0
   flutter_bloc: ^7.0.0
   hydrated_bloc: ^7.0.0
   path_provider: ^2.0.1
   file_picker: ^3.0.1
+  google_fonts: any
   
 
   # The following adds the Cupertino Icons font to your application.

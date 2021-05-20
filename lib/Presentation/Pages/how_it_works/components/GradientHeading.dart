@@ -18,7 +18,7 @@ class GradientHeading extends StatelessWidget {
         child: Text(
           text,
           textAlign: TextAlign.center,
-          style: AppFonts.heading1.copyWith(
+          style: AppFonts.heading3.copyWith(
             color: AppColors.cWhite,
           ),
         ));
