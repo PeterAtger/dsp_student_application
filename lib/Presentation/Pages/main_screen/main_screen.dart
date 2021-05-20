@@ -135,70 +135,68 @@ class _ScreenBodyState extends State<ScreenBody> {
                       SizedBox(height: 10),
 
                       BlocBuilder<LoadfileCubit, LoadfileState>(
-                        builder: (context, state) {
-                          return Column(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(32),
-                                    border: Border.all(
-                                        color: AppColors.cDarkGrey, width: 2)),
-                                width: 0.8 * size.width,
-                                child: OutlinedButton(
-                                  onPressed: () {
-                                    context
-                                        .read<LoadfileCubit>()
-                                        .onButtonClick();
-                                  },
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 8),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Upload file",
-                                          style: AppFonts.appText,
-                                        ),
-                                        Icon(
-                                          Icons.add_circle_outline,
-                                          size: 32,
-                                          color: AppColors.cGreen,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  style: ButtonStyle(
-                                    foregroundColor: MaterialStateProperty.all(
-                                        AppColors.cDarkGrey),
-                                    shadowColor: MaterialStateProperty.all(
-                                        AppColors.cDarkGrey),
-                                    overlayColor: MaterialStateProperty.all(
-                                        AppColors.cLightGrey),
-                                    backgroundColor: MaterialStateProperty.all(
-                                        AppColors.cWhite),
-                                    shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(32.0),
+                          builder: (context, state) {
+                        return Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(32),
+                                  border: Border.all(
+                                      color: AppColors.cDarkGrey, width: 2)),
+                              width: 0.8 * size.width,
+                              child: OutlinedButton(
+                                onPressed: () {
+                                  context.read<LoadfileCubit>().onButtonClick();
+                                },
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 8),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Upload file",
+                                        style: AppFonts.bodyText1,
                                       ),
+                                      Icon(
+                                        Icons.add_circle_outline,
+                                        size: 32,
+                                        color: AppColors.cGreen,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                style: ButtonStyle(
+                                  foregroundColor: MaterialStateProperty.all(
+                                      AppColors.cDarkGrey),
+                                  shadowColor: MaterialStateProperty.all(
+                                      AppColors.cDarkGrey),
+                                  overlayColor: MaterialStateProperty.all(
+                                      AppColors.cLightGrey),
+                                  backgroundColor: MaterialStateProperty.all(
+                                      AppColors.cWhite),
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(32.0),
                                     ),
                                   ),
                                 ),
                               ),
-
-                              SizedBox(height: 8),
-
-                          /// The Disclaimer
-                          Center(
-                            child: AutoSizeText(
-                              '*Disclaimer: The file size should not exceed 10 Mbs',
-                              style: AppFonts.captionText,
-                              maxLines: 1,
                             ),
-                          ),
-                        ],
-                      ),
+
+                            SizedBox(height: 8),
+
+                            /// The Disclaimer
+                            Center(
+                              child: AutoSizeText(
+                                '*Disclaimer: The file size should not exceed 10 Mbs',
+                                style: AppFonts.captionText,
+                                maxLines: 1,
+                              ),
+                            ),
+                          ],
+                        );
+                      }),
                     ],
                   ),
                 ],

@@ -19,6 +19,14 @@ class InternetconnectionCubit extends Cubit<InternetconnectionState> {
     });
   }
 
+  Future<void> checkConnection() async {
+    await Connectivity().checkConnectivity().then((value) {
+      value == ConnectivityResult.none
+          ? emit(InternetconnectionState(isConnected: false))
+          : emit(InternetconnectionState(isConnected: true));
+    });
+  }
+
   @override
   close() {
     subscription.cancel();

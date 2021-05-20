@@ -166,6 +166,9 @@ class _SignUpState extends State<SignUp> {
                           textcolor: AppColors.cWhite,
                           buttoncolor: AppColors.cGreen,
                           onButtonPress: () async {
+                            await context
+                                .read<InternetconnectionCubit>()
+                                .checkConnection();
                             if (state.isConnected == false) {
                               ScaffoldMessenger.of(context)
                                   .showSnackBar(snackBar);
