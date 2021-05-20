@@ -1,5 +1,8 @@
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/side_menu.dart';
+import 'package:dsp_student_application/Presentation/Pages/questions/answered_questions.dart';
+import 'package:dsp_student_application/Presentation/Pages/questions/local_components/Waiting.dart';
+import 'package:dsp_student_application/Presentation/Pages/questions/waiting_questions.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/profile_page.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/settings_screen.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/main_screen.dart';
@@ -18,6 +21,8 @@ class _MainPageState extends State<MainPage> {
     Profile(),
     Settings(),
     HomeScreen(),
+    WaitingQuestions(),
+    AnsweredQuestions()
   ];
 
   @override

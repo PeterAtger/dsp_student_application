@@ -1,6 +1,8 @@
+import 'package:dsp_student_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
 import 'package:dsp_student_application/Logic/load_file/loadfile_cubit.dart';
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
+import 'package:dsp_student_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_student_application/Presentation/router.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
@@ -26,9 +28,11 @@ class App extends StatelessWidget {
         ),
         BlocProvider<InternetconnectionCubit>(
             create: (context) => InternetconnectionCubit()),
-        BlocProvider<LoadfileCubit>(
-          create: (context) => LoadfileCubit(),
-        ),
+        BlocProvider<LoadfileCubit>(create: (context) => LoadfileCubit()),
+        BlocProvider<WaitingQuestionsCubit>(
+            create: (context) => WaitingQuestionsCubit()),
+        BlocProvider<AnsweredQuestionsCubit>(
+            create: (context) => AnsweredQuestionsCubit()),
       ],
       child: MaterialApp(
         title: 'Student Demo',
