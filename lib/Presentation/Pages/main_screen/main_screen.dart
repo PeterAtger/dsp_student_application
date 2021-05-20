@@ -1,12 +1,14 @@
-import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
-import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:dsp_student_application/Logic/load_file/loadfile_cubit.dart';
+import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
+import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/create_text_field.dart';
-import 'package:dsp_student_application/Presentation/Theme/theme.dart';
-import 'package:flutter/material.dart';
+import 'package:dsp_student_application/Presentation/Global_components/LightPageSnackBar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -80,14 +82,31 @@ class _ScreenBodyState extends State<ScreenBody> {
                   Column(
                     children: [
                       ///Creation of search text field
-                      TextFieldCreation(
-                        size: size,
-                        text: 'Search',
-                        icon: Icon(Icons.search,
-                            size: 32, color: AppColors.cDarkGrey),
+                      BlocBuilder<InternetconnectionCubit,
+                          InternetconnectionState>(
+                        builder: (context, state) {
+                          return TextFieldCreation(
+                            size: size,
+                            text: 'Search',
+                            fieldicon: IconButton(
+                              icon: Icon(
+                                Icons.search,
+                                size: 32,
+                                color: AppColors.cDarkGrey,
+                              ),
+                              onPressed: () {
+                                if (state.isConnected)
+                                  print('search');
+                                else
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                              },
+                            ),
+                          );
+                        },
                       ),
 
-                      SizedBox(height: 32),
+                      SizedBox(height: 10),
 
                       ///Creation of New Quary text field
                       GradientOutline(
@@ -113,21 +132,62 @@ class _ScreenBodyState extends State<ScreenBody> {
                         ),
                       ),
 
-                      SizedBox(height: 32),
+                      SizedBox(height: 10),
 
-                      Column(
-                        children: [
-                          ///Creation of File upload textfield
-                          TextFieldCreation(
-                              size: size,
-                              text: 'Upload Text file',
-                              icon: Icon(
-                                Icons.add_circle_outline,
-                                size: 32,
-                                color: AppColors.cGreen,
-                              )),
+                      BlocBuilder<LoadfileCubit, LoadfileState>(
+                        builder: (context, state) {
+                          return Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(32),
+                                    border: Border.all(
+                                        color: AppColors.cDarkGrey, width: 2)),
+                                width: 0.8 * size.width,
+                                child: OutlinedButton(
+                                  onPressed: () {
+                                    context
+                                        .read<LoadfileCubit>()
+                                        .onButtonClick();
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 8),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          "Upload file",
+                                          style: AppFonts.appText,
+                                        ),
+                                        Icon(
+                                          Icons.add_circle_outline,
+                                          size: 32,
+                                          color: AppColors.cGreen,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  style: ButtonStyle(
+                                    foregroundColor: MaterialStateProperty.all(
+                                        AppColors.cDarkGrey),
+                                    shadowColor: MaterialStateProperty.all(
+                                        AppColors.cDarkGrey),
+                                    overlayColor: MaterialStateProperty.all(
+                                        AppColors.cLightGrey),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        AppColors.cWhite),
+                                    shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(32.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
 
-                          SizedBox(height: 8),
+                              SizedBox(height: 8),
 
                           /// The Disclaimer
                           Center(
@@ -149,7 +209,7 @@ class _ScreenBodyState extends State<ScreenBody> {
   }
 }
 
-//4.2.2 New quary urgent bar consists of Text widget "Urgent" , swich , Image -> check
+//New quary urgent bar consists of Text widget "Urgent" , swich , Image -> check
 class UrgantBar extends StatefulWidget {
   @override
   _UrgantBarState createState() => _UrgantBarState();
@@ -177,10 +237,22 @@ class _UrgantBarState extends State<UrgantBar> {
                   onChanged: (value) {}),
             )
           ]),
-          SvgPicture.asset(
-            "lib/Presentation/Images/check.svg",
-            height: 32,
-            color: AppColors.cGreen,
+          BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
+            builder: (context, state) {
+              return IconButton(
+                icon: SvgPicture.asset(
+                  "lib/Presentation/Images/check.svg",
+                  height: 32,
+                  color: AppColors.cGreen,
+                ),
+                onPressed: () {
+                  if (state.isConnected)
+                    print('search');
+                  else
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                },
+              );
+            },
           ),
         ],
       ),

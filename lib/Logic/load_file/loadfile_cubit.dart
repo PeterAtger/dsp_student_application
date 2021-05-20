@@ -9,11 +9,15 @@ class LoadfileCubit extends Cubit<LoadfileState> {
   String fileContent;
 
   Future getFile() async {
-    FilePickerResult result = await FilePicker.platform.pickFiles();
+    FilePickerResult result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['doc', 'odt', 'pdf', 'rtf', 'tex', 'txt', 'wpd'],
+    );
 
     if (result != null) {
       file = File(result.files.single.path);
       fileContent = file.readAsString() as String;
+      //Sending the file to backend//
     } else {
       print("No file selected");
     }

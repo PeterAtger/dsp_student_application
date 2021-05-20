@@ -1,5 +1,7 @@
+import 'package:dsp_student_application/Presentation/Global_components/LightPageSnackBar.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/InputField.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/button.dart';
+import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/buttonicon.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/dividingline.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/top_curve.dart';
@@ -7,6 +9,7 @@ import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SignUp extends StatefulWidget {
@@ -153,19 +156,29 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(
                     height: 16,
                   ),
-                  Container(
-                    width: size.width * 0.8,
-                    child: Button(
-                      size: size,
-                      text: 'Sign Up',
-                      textcolor: AppColors.cWhite,
-                      buttoncolor: AppColors.cGreen,
-                      onButtonPress: () async {
-                        await Future.delayed(Duration(milliseconds: 250), () {
-                          Navigator.of(context).pushReplacementNamed('/HIW');
-                        });
-                      },
-                    ),
+                  BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
+                    builder: (context, state) {
+                      return Container(
+                        width: size.width * 0.8,
+                        child: Button(
+                          size: size,
+                          text: 'Sign Up',
+                          textcolor: AppColors.cWhite,
+                          buttoncolor: AppColors.cGreen,
+                          onButtonPress: () async {
+                            if (state.isConnected == false) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                            } else
+                              await Future.delayed(Duration(milliseconds: 250),
+                                  () {
+                                Navigator.of(context)
+                                    .pushReplacementNamed('/HIW');
+                              });
+                          },
+                        ),
+                      );
+                    },
                   ),
                   SizedBox(
                     height: 24,
@@ -188,15 +201,30 @@ class _SignUpState extends State<SignUp> {
                       children: [
                         Expanded(
                           flex: 1,
-                          child: ButtonIcon(
-                            size: size,
-                            text: 'Facebook',
-                            icon: 'facebook',
-                            iconcolor: Colors.blue,
-                            textcolor: Colors.blue,
-                            buttoncolor: AppColors.cWhite,
-                            frame: AppColors.cWhite,
-                            onButtonPress: () {},
+                          child: BlocBuilder<InternetconnectionCubit,
+                              InternetconnectionState>(
+                            builder: (context, state) {
+                              return ButtonIcon(
+                                size: size,
+                                text: 'Facebook',
+                                icon: 'facebook',
+                                iconcolor: Colors.blue,
+                                textcolor: Colors.blue,
+                                buttoncolor: AppColors.cWhite,
+                                frame: AppColors.cWhite,
+                                onButtonPress: () async {
+                                  if (state.isConnected == false) {
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(snackBar);
+                                  } else
+                                    await Future.delayed(
+                                        Duration(milliseconds: 250), () {
+                                      Navigator.of(context)
+                                          .pushReplacementNamed('/HIW');
+                                    });
+                                },
+                              );
+                            },
                           ),
                         ),
                         SizedBox(
@@ -204,14 +232,29 @@ class _SignUpState extends State<SignUp> {
                         ),
                         Expanded(
                           flex: 1,
-                          child: ButtonIcon(
-                            size: size,
-                            text: 'Google',
-                            icon: 'googlee',
-                            iconcolor: Colors.red,
-                            textcolor: AppColors.cDarkGrey,
-                            buttoncolor: AppColors.cWhite,
-                            onButtonPress: () {},
+                          child: BlocBuilder<InternetconnectionCubit,
+                              InternetconnectionState>(
+                            builder: (context, state) {
+                              return ButtonIcon(
+                                size: size,
+                                text: 'Google',
+                                icon: 'googlee',
+                                iconcolor: Colors.red,
+                                textcolor: AppColors.cDarkGrey,
+                                buttoncolor: AppColors.cWhite,
+                                onButtonPress: () async {
+                                  if (state.isConnected == false) {
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(snackBar);
+                                  } else
+                                    await Future.delayed(
+                                        Duration(milliseconds: 250), () {
+                                      Navigator.of(context)
+                                          .pushReplacementNamed('/HIW');
+                                    });
+                                },
+                              );
+                            },
                           ),
                         ),
                       ],
