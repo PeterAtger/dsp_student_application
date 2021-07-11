@@ -3,12 +3,17 @@ import 'package:flutter/material.dart';
 
 class QuestionButton extends StatelessWidget {
   const QuestionButton(
-      {Key key, @required this.size, @required this.text, @required this.green})
+      {Key key,
+      @required this.size,
+      @required this.text,
+      @required this.green,
+      @required this.onPressed})
       : super(key: key);
 
   final Size size;
   final String text;
   final bool green;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +28,7 @@ class QuestionButton extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30))),
             backgroundColor: MaterialStateProperty.all(
                 green ? AppColors.cGreen : AppColors.cLightGrey)),
-        onPressed: () {},
+        onPressed: this.onPressed,
         child: Center(
           child: Text(
             this.text,

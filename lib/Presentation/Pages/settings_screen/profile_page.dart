@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:adobe_xd/adobe_xd.dart';
+import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Logic/profile_image/profile_image_cubit.dart';
 import 'package:dsp_student_application/Presentation/Global_components/GradientLine.dart';
 import 'package:dsp_student_application/Presentation/Global_components/TitleBar.dart';
@@ -140,12 +141,16 @@ class _ProfileState extends State<Profile> {
                       size: size,
                       text: 'Answered Questions: 3',
                       green: false,
+                      onPressed:
+                          context.read<NavbarCubit>().goToAnsweredQuestions,
                     ),
                     SizedBox(height: 16),
                     QuestionButton(
                       size: size,
                       text: 'Waiting Questions: 3',
                       green: true,
+                      onPressed:
+                          context.read<NavbarCubit>().goToWaitingQuestions,
                     ),
                   ],
                 ),
