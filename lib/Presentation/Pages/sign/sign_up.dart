@@ -1,3 +1,4 @@
+import 'package:dsp_student_application/Logic/authentication/authentication_cubit.dart';
 import 'package:dsp_student_application/Presentation/Global_components/LightPageSnackBar.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/InputField.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/button.dart';
@@ -25,6 +26,9 @@ class _SignUpState extends State<SignUp> {
     ['Secondary', 'lib/Presentation/Images/secondaryboy.svg']
   ];
   String _selectedItem;
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -85,7 +89,8 @@ class _SignUpState extends State<SignUp> {
                           AppColors.cDarkGrey,
                           'Full Name',
                           'name',
-                          false)),
+                          false,
+                          nameController)),
                   Container(
                     width: size.width * 0.8,
                     child: inputfield(
@@ -95,7 +100,8 @@ class _SignUpState extends State<SignUp> {
                         AppColors.cGreen,
                         'Email',
                         'email',
-                        true),
+                        true,
+                        emailController),
                   ),
                   SizedBox(
                     height: 4, //bad value
@@ -110,6 +116,7 @@ class _SignUpState extends State<SignUp> {
                         'Password',
                         'key',
                         true,
+                        passController,
                         isPass: true),
                   ),
                   SizedBox(
@@ -158,27 +165,49 @@ class _SignUpState extends State<SignUp> {
                   ),
                   BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
                     builder: (context, state) {
-                      return Container(
-                        width: size.width * 0.8,
-                        child: Button(
-                          size: size,
-                          text: 'Sign Up',
-                          textcolor: AppColors.cWhite,
-                          buttoncolor: AppColors.cGreen,
-                          onButtonPress: () async {
-                            await context
-                                .read<InternetconnectionCubit>()
-                                .checkConnection();
-                            if (state.isConnected == false) {
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(snackBar);
-                            } else
-                              await Future.delayed(Duration(milliseconds: 250),
-                                  () {
-                                Navigator.of(context)
-                                    .pushReplacementNamed('/HIW');
-                              });
-                          },
+                      return BlocListener<AuthenticationCubit,
+                          AuthenticationState>(
+                        listener: (context, state) {
+                          if (state.code != null) {
+                            if (state.code <= 299 && state.code >= 200) {
+                              Navigator.of(context).pushNamed('/HIW');
+                            }
+
+                            if (state.code <= 499 && state.code >= 400) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text(state.data["email"][0])));
+                            }
+                            if (state.code <= 599 && state.code >= 500) {
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  content: Text(
+                                      "Something went wrong!! Please try again.")));
+                            }
+                          }
+                        },
+                        child: Container(
+                          width: size.width * 0.8,
+                          child: Button(
+                            size: size,
+                            text: 'Sign Up',
+                            textcolor: AppColors.cWhite,
+                            buttoncolor: AppColors.cGreen,
+                            onButtonPress: () async {
+                              await context
+                                  .read<InternetconnectionCubit>()
+                                  .checkConnection();
+                              if (state.isConnected == false) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              } else
+                                context
+                                    .read<AuthenticationCubit>()
+                                    .signUpPostRequest(
+                                        nameController.text,
+                                        emailController.text,
+                                        passController.text);
+                            },
+                          ),
                         ),
                       );
                     },
