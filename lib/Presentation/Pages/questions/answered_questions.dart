@@ -1,9 +1,11 @@
 import 'package:adobe_xd/blend_mask.dart';
 import 'package:dsp_student_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_student_application/Presentation/Global_components/TitleBar.dart';
+import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class AnsweredQuestions extends StatefulWidget {
   @override
@@ -32,7 +34,7 @@ class _AnsweredQuestionsState extends State<AnsweredQuestions> {
       SingleChildScrollView(
         child: Column(children: [
           SizedBox(height: 72),
-          TitleBar(title: 'Answered Questions'),
+          TitleBar(title: LocaleKeys.AnsweredQuestions.tr()),
           SizedBox(height: 24),
           BlocBuilder<AnsweredQuestionsCubit, AnsweredQuestionsState>(
             builder: (context, state) {

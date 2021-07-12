@@ -36,19 +36,19 @@ class _SettingsState extends State<Settings> {
           ),
           Column(children: [
             SizedBox(height: 72),
-            TitleBar(title: 'Settings'),
+            TitleBar(title: LocaleKeys.Settings.tr()),
             SizedBox(height: 24),
             Row(children: <Widget>[
               SizedBox(width: 32),
               Text(
-                'App settings',
+                LocaleKeys.AppSettings.tr(),
                 style: AppFonts.heading5.copyWith(color: AppColors.cDarkGrey),
               ),
             ]),
             SizedBox(height: 24),
             IconListSetting(
               iconName: 'notification',
-              settingText: 'Notifications',
+              settingText: LocaleKeys.Notifications.tr(),
               onTab: () {
                 Navigator.of(context)
                     .pushNamed('/MainScreen/Settings/Notifications');
@@ -56,12 +56,12 @@ class _SettingsState extends State<Settings> {
             ),
             IconListSetting(
               iconName: 'book',
-              settingText: 'Terms of use',
+              settingText: LocaleKeys.TermsOfUse.tr(),
               onTab: () {},
             ),
             IconListSetting(
               iconName: 'how_it_works_question_mark',
-              settingText: 'How it works',
+              settingText: LocaleKeys.HowItWorks.tr(),
               onTab: () {},
             ),
             IconListSetting(
@@ -76,7 +76,7 @@ class _SettingsState extends State<Settings> {
                 }),
             IconListSetting(
               iconName: 'profile',
-              settingText: 'Log out',
+              settingText: LocaleKeys.LogOut.tr(),
               onTab: () {},
             ),
             SizedBox(height: 32),
@@ -85,7 +85,7 @@ class _SettingsState extends State<Settings> {
             Row(children: <Widget>[
               SizedBox(width: 32),
               Text(
-                'Contact Us',
+                LocaleKeys.ContactUs.tr(),
                 style: AppFonts.heading5.copyWith(color: AppColors.cDarkGrey),
               ),
             ]),

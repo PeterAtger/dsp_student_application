@@ -8,10 +8,12 @@ import 'package:dsp_student_application/Presentation/Pages/sign/components/divid
 import 'package:dsp_student_application/Presentation/Pages/sign/components/top_curve.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
+import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -20,10 +22,10 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _gradeList = [
-    ['Grade', 'lib/Presentation/Images/greade.svg'],
-    ['Primary', 'lib/Presentation/Images/boysvg.svg'],
-    ['Preparatory', 'lib/Presentation/Images/girl.svg'],
-    ['Secondary', 'lib/Presentation/Images/secondaryboy.svg']
+    [LocaleKeys.grade.tr(), 'lib/Presentation/Images/greade.svg'],
+    [LocaleKeys.Primary.tr(), 'lib/Presentation/Images/boysvg.svg'],
+    [LocaleKeys.Preparatory.tr(), 'lib/Presentation/Images/girl.svg'],
+    [LocaleKeys.Secondary.tr(), 'lib/Presentation/Images/secondaryboy.svg']
   ];
   String _selectedItem;
   final nameController = TextEditingController();
@@ -68,7 +70,7 @@ class _SignUpState extends State<SignUp> {
             child: Positioned(
               top: size.height * 0.13,
               child: Text(
-                'Sign Up',
+                LocaleKeys.SignUp.tr(),
                 style: AppFonts.heading3.copyWith(color: AppColors.cWhite),
               ),
             ),
@@ -87,7 +89,7 @@ class _SignUpState extends State<SignUp> {
                           AppColors.cLightGrey,
                           AppColors.cDarkGrey,
                           AppColors.cDarkGrey,
-                          'Full Name',
+                          LocaleKeys.FullName.tr(),
                           'name',
                           false,
                           nameController)),
@@ -98,7 +100,7 @@ class _SignUpState extends State<SignUp> {
                         AppColors.cLightGrey,
                         AppColors.cDarkGrey,
                         AppColors.cGreen,
-                        'Email',
+                        LocaleKeys.Email.tr(),
                         'email',
                         true,
                         emailController),
@@ -113,7 +115,7 @@ class _SignUpState extends State<SignUp> {
                         AppColors.cLightGrey,
                         AppColors.cDarkGrey,
                         AppColors.cGreen,
-                        'Password',
+                        LocaleKeys.Password.tr(),
                         'key',
                         true,
                         passController,
@@ -189,7 +191,7 @@ class _SignUpState extends State<SignUp> {
                           width: size.width * 0.8,
                           child: Button(
                             size: size,
-                            text: 'Sign Up',
+                            text: LocaleKeys.SignUp.tr(),
                             textcolor: AppColors.cWhite,
                             buttoncolor: AppColors.cGreen,
                             onButtonPress: () async {
@@ -219,7 +221,7 @@ class _SignUpState extends State<SignUp> {
                     width: size.width * 0.8,
                     child: DividingLine(
                       size: size,
-                      text: 'Or Login With',
+                      text: LocaleKeys.OrLogInWith.tr(),
                       color: AppColors.cDarkGrey,
                     ),
                   ),
@@ -238,7 +240,7 @@ class _SignUpState extends State<SignUp> {
                             builder: (context, state) {
                               return ButtonIcon(
                                 size: size,
-                                text: 'Facebook',
+                                text: LocaleKeys.Facebook.tr(),
                                 icon: 'facebook',
                                 iconcolor: Colors.blue,
                                 textcolor: Colors.blue,
@@ -269,7 +271,7 @@ class _SignUpState extends State<SignUp> {
                             builder: (context, state) {
                               return ButtonIcon(
                                 size: size,
-                                text: 'Google',
+                                text: LocaleKeys.Google.tr(),
                                 icon: 'googlee',
                                 iconcolor: Colors.red,
                                 textcolor: AppColors.cDarkGrey,

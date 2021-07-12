@@ -8,8 +8,10 @@ import 'package:dsp_student_application/Presentation/Global_components/TitleBar.
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/QuestionButton.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/TeacherProfileInf.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -60,7 +62,7 @@ class _ProfileState extends State<Profile> {
               children: [
                 SizedBox(height: 72),
                 TitleBar(
-                  title: 'Profile',
+                  title: LocaleKeys.Profile.tr(),
                   isTitleColorWhite: true,
                 ),
                 SizedBox(height: 16),
@@ -117,21 +119,21 @@ class _ProfileState extends State<Profile> {
                       height: 32,
                     ),
                     TeacherProfileInf(
-                      field1: 'Email: ',
+                      field1: '${LocaleKeys.Email.tr()}: ',
                       field2: 'Habiba.Ash@example.com',
                     ),
                     SizedBox(
                       height: 24,
                     ),
                     TeacherProfileInf(
-                      field1: 'Grade: ',
+                      field1: '${LocaleKeys.grade.tr()}: ',
                       field2: 'Secondary',
                     ),
                     SizedBox(
                       height: 24,
                     ),
                     TeacherProfileInf(
-                      field1: 'User since: ',
+                      field1: '${LocaleKeys.user_since.tr()}: ',
                       field2: '1+ years',
                     ),
                     SizedBox(height: 32),
