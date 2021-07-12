@@ -6,7 +6,7 @@ abstract class LocaleKeys {
   static const Login = 'Login';
   static const SignUp = 'SignUp';
   static const FullName = 'FullName';
-  static const Expertise = 'Expertise';
+  static const grade = 'grade';
   static const Fresh_Graduate = 'Fresh Graduate';
   static const OneToFive = 'OneToFive';
   static const FivePlus = 'FivePlus';
@@ -58,4 +58,10 @@ abstract class LocaleKeys {
   static const Score = 'Score';
   static const Change_Language = 'Change_Language';
   static const upload = 'upload';
+  static const new_answers = 'new_answers';
+  static const search = 'search';
+  static const write_new_query = 'write_new_query';
+  static const urgent = 'urgent';
+  static const disclaimer = 'disclaimer';
+  static const user_since = 'user_since';
 }

@@ -2,9 +2,11 @@ import 'package:adobe_xd/blend_mask.dart';
 import 'package:dsp_student_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_student_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_student_application/Presentation/Global_components/TitleBar.dart';
+import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class WaitingQuestions extends StatefulWidget {
   @override
@@ -33,7 +35,7 @@ class _WaitingQuestionsState extends State<WaitingQuestions> {
       SingleChildScrollView(
         child: Column(children: [
           SizedBox(height: 72),
-          TitleBar(title: 'Waiting Questions'),
+          TitleBar(title: LocaleKeys.WaitingQuestion.tr()),
           SizedBox(height: 24),
           BlocBuilder<WaitingQuestionsCubit, WaitingQuestionsState>(
             builder: (context, state) {

@@ -7,9 +7,11 @@ import 'package:dsp_student_application/Presentation/Pages/sign/components/butto
 import 'package:dsp_student_application/Presentation/Pages/sign/components/buttonicon.dart';
 import 'package:dsp_student_application/Presentation/Pages/sign/components/dividingline.dart';
 import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
+import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -44,7 +46,7 @@ class _SignInState extends State<SignIn> {
                       AppColors.cWhite,
                       AppColors.cWhite,
                       AppColors.cWhite,
-                      'Email',
+                      LocaleKeys.Email.tr(),
                       'email',
                       true,
                       emailFieldController,
@@ -60,7 +62,7 @@ class _SignInState extends State<SignIn> {
                         AppColors.cWhite,
                         AppColors.cWhite,
                         AppColors.cWhite,
-                        'Password',
+                        LocaleKeys.Password.tr(),
                         'key',
                         true,
                         passwordFieldController,
@@ -95,7 +97,7 @@ class _SignInState extends State<SignIn> {
                           width: size.width * 0.8,
                           child: Button(
                             size: size,
-                            text: 'Login',
+                            text: LocaleKeys.Login.tr(),
                             textcolor: AppColors.cGreen,
                             buttoncolor: AppColors.cWhite,
                             onButtonPress: () {
@@ -125,7 +127,7 @@ class _SignInState extends State<SignIn> {
                     width: size.width * 0.8,
                     child: Button(
                       size: size,
-                      text: 'Sign Up',
+                      text: LocaleKeys.SignUp.tr(),
                       textcolor: AppColors.cWhite,
                       buttoncolor: AppColors.cGreen,
                       onButtonPress: () async {
@@ -142,7 +144,7 @@ class _SignInState extends State<SignIn> {
                     width: size.width * 0.8,
                     child: DividingLine(
                       size: size,
-                      text: 'Or Login With',
+                      text: LocaleKeys.OrLogInWith.tr(),
                       color: AppColors.cWhite,
                     ),
                   ),
@@ -161,7 +163,7 @@ class _SignInState extends State<SignIn> {
                             builder: (context, state) {
                               return ButtonIcon(
                                 size: size,
-                                text: 'Facebook',
+                                text: LocaleKeys.Facebook.tr(),
                                 icon: 'facebook',
                                 iconcolor: Colors.blue,
                                 textcolor: Colors.blue,
@@ -189,7 +191,7 @@ class _SignInState extends State<SignIn> {
                             builder: (context, state) {
                               return ButtonIcon(
                                 size: size,
-                                text: 'Google',
+                                text: LocaleKeys.Google.tr(),
                                 icon: 'googlee',
                                 iconcolor: Colors.red,
                                 textcolor: AppColors.cDarkGrey,

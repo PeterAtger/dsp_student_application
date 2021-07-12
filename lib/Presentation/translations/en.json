@@ -4,7 +4,7 @@
   "Login": "LOG IN",
   "SignUp": "SIGN UP",
   "FullName": "Full Name",
-  "Expertise": "Expertise",
+  "grade": "Grade:",
   "Fresh Graduate": "Fresh Graduate",
   "OneToFive": "1-5 Years Experience",
   "FivePlus": "5+ Years Experience",
@@ -55,5 +55,11 @@
   "Google": "GOOGLE",
   "Score": "User Score",
   "Change_Language": "Change Language",
-  "upload": "Upload file"
+  "upload": "Upload file",
+  "new_answers": "New Answers",
+  "search": "Search",
+  "write_new_query": "Write a new Query",
+  "urgent": "Urgent ",
+  "disclaimer": "*Disclaimer: The file size should not exceed 10 Mbs",
+  "user_since": "User Since: "
 }

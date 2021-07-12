@@ -3,8 +3,10 @@ import 'package:dsp_student_application/Logic/notification_settings/notification
 import 'package:dsp_student_application/Presentation/Global_components/GradientLine.dart';
 import 'package:dsp_student_application/Presentation/Global_components/TitleBar.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/SettingsToggle.dart';
+import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Notifications extends StatefulWidget {
   @override
@@ -39,7 +41,7 @@ class _NotificationsState extends State<Notifications> {
                 return Column(
                   children: [
                     SizedBox(height: 72),
-                    TitleBar(title: 'Notifications'),
+                    TitleBar(title: LocaleKeys.Notifications.tr()),
                     SizedBox(height: 56),
                     SettingsToggle(
                       onChanged: (value) {
@@ -49,7 +51,7 @@ class _NotificationsState extends State<Notifications> {
                       },
                       size: size,
                       spacing: 48,
-                      toggleText: 'Push Notifications',
+                      toggleText: LocaleKeys.PushNotifications.tr(),
                       active: state.pushNotifications,
                     ),
                     SizedBox(height: 32),
@@ -62,7 +64,7 @@ class _NotificationsState extends State<Notifications> {
                             .toggleAnsweredQuery(state);
                       },
                       size: size,
-                      toggleText: 'Answered Query',
+                      toggleText: LocaleKeys.new_answers.tr(),
                       spacing: 80,
                       active: state.answeredQuery,
                     ),
@@ -74,7 +76,7 @@ class _NotificationsState extends State<Notifications> {
                             .toggleNewUpdates(state);
                       },
                       size: size,
-                      toggleText: 'New Updates',
+                      toggleText: LocaleKeys.NewUpdates.tr(),
                       spacing: 80,
                       active: state.newUpdates,
                     )

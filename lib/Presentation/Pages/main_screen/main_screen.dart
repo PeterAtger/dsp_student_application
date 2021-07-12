@@ -73,7 +73,7 @@ class _ScreenBodyState extends State<ScreenBody> {
                         SizedBox(
                           width: 8,
                         ),
-                        Text('Tashkeel ',
+                        Text(LocaleKeys.MainScreen.tr(),
                             style: AppFonts.heading5.copyWith(
                               color: AppColors.cDarkGrey,
                             )),
@@ -157,7 +157,7 @@ class UploadButton extends StatelessWidget {
           /// The Disclaimer
           Center(
             child: AutoSizeText(
-              '*Disclaimer: The file size should not exceed 10 Mbs',
+              LocaleKeys.disclaimer.tr(),
               style: AppFonts.captionText,
               maxLines: 1,
             ),
@@ -188,7 +188,7 @@ class QueryField extends StatelessWidget {
               return TextFieldCreation(
                   size: size,
                   text: state.isConnected
-                      ? 'Write a new Query'
+                      ? LocaleKeys.write_new_query.tr()
                       : "No internet coneection",
                   maximumLines: (size.height * 0.3 / 22).floor(),
                   border: false);
@@ -215,7 +215,7 @@ class SearchBar extends StatelessWidget {
       builder: (context, state) {
         return TextFieldCreation(
           size: size,
-          text: 'Search',
+          text: LocaleKeys.search.tr(),
           fieldicon: IconButton(
             icon: Icon(
               Icons.search,
@@ -224,7 +224,7 @@ class SearchBar extends StatelessWidget {
             ),
             onPressed: () {
               if (state.isConnected)
-                print('search');
+                print(LocaleKeys.search.tr());
               else
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
@@ -253,7 +253,7 @@ class _UrgantBarState extends State<UrgantBar> {
         children: [
           Row(children: [
             Text(
-              "Urgent ",
+              LocaleKeys.urgent.tr(),
               style: AppFonts.bodyText1,
             ),
             Container(
@@ -273,7 +273,7 @@ class _UrgantBarState extends State<UrgantBar> {
                 ),
                 onPressed: () {
                   if (state.isConnected)
-                    print('search');
+                    print(LocaleKeys.search.tr());
                   else
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 },
