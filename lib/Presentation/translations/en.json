@@ -60,6 +60,6 @@
   "search": "Search",
   "write_new_query": "Write a new Query",
   "urgent": "Urgent ",
-  "disclaimer": "*Disclaimer: The file size should not exceed 10 Mbs",
+  "disclaimer": "*Disclaimer: The file size should not exceed 10 kbs",
   "user_since": "User Since: "
 }
