@@ -4,6 +4,8 @@ import 'package:dsp_student_application/Presentation/Global_components/TitleBar.
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/ContactUsList.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/IconListSetting.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:dsp_student_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
@@ -62,6 +64,16 @@ class _SettingsState extends State<Settings> {
               settingText: 'How it works',
               onTab: () {},
             ),
+            IconListSetting(
+                iconName: 'earth-globe',
+                settingText: LocaleKeys.Change_Language.tr(),
+                onTab: () {
+                  if (context.locale == Locale('en')) {
+                    context.setLocale(Locale('ar'));
+                  } else {
+                    context.setLocale(Locale('en'));
+                  }
+                }),
             IconListSetting(
               iconName: 'profile',
               settingText: 'Log out',

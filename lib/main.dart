@@ -5,6 +5,7 @@ import 'package:dsp_student_application/Logic/load_file/loadfile_cubit.dart';
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_student_application/Presentation/router.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +17,13 @@ Future<void> main() async {
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getTemporaryDirectory(),
   );
-  runApp(App());
+  await EasyLocalization.ensureInitialized();
+
+  runApp(EasyLocalization(
+      supportedLocales: [Locale('en'), Locale('ar')],
+      path: 'lib/Presentation/translations',
+      fallbackLocale: Locale('ar'),
+      child: App()));
 }
 
 class App extends StatelessWidget {
@@ -39,6 +46,9 @@ class App extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         title: 'Student Demo',
         theme: ThemeData(
           primarySwatch: AppColors.cPurple,
