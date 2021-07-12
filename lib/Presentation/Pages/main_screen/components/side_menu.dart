@@ -1,6 +1,8 @@
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/Global_components/GradientLine.dart';
+import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
@@ -74,7 +76,7 @@ class SidMenuBar extends StatelessWidget {
                     SizedBox(
                       width: 8,
                     ),
-                    Text("Menu",
+                    Text(LocaleKeys.Menu.tr(),
                         style: AppFonts.heading5.copyWith(
                           color: AppColors.cDarkGrey,
                         ))
@@ -93,7 +95,7 @@ class SidMenuBar extends StatelessWidget {
                   ),
                   SizedBox(width: 8),
                   Text(
-                    " Sara Magdy",
+                    " احمد علاء",
                     style:
                         AppFonts.heading5.copyWith(color: AppColors.cDarkGrey),
                   ),
@@ -109,27 +111,28 @@ class SidMenuBar extends StatelessWidget {
 
                 Column(children: [
                   SettingTab(
-                    text: 'Profile',
+                    text: LocaleKeys.Profile.tr(),
                     onTab: () {
                       context.read<NavbarCubit>().goToProfile();
                       Navigator.of(context).pop();
                     },
                   ),
                   SettingTab(
-                    text: 'Help',
+                    text: LocaleKeys.Help.tr(),
                     onTab: () {
                       Navigator.of(context).pop();
+                      Navigator.of(context).pushReplacementNamed('/HIW');
                     },
                   ),
                   SettingTab(
-                    text: 'Settings',
+                    text: LocaleKeys.Settings.tr(),
                     onTab: () {
                       context.read<NavbarCubit>().goToSettings();
                       Navigator.of(context).pop();
                     },
                   ),
                   SettingTab(
-                    text: 'LogOut',
+                    text: LocaleKeys.LogOut.tr(),
                     onTab: () {
                       Navigator.of(context).pop();
                     },
@@ -146,7 +149,7 @@ class SidMenuBar extends StatelessWidget {
               ],
             ),
             Text(
-              "APP VERSION 0.0.2 Alpha  ",
+              "APP VERSION 0.0.2 Alpha",
               textAlign: TextAlign.center, //style:AppFonts.versionControl,
               style: new TextStyle(
                   fontWeight: FontWeight.bold,

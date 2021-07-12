@@ -141,7 +141,7 @@ class _ProfileState extends State<Profile> {
                     SizedBox(height: 16),
                     QuestionButton(
                       size: size,
-                      text: 'Answered Questions: 3',
+                      text: '${LocaleKeys.AnsweredQuestions.tr()}: 3',
                       green: false,
                       onPressed:
                           context.read<NavbarCubit>().goToAnsweredQuestions,
@@ -149,7 +149,7 @@ class _ProfileState extends State<Profile> {
                     SizedBox(height: 16),
                     QuestionButton(
                       size: size,
-                      text: 'Waiting Questions: 3',
+                      text: '${LocaleKeys.WaitingQuestion.tr()}: 3',
                       green: true,
                       onPressed:
                           context.read<NavbarCubit>().goToWaitingQuestions,
