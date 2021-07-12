@@ -1,4 +1,5 @@
 import 'package:dsp_student_application/Logic/answered_questions/answeredquestions_cubit.dart';
+import 'package:dsp_student_application/Logic/authentication/authentication_cubit.dart';
 import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
 import 'package:dsp_student_application/Logic/load_file/loadfile_cubit.dart';
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
@@ -40,6 +41,9 @@ class App extends StatelessWidget {
             create: (context) => WaitingQuestionsCubit()),
         BlocProvider<AnsweredQuestionsCubit>(
             create: (context) => AnsweredQuestionsCubit()),
+        BlocProvider<AuthenticationCubit>(
+          create: (BuildContext context) => AuthenticationCubit(),
+        ),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,
