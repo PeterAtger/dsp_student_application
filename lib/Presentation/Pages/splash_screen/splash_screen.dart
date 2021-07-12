@@ -63,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen>
             child: Container(
               height: 250,
               width: size.width,
-              child: Lottie.asset('lib/Presentation/animations/shakkel.json',
+              child: Lottie.asset('lib/Presentation/Animations/shakkel.json',
                   repeat: false,
                   controller: _controller, onLoaded: (lottileComposition) {
                 _controller

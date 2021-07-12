@@ -25,12 +25,12 @@ class CodegenLoader extends AssetLoader{
   "OneToFive": "1-5 سنين من الخبرة",
   "FivePlus": "5+ سنين من الخبرة",
   "HowItWorks": "طريقة الاستخدام",
-  "HIW1": "اولا ، اختر المرحلة الدراسية التى تريد رؤية الاسئلة منها",
-  "HIW2_1": "اختر السؤال الذى تثق باجابته",
+  "HIW1": "اكتب أي جملة للتشكيل",
+  "HIW2_1": " إذا لم تجد الجملة التي تبحث عنها، قم بإدخال الجملة المراد تشكيلها هنا وسيصلك إشعار فور وصول الإجابة ",
   "HIW2_2": "الاسئلة العاجلة تسبقها دائرة خضراء",
-  "HIW3": "اختر جملة ، سيظهر شريط ، به الاختيارات الممكنة لكل كلمة",
+  "HIW3": " يمكنك رفع ملف نصي كامل من هنا",
   "HIW4": "اذا لم تفضل الشريط ، يمكنك لمس الكلمة مرتين لتعدل فيها مباشرةً",
-  "LetStart": "هيا بنا لنبدأ",
+  "LetStart": "هيا بنا نبدأ",
   "MainScreen": "الصفحة الرئيسية",
   "WelcomeBack": " مرحباً بعودتك ",
   "We'veGotNew": "لدينا اسئلة جديدة فى انتظارك",
@@ -70,7 +70,8 @@ class CodegenLoader extends AssetLoader{
   "Facebook": "فيسبوك",
   "Google": "جوجل",
   "Score": "التقييم",
-  "Change_Language": "تغير اللغة"
+  "Change_Language": "تغير اللغة",
+  "upload": "ارفع الملف"
 };
 static const Map<String,dynamic> en = {
   "Email": "Email",
@@ -83,10 +84,10 @@ static const Map<String,dynamic> en = {
   "OneToFive": "1-5 Years Experience",
   "FivePlus": "5+ Years Experience",
   "HowItWorks": "How it works",
-  "HIW1": "First select the grade you want to see questions from.",
-  "HIW2_1": "Select a question you feel confident about.",
+  "HIW1": "Type any sentence for instant diacritisation.",
+  "HIW2_1": "Can’t find the sentence  you are looking for? Submit your unique question and we will notify you as soon as it’s answered.",
   "HIW2_2": "Urgent questions have a green dot next to them.",
-  "HIW3": "Select a sentence, and a slider with possible diacritization will appear.",
+  "HIW3": "If you want to upload a full text file you can press this add button.",
   "HIW4": "If slider aren't your style, you can also double tab any sentence to directly edit it.",
   "LetStart": "Let's get started",
   "MainScreen": "Main Screen",
@@ -128,7 +129,8 @@ static const Map<String,dynamic> en = {
   "Facebook": "FACEBOOK",
   "Google": "GOOGLE",
   "Score": "User Score",
-  "Change_Language": "Change Language"
+  "Change_Language": "Change Language",
+  "upload": "Upload file"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

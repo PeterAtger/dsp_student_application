@@ -1,3 +1,4 @@
+import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +10,7 @@ import 'package:dsp_student_application/Logic/internet_connection/internetconnec
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/create_text_field.dart';
 import 'package:dsp_student_application/Presentation/Global_components/LightPageSnackBar.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -125,7 +127,7 @@ class UploadButton extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Upload file",
+                      LocaleKeys.upload.tr(),
                       style: AppFonts.bodyText1,
                     ),
                     Icon(

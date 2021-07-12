@@ -3,7 +3,9 @@ import 'package:dsp_student_application/Presentation/Pages/how_it_works/componen
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/components/Instruction.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
+import 'package:dsp_student_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class HIW3 extends StatelessWidget {
   @override
@@ -38,7 +40,7 @@ class HIW3 extends StatelessWidget {
             height: size.height / 5,
           ),
           GradientHeading(
-            text: 'How it works',
+            text: LocaleKeys.HowItWorks.tr(),
           )
         ],
       ),
@@ -46,8 +48,7 @@ class HIW3 extends StatelessWidget {
       // Content
       Instructions(
         size: size,
-        instructionText:
-            'If you want to upload a full text file you can press this add button.',
+        instructionText: LocaleKeys.HIW3.tr(),
         instructionImage: 'hiw3',
       )
     ]));

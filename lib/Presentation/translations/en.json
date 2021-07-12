@@ -9,10 +9,10 @@
   "OneToFive": "1-5 Years Experience",
   "FivePlus": "5+ Years Experience",
   "HowItWorks": "How it works",
-  "HIW1": "First select the grade you want to see questions from.",
-  "HIW2_1": "Select a question you feel confident about.",
+  "HIW1": "Type any sentence for instant diacritisation.",
+  "HIW2_1": "Can’t find the sentence  you are looking for? Submit your unique question and we will notify you as soon as it’s answered.",
   "HIW2_2": "Urgent questions have a green dot next to them.",
-  "HIW3": "Select a sentence, and a slider with possible diacritization will appear.",
+  "HIW3": "If you want to upload a full text file you can press this add button.",
   "HIW4": "If slider aren't your style, you can also double tab any sentence to directly edit it.",
   "LetStart": "Let's get started",
   "MainScreen": "Main Screen",
@@ -54,5 +54,6 @@
   "Facebook": "FACEBOOK",
   "Google": "GOOGLE",
   "Score": "User Score",
-  "Change_Language": "Change Language"
+  "Change_Language": "Change Language",
+  "upload": "Upload file"
 }
