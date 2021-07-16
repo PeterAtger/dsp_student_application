@@ -1,3 +1,4 @@
+import 'package:dsp_student_application/Logic/search/search_cubit.dart';
 import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
@@ -211,26 +212,42 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
-      builder: (context, state) {
-        return TextFieldCreation(
-          size: size,
-          text: LocaleKeys.search.tr(),
-          fieldicon: IconButton(
-            icon: Icon(
-              Icons.search,
-              size: 32,
-              color: AppColors.cDarkGrey,
+    return BlocProvider<SearchCubit>(
+      create: (context) => SearchCubit(),
+      child: BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
+        builder: (context, state) {
+          return Container(
+            width: size.width * 0.8,
+            height: 52,
+            // padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: TextField(
+              onChanged: (value) {
+                context.read<SearchCubit>().getSearchResults(value);
+              },
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(32),
+                    borderSide: BorderSide(color: AppColors.cDarkGrey)),
+                hintStyle: AppFonts.bodyText1,
+                hintText: LocaleKeys.search.tr(),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    Icons.search,
+                    size: 24,
+                    color: AppColors.cDarkGrey,
+                  ),
+                  onPressed: () {
+                    if (state.isConnected)
+                      print(LocaleKeys.search.tr());
+                    else
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  },
+                ),
+              ),
             ),
-            onPressed: () {
-              if (state.isConnected)
-                print(LocaleKeys.search.tr());
-              else
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
-            },
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
