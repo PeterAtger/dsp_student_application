@@ -84,7 +84,8 @@ class _SignInState extends State<SignIn> {
                             if (state.code <= 499 && state.code >= 400) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                      content: Text(state.data["error"][0])));
+                                      content: Text(state
+                                          .data[state.data.keys.first][0])));
                             }
                             if (state.code <= 599 && state.code >= 500) {
                               ScaffoldMessenger.of(context).showSnackBar(SnackBar(

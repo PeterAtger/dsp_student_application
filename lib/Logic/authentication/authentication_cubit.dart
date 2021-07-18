@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:dsp_student_application/Constants/constants.dart';
-import 'package:flutter/src/services/text_input.dart';
+import 'package:dsp_student_application/Data/Repositories/user_data.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 
@@ -35,7 +35,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       "full_name": fullName,
       "email": email2,
       "password": password2,
-      // "grade": null
+      "grade": UserData.userGrade
     };
 
     final response = await post(url, headers: headers, body: jsonEncode(body));
@@ -47,5 +47,9 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     int code2 = response.statusCode;
 
     emit(AuthenticationState(data: signUpData, code: code2));
+  }
+
+  void setGrade(userGrade) {
+    UserData.userGrade = userGrade;
   }
 }

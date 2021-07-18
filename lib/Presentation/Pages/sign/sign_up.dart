@@ -22,19 +22,19 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _gradeList = [
-    [LocaleKeys.grade.tr(), 'lib/Presentation/Images/greade.svg'],
-    [LocaleKeys.Primary.tr(), 'lib/Presentation/Images/boysvg.svg'],
-    [LocaleKeys.Preparatory.tr(), 'lib/Presentation/Images/girl.svg'],
-    [LocaleKeys.Secondary.tr(), 'lib/Presentation/Images/secondaryboy.svg']
+    [0, LocaleKeys.grade.tr(), 'lib/Presentation/Images/greade.svg'],
+    [1, LocaleKeys.Primary.tr(), 'lib/Presentation/Images/boysvg.svg'],
+    [2, LocaleKeys.Preparatory.tr(), 'lib/Presentation/Images/girl.svg'],
+    [3, LocaleKeys.Secondary.tr(), 'lib/Presentation/Images/secondaryboy.svg']
   ];
-  String _selectedItem;
+  int _selectedItem;
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passController = TextEditingController();
   @override
   void initState() {
     super.initState();
-    _selectedItem = _gradeList[0][0];
+    _selectedItem = 0;
   }
 
   @override
@@ -140,7 +140,8 @@ class _SignUpState extends State<SignUp> {
                         elevation: 2,
                         onChanged: (value) {
                           setState(() {
-                            _selectedItem = value.toString();
+                            _selectedItem = value;
+                            context.read<AuthenticationCubit>().setGrade(value);
                           });
                         },
                         items: _gradeList
@@ -151,9 +152,9 @@ class _SignUpState extends State<SignUp> {
                                     Container(
                                         height: 24,
                                         width: 24,
-                                        child: SvgPicture.asset(item[1])),
+                                        child: SvgPicture.asset(item[2])),
                                     SizedBox(width: 12),
-                                    Text(item[0],
+                                    Text(item[1],
                                         style: AppFonts.bodyText1.copyWith(
                                           color: AppColors.cDarkGrey,
                                           fontWeight: FontWeight.normal,
@@ -178,7 +179,8 @@ class _SignUpState extends State<SignUp> {
                             if (state.code <= 499 && state.code >= 400) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                      content: Text(state.data["email"][0])));
+                                      content: Text(state
+                                          .data[state.data.keys.first][0])));
                             }
                             if (state.code <= 599 && state.code >= 500) {
                               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
