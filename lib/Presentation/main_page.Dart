@@ -27,8 +27,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    final bool keyboardIsOpened = MediaQuery.of(context).viewInsets.bottom != 0.0;
     return Scaffold(
-        floatingActionButton: FAB(),
+        resizeToAvoidBottomInset: true,
+        floatingActionButton: keyboardIsOpened ? null : FAB(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: DiffNavBar(),
         drawer: SideMenu(

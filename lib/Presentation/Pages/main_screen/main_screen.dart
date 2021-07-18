@@ -1,15 +1,13 @@
-import 'package:dsp_student_application/Logic/search/search_cubit.dart';
+import 'package:dsp_student_application/Presentation/Pages/main_screen/components/querey_field.dart';
+import 'package:dsp_student_application/Presentation/Pages/main_screen/components/search_bar.dart';
+import 'package:dsp_student_application/Presentation/Pages/main_screen/components/upload_file.dart';
 import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
-import 'package:dsp_student_application/Logic/load_file/loadfile_cubit.dart';
 import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
 import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
-import 'package:dsp_student_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
-import 'package:dsp_student_application/Presentation/Pages/main_screen/components/create_text_field.dart';
 import 'package:dsp_student_application/Presentation/Global_components/LightPageSnackBar.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -34,10 +32,8 @@ class _ScreenBodyState extends State<ScreenBody> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width,
-      height: size.height,
-      child: Stack(alignment: Alignment.bottomCenter, children: [
+    return Scaffold(
+      body: Stack(alignment: Alignment.bottomCenter, children: [
         //Screen Backgroud
         ArabicImage(
           size: size.height / 1.5,
@@ -96,158 +92,6 @@ class _ScreenBodyState extends State<ScreenBody> {
               )),
         ),
       ]),
-    );
-  }
-}
-
-class UploadButton extends StatelessWidget {
-  const UploadButton({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<LoadfileCubit, LoadfileState>(builder: (context, state) {
-      return Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(32),
-                border: Border.all(color: AppColors.cDarkGrey, width: 2)),
-            width: 0.8 * size.width,
-            child: OutlinedButton(
-              onPressed: () {
-                context.read<LoadfileCubit>().onButtonClick();
-              },
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      LocaleKeys.upload.tr(),
-                      style: AppFonts.bodyText1,
-                    ),
-                    Icon(
-                      Icons.add_circle_outline,
-                      size: 32,
-                      color: AppColors.cGreen,
-                    ),
-                  ],
-                ),
-              ),
-              style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all(AppColors.cDarkGrey),
-                shadowColor: MaterialStateProperty.all(AppColors.cDarkGrey),
-                overlayColor: MaterialStateProperty.all(AppColors.cLightGrey),
-                backgroundColor: MaterialStateProperty.all(AppColors.cWhite),
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32.0),
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          SizedBox(height: 8),
-
-          /// The Disclaimer
-          Center(
-            child: AutoSizeText(
-              LocaleKeys.disclaimer.tr(),
-              style: AppFonts.captionText,
-              maxLines: 1,
-            ),
-          ),
-        ],
-      );
-    });
-  }
-}
-
-class QueryField extends StatelessWidget {
-  const QueryField({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return GradientOutline(
-      size: size,
-      radius: 32,
-      chld: Column(
-        children: [
-          BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
-            builder: (context, state) {
-              return TextFieldCreation(
-                  size: size,
-                  text: state.isConnected
-                      ? LocaleKeys.write_new_query.tr()
-                      : "No internet coneection",
-                  maximumLines: (size.height * 0.3 / 22).floor(),
-                  border: false);
-            },
-          ),
-          UrgantBar(),
-        ],
-      ),
-    );
-  }
-}
-
-class SearchBar extends StatelessWidget {
-  const SearchBar({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider<SearchCubit>(
-      create: (context) => SearchCubit(),
-      child: BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
-        builder: (context, state) {
-          return Container(
-            width: size.width * 0.8,
-            height: 52,
-            // padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: TextField(
-              onChanged: (value) {
-                context.read<SearchCubit>().getSearchResults(value);
-              },
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(32),
-                    borderSide: BorderSide(color: AppColors.cDarkGrey)),
-                hintStyle: AppFonts.bodyText1,
-                hintText: LocaleKeys.search.tr(),
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    Icons.search,
-                    size: 24,
-                    color: AppColors.cDarkGrey,
-                  ),
-                  onPressed: () {
-                    if (state.isConnected)
-                      print(LocaleKeys.search.tr());
-                    else
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  },
-                ),
-              ),
-            ),
-          );
-        },
-      ),
     );
   }
 }
