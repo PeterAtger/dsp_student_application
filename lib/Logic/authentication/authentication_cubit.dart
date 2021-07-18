@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:dsp_student_application/Constants/constants.dart';
 import 'package:flutter/src/services/text_input.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
@@ -11,7 +12,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationState(data: null, code: null));
 
   Future<void> signInPostRequest(String email, String password) async {
-    final url = Uri.parse('http://18.193.7.235:8000/accounts/login/');
+    final url = Uri.parse('$BASEURL/accounts/login/');
     final headers = {"Content-type": "application/json"};
     final json = jsonEncode({"username": email, "password": password});
 
@@ -28,14 +29,13 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
   Future<void> signUpPostRequest(
       String fullName, String email2, String password2) async {
-    final url = Uri.parse('http://18.193.7.235:8000/accounts/register/');
+    final url = Uri.parse('$BASEURL/accounts/register/student/');
     final headers = {"Content-type": "application/json"};
     final body = {
-      "first_name": fullName,
-      "last_name": "a",
+      "full_name": fullName,
       "email": email2,
       "password": password2,
-      "is_teacher": false
+      // "grade": null
     };
 
     final response = await post(url, headers: headers, body: jsonEncode(body));
