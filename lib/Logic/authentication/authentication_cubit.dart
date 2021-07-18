@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:dsp_student_application/Constants/constants.dart';
+import 'package:dsp_student_application/Data/Repositries/sign_in_token.dart';
 import 'package:flutter/src/services/text_input.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
@@ -23,8 +24,9 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     print('Status code: ${response.statusCode}');
     print('Body: ${response.body}');
     int code1 = response.statusCode;
-
     emit(AuthenticationState(data: signInData, code: code1));
+
+    if (signInData.containsKey('token')) SIGNINTOKEN = signInData['token'];
   }
 
   Future<void> signUpPostRequest(

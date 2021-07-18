@@ -1,4 +1,6 @@
 import 'package:dsp_student_application/Logic/search/search_cubit.dart';
+import 'package:dsp_student_application/Logic/urgent_bar_cubit/urgentbarcubit_cubit.dart';
+import 'package:dsp_student_application/Presentation/Pages/main_screen/components/urgent_bar.dart';
 import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
@@ -170,32 +172,34 @@ class UploadButton extends StatelessWidget {
 }
 
 class QueryField extends StatelessWidget {
-  const QueryField({
+  QueryField({
     Key key,
     @required this.size,
   }) : super(key: key);
 
   final Size size;
+  final TextEditingController sentenceController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return GradientOutline(
       size: size,
       radius: 32,
-      chld: Column(
+      child: Column(
         children: [
           BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
             builder: (context, state) {
               return TextFieldCreation(
+                  controller: sentenceController,
                   size: size,
-                  text: state.isConnected
+                  hintText: state.isConnected
                       ? LocaleKeys.write_new_query.tr()
-                      : "No internet coneection",
+                      : "No internet connection",
                   maximumLines: (size.height * 0.3 / 22).floor(),
                   border: false);
             },
           ),
-          UrgantBar(),
+          UrgentBar(controller: sentenceController),
         ],
       ),
     );
@@ -219,7 +223,6 @@ class SearchBar extends StatelessWidget {
           return Container(
             width: size.width * 0.8,
             height: 52,
-            // padding: const EdgeInsets.symmetric(horizontal: 16),
             child: TextField(
               onChanged: (value) {
                 context.read<SearchCubit>().getSearchResults(value);
@@ -247,57 +250,6 @@ class SearchBar extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-//New quary urgent bar consists of Text widget "Urgent" , swich , Image -> check
-class UrgantBar extends StatefulWidget {
-  @override
-  _UrgantBarState createState() => _UrgantBarState();
-}
-
-class _UrgantBarState extends State<UrgantBar> {
-  bool isUrgent = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(children: [
-            Text(
-              LocaleKeys.urgent.tr(),
-              style: AppFonts.bodyText1,
-            ),
-            Container(
-              child: Switch(
-                  value: isUrgent,
-                  activeColor: AppColors.cGreen,
-                  onChanged: (value) {}),
-            )
-          ]),
-          BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
-            builder: (context, state) {
-              return IconButton(
-                icon: SvgPicture.asset(
-                  "lib/Presentation/Images/check.svg",
-                  height: 32,
-                  color: AppColors.cGreen,
-                ),
-                onPressed: () {
-                  if (state.isConnected)
-                    print(LocaleKeys.search.tr());
-                  else
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                },
-              );
-            },
-          ),
-        ],
       ),
     );
   }

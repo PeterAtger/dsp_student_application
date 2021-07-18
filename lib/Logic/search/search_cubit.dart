@@ -13,10 +13,10 @@ class SearchCubit extends Cubit<SearchState> {
     final url = Uri.parse('$BASEURL/sentences/?search=$query');
     final headers = {"Content-type": "application/json"};
 
-    final Response response = await get(url, headers: headers);
+    final response = await get(url, headers: headers);
     // print('Status code: ${response.statusCode}');
     // print('Body: ${response.body}');
-    final results = jsonDecode(response.body);
+    final List results = jsonDecode(response.body);
     print(results[0]['diacritized']);
   }
 }
