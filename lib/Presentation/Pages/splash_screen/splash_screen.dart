@@ -39,13 +39,13 @@ class _SplashScreenState extends State<SplashScreen>
               bottom: null,
               left: -200,
               size: size.height / 1.5,
-              opacity: 1),
+              opacity: 0.5),
           ArabicImage(
               bottom: -150,
               top: null,
               left: -200,
               size: size.height / 1.5,
-              opacity: 1),
+              opacity: 0.5),
           Positioned(
               top: -size.height * 0.07,
               left: 0,

@@ -15,7 +15,7 @@ class CodegenLoader extends AssetLoader{
   }
 
   static const Map<String,dynamic> ar = {
-  "Email": "البريد الالكترونى",
+  "Email": "البريد الالكتروني",
   "Password": "كلمة السر",
   "Login": "تسجيل الدخول",
   "SignUp": "إنشاء حساب",
@@ -25,11 +25,11 @@ class CodegenLoader extends AssetLoader{
   "OneToFive": "1-5 سنين من الخبرة",
   "FivePlus": "5+ سنين من الخبرة",
   "HowItWorks": "طريقة الاستخدام",
-  "HIW1": ".اكتب أي جملة للتشكيل",
-  "HIW2_1": " .إذا لم تجد الجملة التي تبحث عنها، قم بإدخال الجملة المراد تشكيلها هنا وسيصلك إشعار فور وصول الإجابة ",
-  "HIW2_2": ".الأسئلة العاجلة تسبقها دائرة خضراء",
-  "HIW3": " .يمكنك رفع ملف نصي كامل من هنا",
-  "HIW4": ".إذا لم تفضل الشريط، يمكنك لمس الكلمة مرتين لتعدل فيها مباشرةً",
+  "HIW1": "اكتب أي جملة للتشكيل",
+  "HIW2_1": " إذا لم تجد الجملة التي تبحث عنها، قم بإدخال الجملة المراد تشكيلها هنا وسيصلك إشعار فور وصول الإجابة ",
+  "HIW2_2": "الأسئلة العاجلة تسبقها دائرة خضراء",
+  "HIW3": " يمكنك رفع ملف نصي كامل من هنا",
+  "HIW4": "إذا لم تفضل الشريط، يمكنك لمس الكلمة مرتين لتعدل فيها مباشرةً",
   "LetStart": "هيا بنا نبدأ",
   "MainScreen": "الصفحة الرئيسية",
   "WelcomeBack": " مرحباً بعودتك ",
@@ -48,7 +48,7 @@ class CodegenLoader extends AssetLoader{
   "AppSettings": "إعدادات البرنامج",
   "Notifications": "الإشعارات",
   "ContactUs": "التواصل معنا",
-  "PushNotifications": "الإشعار اللحظى",
+  "PushNotifications": "الإشعار اللحظي",
   "NewQueries": "أسئلة جديدة",
   "NewUpdates": "التحديثات المتاحة",
   "ActiveHours": "وقت تفرغك",
@@ -59,11 +59,11 @@ class CodegenLoader extends AssetLoader{
   "All": "الكل",
   "SortedBy": "الترتيب حسب",
   "Date": "التاريخ",
-  "Alphabetical": "أبجدى",
+  "Alphabetical": "أبجدي",
   "UrgentOnly": "العاجل فقط",
   "Apply": "تم",
   "Save": "حفظ",
-  "Profile": "الملف الشخصى",
+  "Profile": "الملف الشخصي",
   "Questions": "الأسئلة",
   "Question": "السؤال",
   "OrLogInWith": "أو الدخول بواسطة",
@@ -76,7 +76,7 @@ class CodegenLoader extends AssetLoader{
   "search": "بحث",
   "write_new_query": "أدخل جملة جديدة",
   "urgent": "عاجل",
-  "disclaimer": "10 Mbs يجب أن لا يتعدى حجم الملف ",
+  "disclaimer": "10 kbs يجب أن لا يتعدى حجم الملف ",
   "user_since": "تاريخ الاشتراك"
 };
 static const Map<String,dynamic> en = {
@@ -141,7 +141,7 @@ static const Map<String,dynamic> en = {
   "search": "Search",
   "write_new_query": "Write a new Query",
   "urgent": "Urgent ",
-  "disclaimer": "*Disclaimer: The file size should not exceed 10 Mbs",
+  "disclaimer": "*Disclaimer: The file size should not exceed 10 kbs",
   "user_since": "User Since: "
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};

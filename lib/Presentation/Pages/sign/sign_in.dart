@@ -142,10 +142,19 @@ class _SignInState extends State<SignIn> {
                   ),
                   Container(
                     width: size.width * 0.8,
-                    child: DividingLine(
-                      size: size,
-                      text: LocaleKeys.OrLogInWith.tr(),
-                      color: AppColors.cWhite,
+                    child: InkWell(
+                      //Todo: Remove this
+                      onDoubleTap: () {
+                        Navigator.of(context).pushNamed('/HIW');
+                      },
+                      onLongPress: () {
+                        Navigator.of(context).pushNamed('/MainScreen');
+                      },
+                      child: DividingLine(
+                        size: size,
+                        text: LocaleKeys.OrLogInWith.tr(),
+                        color: AppColors.cWhite,
+                      ),
                     ),
                   ),
                   SizedBox(
