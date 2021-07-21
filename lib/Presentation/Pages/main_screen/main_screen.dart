@@ -117,44 +117,42 @@ class _ScreenBodyState extends State<ScreenBody>
                               // FLip Search and Write
                               Expanded(
                                 child: Container(
-                                    child: FlipCard(
-                                        key: cardKey,
-                                        flipOnTouch: false,
-                                        front: QueryField(size: size),
-                                        back: Container(
-                                            clipBehavior: Clip.antiAlias,
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  width: 2,
-                                                  color: AppColors.cGreen),
-                                              borderRadius:
-                                                  BorderRadius.circular(32),
-                                              // color: AppColors.cLightGrey,
-                                            ),
-                                            child: SingleChildScrollView(
-                                              child: Padding(
-                                                padding: EdgeInsets.all(8),
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment
-                                                          .stretch,
-                                                  children:
-                                                      state is SearchResultsState &&
-                                                              state.answers !=
-                                                                  []
-                                                          ? state.answers
-                                                          : [
-                                                              Row(
-                                                                children: [
-                                                                  Expanded(
-                                                                      child:
-                                                                          Container())
-                                                                ],
-                                                              )
-                                                            ],
-                                                ),
-                                              ),
-                                            )))),
+                                  child: FlipCard(
+                                    key: cardKey,
+                                    flipOnTouch: false,
+                                    front: QueryField(size: size),
+                                    back: Container(
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            width: 2, color: AppColors.cGreen),
+                                        borderRadius: BorderRadius.circular(32),
+                                        // color: AppColors.cLightGrey,
+                                      ),
+                                      child: SingleChildScrollView(
+                                        child: Padding(
+                                          padding: EdgeInsets.all(8),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.stretch,
+                                            children: state
+                                                        is SearchResultsState &&
+                                                    state.answers != []
+                                                ? state.answers
+                                                : [
+                                                    Row(
+                                                      children: [
+                                                        Expanded(
+                                                            child: Container())
+                                                      ],
+                                                    )
+                                                  ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                               // Everything else
                               SizedBox(height: 32),

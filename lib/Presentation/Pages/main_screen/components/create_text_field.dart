@@ -43,6 +43,7 @@ class TextFieldCreation extends StatelessWidget {
             expands: true,
             maxLines: null,
             minLines: null,
+            textDirection: TextDirection.rtl,
             decoration: InputDecoration(
               hintText: text,
               hintStyle: AppFonts.bodyText1,
