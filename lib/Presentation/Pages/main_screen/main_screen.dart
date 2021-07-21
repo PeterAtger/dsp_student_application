@@ -5,6 +5,7 @@ import 'package:dsp_student_application/Presentation/Pages/main_screen/component
 import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
@@ -18,6 +19,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    ));
     return BlocProvider(
       create: (context) => SearchCubit(),
       child: ScreenBody(),

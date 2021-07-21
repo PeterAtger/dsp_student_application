@@ -106,7 +106,9 @@ class _ProfileState extends State<Profile> {
                     ),
                     Center(
                       child: Text(
-                        ProfileData.fullName,
+                        ProfileData.fullName != null
+                            ? ProfileData.fullName
+                            : 'Debug Mode',
                         style:
                             AppFonts.heading5.copyWith(color: AppColors.cWhite),
                       ),
@@ -126,14 +128,18 @@ class _ProfileState extends State<Profile> {
                         ),
                         TeacherProfileInf(
                           field1: '${LocaleKeys.Email.tr()}: ',
-                          field2: ProfileData.email,
+                          field2: ProfileData.email != null
+                              ? ProfileData.email
+                              : 'Email should be here',
                         ),
                         SizedBox(
                           height: 24,
                         ),
                         TeacherProfileInf(
                           field1: '${LocaleKeys.grade.tr()}: ',
-                          field2: state.grade.toString().split('.').last,
+                          field2: state.grade != null
+                              ? state.grade.toString().split('.').last
+                              : 'Tester',
                         ),
                         SizedBox(
                           height: 24,
@@ -148,7 +154,7 @@ class _ProfileState extends State<Profile> {
                         QuestionButton(
                           size: size,
                           text:
-                              '${LocaleKeys.AnsweredQuestions.tr()}: ${AnsweredQuestionsData.listOfAnswers.length}',
+                              '${LocaleKeys.AnsweredQuestions.tr()}: ${AnsweredQuestionsData.listOfAnswers != null ? AnsweredQuestionsData.listOfAnswers.length : '-'}',
                           green: false,
                           onPressed:
                               context.read<NavbarCubit>().goToAnsweredQuestions,

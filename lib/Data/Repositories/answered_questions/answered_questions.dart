@@ -11,6 +11,7 @@ class AnsweredQuestionsData {
   }
 
   static void addAnswer(String answer) {
+    print(listOfAnswers);
     if (!listOfAnswers.contains(answer)) {
       listOfAnswers.add(answer);
     }
@@ -26,6 +27,6 @@ class AnsweredQuestionsData {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     List<String> loadedList = prefs.getStringList('listOfAnswers');
-    listOfAnswers = loadedList;
+    if (loadedList != null) listOfAnswers = loadedList;
   }
 }

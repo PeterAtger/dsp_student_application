@@ -1,3 +1,4 @@
+import 'package:dsp_student_application/Data/Repositories/profile_data/profile_data.dart';
 import 'package:dsp_student_application/Logic/authentication/authentication_cubit.dart';
 import 'package:dsp_student_application/Presentation/Global_components/DarkPageSnackBar.dart';
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/components/BackGroundGradient.dart';
@@ -75,9 +76,10 @@ class _SignInState extends State<SignIn> {
                     builder: (context, state) {
                       return BlocListener<AuthenticationCubit,
                           AuthenticationState>(
-                        listener: (context, state) {
+                        listener: (context, state) async {
                           if (state.code != null) {
                             if (state.code <= 299 && state.code >= 200) {
+                              await ProfileData.getProfileInfo();
                               Navigator.of(context)
                                   .pushReplacementNamed('/MainScreen');
                             }
