@@ -4,7 +4,6 @@ import 'package:dsp_student_application/Presentation/Pages/main_screen/component
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/upload_file.dart';
 import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flip_card/flip_card.dart';
-import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

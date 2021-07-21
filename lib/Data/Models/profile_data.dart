@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
-enum Grade { Primary, Preparatory, Secondary }
+enum Grade { Primary, Preparatory, Secondary, Enthusiast }
 
-class ProfileData {
-  String name;
+class Profile {
+  String fullName;
   String email;
   Grade grade;
   int userSince;

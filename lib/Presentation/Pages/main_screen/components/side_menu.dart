@@ -1,4 +1,6 @@
+import 'package:dsp_student_application/Data/Models/profile_data.dart';
 import 'package:dsp_student_application/Data/Repositories/authentication.dart';
+import 'package:dsp_student_application/Data/Repositories/profile_data/profile_data.dart';
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/Global_components/GradientLine.dart';
@@ -101,7 +103,7 @@ class SidMenuBar extends StatelessWidget {
                   ),
                   SizedBox(width: 8),
                   Text(
-                    " احمد علاء",
+                    ProfileData.fullName != null ? ProfileData.fullName : 'N/A',
                     style:
                         AppFonts.heading5.copyWith(color: AppColors.cDarkGrey),
                   ),

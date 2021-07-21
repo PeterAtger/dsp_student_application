@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:dsp_student_application/Constants/constants.dart';
 import 'package:dsp_student_application/Data/Repositories/authentication.dart';
+import 'package:dsp_student_application/Data/Repositories/profile_data/profile_data.dart';
 import 'package:dsp_student_application/Data/Repositories/user_data.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
@@ -27,7 +28,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     if (signInData.containsKey('token'))
       Tokens.signInToken = signInData['token'];
-
+    ProfileData.getProfileInfo();
     emit(AuthenticationState(data: signInData, code: code1));
   }
 
@@ -51,7 +52,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     int code2 = response.statusCode;
     if (signUpData.containsKey('token'))
       Tokens.signInToken = signUpData['token'];
-
+    ProfileData.getProfileInfo();
     emit(AuthenticationState(data: signUpData, code: code2));
   }
 

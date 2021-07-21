@@ -4,6 +4,7 @@ import 'package:dsp_student_application/Logic/authentication/authentication_cubi
 import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
 import 'package:dsp_student_application/Logic/load_file/loadfile_cubit.dart';
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
+import 'package:dsp_student_application/Logic/profile_data/profile_data_cubit.dart';
 import 'package:dsp_student_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_student_application/Presentation/router.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -44,6 +45,9 @@ class App extends StatelessWidget {
             create: (context) => AnsweredQuestionsCubit()),
         BlocProvider<AuthenticationCubit>(
           create: (BuildContext context) => AuthenticationCubit(),
+        ),
+        BlocProvider<ProfileDataCubit>(
+          create: (BuildContext context) => ProfileDataCubit(),
         ),
       ],
       child: MaterialApp(
