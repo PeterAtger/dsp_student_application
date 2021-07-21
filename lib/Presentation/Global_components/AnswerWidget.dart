@@ -25,19 +25,11 @@ class AnswerWidget extends StatelessWidget {
             ]),
         child: Row(
           children: [
-            Container(
-              height: 2,
-              width: 8,
-              decoration: BoxDecoration(
-                // shape: BoxShape.circle,
-                color: AppColors.cPurple[700],
-              ),
-            ),
-            SizedBox(width: 8),
             Expanded(
               child: Container(
                 child: Text(
-                  this.answer,
+                  '- ${this.answer}',
+                  textDirection: TextDirection.rtl,
                   style: AppFonts.bodyText1,
                   textAlign: TextAlign.justify,
                 ),

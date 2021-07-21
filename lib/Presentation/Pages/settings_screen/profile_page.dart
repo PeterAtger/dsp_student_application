@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:adobe_xd/adobe_xd.dart';
+import 'package:dsp_student_application/Data/Repositories/answered_questions/answered_questions.dart';
 import 'package:dsp_student_application/Data/Repositories/profile_data/profile_data.dart';
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Logic/profile_data/profile_data_cubit.dart';
@@ -146,7 +147,8 @@ class _ProfileState extends State<Profile> {
                         SizedBox(height: 16),
                         QuestionButton(
                           size: size,
-                          text: '${LocaleKeys.AnsweredQuestions.tr()}: 3',
+                          text:
+                              '${LocaleKeys.AnsweredQuestions.tr()}: ${AnsweredQuestionsData.listOfAnswers.length}',
                           green: false,
                           onPressed:
                               context.read<NavbarCubit>().goToAnsweredQuestions,
@@ -154,7 +156,7 @@ class _ProfileState extends State<Profile> {
                         SizedBox(height: 16),
                         QuestionButton(
                           size: size,
-                          text: '${LocaleKeys.WaitingQuestion.tr()}: 3',
+                          text: '${LocaleKeys.WaitingQuestion.tr()}: -',
                           green: true,
                           onPressed:
                               context.read<NavbarCubit>().goToWaitingQuestions,
