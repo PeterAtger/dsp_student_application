@@ -24,9 +24,7 @@ class SearchBar extends StatelessWidget {
           return Hero(
             tag: 'Search',
             child: Container(
-              width: size.width * 0.8,
               height: 52,
-              // padding: const EdgeInsets.symmetric(horizontal: 16),
               child: TextField(
                 onChanged: (value) {
                   if (value != null)

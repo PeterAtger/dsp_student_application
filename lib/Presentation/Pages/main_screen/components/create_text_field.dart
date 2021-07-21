@@ -21,7 +21,6 @@ class TextFieldCreation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size.width * 0.8,
       decoration: (border == false)
           ? null
           : BoxDecoration(

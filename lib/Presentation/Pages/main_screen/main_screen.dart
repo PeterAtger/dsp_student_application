@@ -79,13 +79,16 @@ class _ScreenBodyState extends State<ScreenBody> {
                   ),
 
                   Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        SearchBar(size: size),
-                        QueryField(size: size),
-                        UploadButton(size: size),
-                      ],
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 32),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SearchBar(size: size),
+                          QueryField(size: size),
+                          UploadButton(size: size),
+                        ],
+                      ),
                     ),
                   ),
                 ],

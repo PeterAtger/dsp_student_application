@@ -15,7 +15,6 @@ class GradientOutline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size.width * 0.8,
       padding: EdgeInsets.all(3),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(radius)),

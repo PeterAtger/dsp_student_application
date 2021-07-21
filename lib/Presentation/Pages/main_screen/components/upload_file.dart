@@ -23,7 +23,6 @@ class UploadButton extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(32),
                 border: Border.all(color: AppColors.cDarkGrey, width: 2)),
-            width: 0.8 * size.width,
             child: OutlinedButton(
               onPressed: () {
                 context.read<LoadfileCubit>().onButtonClick();

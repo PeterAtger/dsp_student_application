@@ -107,7 +107,7 @@ static const Map<String,dynamic> en = {
   "Menu": "Menu",
   "Help": "Help",
   "Settings": "Setttings",
-  "LogOut": "LOG OUT",
+  "LogOut": "Log Out",
   "Rating": "Rating",
   "AnsweredQuestions": "Answered Questions",
   "WaitingQuestion": "Waiting Questions",
