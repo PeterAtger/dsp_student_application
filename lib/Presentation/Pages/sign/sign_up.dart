@@ -25,7 +25,8 @@ class _SignUpState extends State<SignUp> {
     [0, LocaleKeys.grade.tr(), 'lib/Presentation/Images/greade.svg'],
     [1, LocaleKeys.Primary.tr(), 'lib/Presentation/Images/boysvg.svg'],
     [2, LocaleKeys.Preparatory.tr(), 'lib/Presentation/Images/girl.svg'],
-    [3, LocaleKeys.Secondary.tr(), 'lib/Presentation/Images/secondaryboy.svg']
+    [3, LocaleKeys.Secondary.tr(), 'lib/Presentation/Images/secondaryboy.svg'],
+    [4, LocaleKeys.Enthusiast.tr(), 'lib/Presentation/Images/enthusiast.svg']
   ];
   int _selectedItem;
   final nameController = TextEditingController();
@@ -173,7 +174,8 @@ class _SignUpState extends State<SignUp> {
                         listener: (context, state) {
                           if (state.code != null) {
                             if (state.code <= 299 && state.code >= 200) {
-                              Navigator.of(context).pushNamed('/HIW');
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/HIW');
                             }
 
                             if (state.code <= 499 && state.code >= 400) {

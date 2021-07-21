@@ -78,7 +78,8 @@ class _SignInState extends State<SignIn> {
                         listener: (context, state) {
                           if (state.code != null) {
                             if (state.code <= 299 && state.code >= 200) {
-                              Navigator.of(context).pushNamed('/MainScreen');
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/MainScreen');
                             }
 
                             if (state.code <= 499 && state.code >= 400) {

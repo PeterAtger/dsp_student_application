@@ -77,7 +77,8 @@ class CodegenLoader extends AssetLoader{
   "write_new_query": "أدخل جملة جديدة",
   "urgent": "عاجل",
   "disclaimer": "10 kbs يجب أن لا يتعدى حجم الملف ",
-  "user_since": "تاريخ الاشتراك"
+  "user_since": "تاريخ الاشتراك",
+  "Enthusiast": "هاوي"
 };
 static const Map<String,dynamic> en = {
   "Email": "Email",
@@ -142,7 +143,8 @@ static const Map<String,dynamic> en = {
   "write_new_query": "Write a new Query",
   "urgent": "Urgent ",
   "disclaimer": "*Disclaimer: The file size should not exceed 10 kbs",
-  "user_since": "User Since: "
+  "user_since": "User Since: ",
+  "Enthusiast": "Enthusiast"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

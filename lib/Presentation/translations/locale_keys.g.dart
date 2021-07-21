@@ -19,7 +19,7 @@ abstract class LocaleKeys {
   static const LetStart = 'LetStart';
   static const MainScreen = 'MainScreen';
   static const WelcomeBack = 'WelcomeBack';
-  static const We_veGotNew = "We'veGotNew";
+  static const We_veGotNew = 'We\'veGotNew';
   static const Primary = 'Primary';
   static const Preparatory = 'Preparatory';
   static const Secondary = 'Secondary';
@@ -64,4 +64,5 @@ abstract class LocaleKeys {
   static const urgent = 'urgent';
   static const disclaimer = 'disclaimer';
   static const user_since = 'user_since';
+  static const Enthusiast = 'Enthusiast';
 }

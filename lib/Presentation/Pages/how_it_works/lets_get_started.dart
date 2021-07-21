@@ -1,7 +1,7 @@
 import 'package:dsp_student_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
-import 'package:dsp_student_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:easy_localization/easy_localization.dart';

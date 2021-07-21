@@ -1,11 +1,12 @@
 import 'package:adobe_xd/adobe_xd.dart';
+import 'package:dsp_student_application/Data/Repositories/authentication.dart';
 import 'package:dsp_student_application/Presentation/Global_components/GradientLine.dart';
 import 'package:dsp_student_application/Presentation/Global_components/TitleBar.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/ContactUsList.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/IconListSetting.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
+import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:dsp_student_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
@@ -62,7 +63,9 @@ class _SettingsState extends State<Settings> {
             IconListSetting(
               iconName: 'how_it_works_question_mark',
               settingText: LocaleKeys.HowItWorks.tr(),
-              onTab: () {},
+              onTab: () {
+                Navigator.of(context).pushReplacementNamed('/HIW');
+              },
             ),
             IconListSetting(
                 iconName: 'earth-globe',
@@ -77,7 +80,10 @@ class _SettingsState extends State<Settings> {
             IconListSetting(
               iconName: 'profile',
               settingText: LocaleKeys.LogOut.tr(),
-              onTab: () {},
+              onTab: () {
+                Tokens.signInToken = null;
+                Navigator.of(context).pushReplacementNamed('/signIn');
+              },
             ),
             SizedBox(height: 32),
             GradientLine(size: size),

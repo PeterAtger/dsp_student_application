@@ -1,3 +1,4 @@
+import 'package:dsp_student_application/Data/Repositories/authentication.dart';
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/Global_components/GradientLine.dart';
@@ -20,10 +21,15 @@ class SideMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       // give it The desired border radius
-      borderRadius: BorderRadius.only(
-        bottomRight: Radius.circular(56),
-        topRight: Radius.circular(56),
-      ),
+      borderRadius: context.locale == Locale('en')
+          ? BorderRadius.only(
+              bottomRight: Radius.circular(56),
+              topRight: Radius.circular(56),
+            )
+          : BorderRadius.only(
+              bottomLeft: Radius.circular(56),
+              topLeft: Radius.circular(56),
+            ),
       // wrap with a sizedbox for a custom width [for more flexibility]
       child: SizedBox(
         width: size.width / 1.2,
@@ -135,6 +141,8 @@ class SidMenuBar extends StatelessWidget {
                     text: LocaleKeys.LogOut.tr(),
                     onTab: () {
                       Navigator.of(context).pop();
+                      Tokens.signInToken = null;
+                      Navigator.of(context).pushReplacementNamed('/signIn');
                     },
                   ),
                 ]),

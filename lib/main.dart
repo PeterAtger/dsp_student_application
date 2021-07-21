@@ -1,3 +1,4 @@
+import 'package:dsp_student_application/Data/Repositories/authentication.dart';
 import 'package:dsp_student_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_student_application/Logic/authentication/authentication_cubit.dart';
 import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
@@ -52,7 +53,7 @@ class App extends StatelessWidget {
         locale: context.locale,
         title: 'Student Demo',
         theme: ThemeData(
-          primarySwatch: AppColors.cPurple,
+          primarySwatch: AppColors.cGreen,
           accentColor: AppColors.cGreen,
           scaffoldBackgroundColor: Colors.white,
           fontFamily: 'lato',
@@ -62,7 +63,7 @@ class App extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         onGenerateRoute: RouterGenerator.generateRoute,
-        initialRoute: '/',
+        initialRoute: Tokens.signInToken == null ? '/' : '/MainScreen',
       ),
     );
   }
