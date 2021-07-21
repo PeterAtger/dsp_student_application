@@ -4,12 +4,7 @@ import 'package:meta/meta.dart';
 
 part 'waitingquestions_state.dart';
 
-List<String> answers = [
-  'BEBO IS SO stupid, I think she has a batata in her head',
-  'msh 3arf akteb eeee33',
-  'ana zh2an awy bgd',
-  'tftkro albta3 da hn5lso emta b2aaaa333'
-];
+List<String> answers = [];
 
 class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
   WaitingQuestionsCubit() : super(WaitingQuestionsState(null));

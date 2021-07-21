@@ -28,10 +28,13 @@ class SearchCubit extends Cubit<SearchState> {
       if (response.statusCode < 299) {
         final List results = json.decode(utf8.decode(response.bodyBytes));
         List<Widget> resultContainers = [];
-        for (int i = 0; i < results.length; i++) {
-          resultContainers.add(ResultListTile(text: results[i]['diacritized']));
+        if (results != []) {
+          for (int i = 0; i < results.length; i++) {
+            resultContainers
+                .add(ResultListTile(text: results[i]['diacritized']));
+          }
+          emit(SearchResultsState(resultContainers));
         }
-        emit(SearchResultsState(resultContainers));
       }
     }
   }

@@ -22,9 +22,9 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
     }
     if (ProfileData.fullName != null)
       emit(ProfileDataState(
-          fullName: ProfileData.fullName,
-          email: ProfileData.email,
-          grade: ProfileData.grade,
-          rating: ProfileData.rating));
+        fullName: ProfileData.fullName,
+        email: ProfileData.email,
+        grade: ProfileData.grade,
+      ));
   }
 }

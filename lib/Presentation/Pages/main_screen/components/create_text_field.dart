@@ -38,7 +38,7 @@ class TextFieldCreation extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: AutoSizeTextField(
             style: AppFonts.bodyText1,
-            controller: TextEditingController(),
+            controller: this.controller,
             onChanged: (String txt) {
               print(txt);
             },

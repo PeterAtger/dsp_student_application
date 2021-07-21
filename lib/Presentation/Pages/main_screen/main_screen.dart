@@ -4,13 +4,10 @@ import 'package:dsp_student_application/Presentation/Pages/main_screen/component
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/upload_file.dart';
 import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flip_card/flip_card.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/Global_components/ArabicImage.dart';
-import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
-import 'package:dsp_student_application/Presentation/Global_components/LightPageSnackBar.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,8 +38,8 @@ class _ScreenBodyState extends State<ScreenBody>
     TextEditingController _textController = TextEditingController();
     GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
 
-    return Scaffold(
-      body: Stack(alignment: Alignment.bottomCenter, children: [
+    return Container(
+      child: Stack(alignment: Alignment.bottomCenter, children: [
         //Screen Backgroud
         ArabicImage(
           size: size.height / 1.5,
@@ -167,57 +164,6 @@ class _ScreenBodyState extends State<ScreenBody>
               )),
         ),
       ]),
-    );
-  }
-}
-
-//New quary urgent bar consists of Text widget "Urgent" , swich , Image -> check
-class UrgantBar extends StatefulWidget {
-  @override
-  _UrgantBarState createState() => _UrgantBarState();
-}
-
-class _UrgantBarState extends State<UrgantBar> {
-  bool isUrgent = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(children: [
-            Text(
-              LocaleKeys.urgent.tr(),
-              style: AppFonts.bodyText1,
-            ),
-            Container(
-              child: Switch(
-                  value: isUrgent,
-                  activeColor: AppColors.cGreen,
-                  onChanged: (value) {}),
-            )
-          ]),
-          BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
-            builder: (context, state) {
-              return IconButton(
-                icon: SvgPicture.asset(
-                  "lib/Presentation/Images/check.svg",
-                  height: 32,
-                  color: AppColors.cGreen,
-                ),
-                onPressed: () {
-                  if (state.isConnected)
-                    print(LocaleKeys.search.tr());
-                  else
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                },
-              );
-            },
-          ),
-        ],
-      ),
     );
   }
 }

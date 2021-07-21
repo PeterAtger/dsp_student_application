@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:dsp_student_application/Constants/constants.dart';
-import 'package:dsp_student_application/Data/Repositries/sign_in_token.dart';
-import 'package:dsp_student_application/Logic/urgent_bar_cubit/urgentbarcubit_cubit.dart';
+import 'package:dsp_student_application/Data/Repositories/answered_questions/answered_questions.dart';
+import 'package:dsp_student_application/Data/Repositories/authentication.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 
@@ -16,14 +16,15 @@ class SendQuestionsCubit extends Cubit<SendQuestionsState> {
     final url = Uri.parse('$BASEURL/sentences/new/');
     final headers = {
       "Content-type": "application/json",
-      "authorization": "Token $SIGNINTOKEN"
+      "authorization": "Token ${Tokens.signInToken}"
     };
-    final json = jsonEncode({"raw": sentence, "urgent": urgent});
-    final response = await post(url, headers: headers, body: json);
-    final diacritizedSentence = jsonDecode(response.body);
+    final body = jsonEncode({"raw": sentence, "urgent": urgent});
+    final response = await post(url, headers: headers, body: body);
+    final diacritizedSentence = json.decode(utf8.decode(response.bodyBytes));
     print(diacritizedSentence);
 
     print('Status code: ${response.statusCode}');
+    AnsweredQuestionsData.addAnswer(diacritizedSentence);
     emit(SendQuestionsState(
         code: response.statusCode, diacritizedSentence: diacritizedSentence));
   }
