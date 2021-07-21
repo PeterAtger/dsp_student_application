@@ -6,17 +6,19 @@ class TextFieldCreation extends StatelessWidget {
   const TextFieldCreation({
     Key key,
     @required this.size,
-    @required this.text,
+    @required this.hintText,
     this.fieldicon,
     this.maximumLines = 1,
     this.border = true,
+    this.controller,
   }) : super(key: key);
 
   final Size size;
-  final String text;
+  final String hintText;
   final IconButton fieldicon;
   final bool border;
   final int maximumLines;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,7 @@ class TextFieldCreation extends StatelessWidget {
             minLines: null,
             textDirection: TextDirection.rtl,
             decoration: InputDecoration(
-              hintText: text,
+              hintText: hintText,
               hintStyle: AppFonts.bodyText1,
               border: InputBorder.none,
               suffixIcon: fieldicon,

@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 class GradientOutline extends StatelessWidget {
   const GradientOutline({
     Key key,
-    @required this.chld,
+    @required this.child,
     @required this.size,
     this.radius = 22,
   }) : super(key: key);
-  final Widget chld;
+  final Widget child;
   final Size size;
   final double radius;
 
@@ -30,7 +30,7 @@ class GradientOutline extends StatelessWidget {
           color: AppColors.cWhite,
           borderRadius: BorderRadius.all(Radius.circular(radius - 3)),
         ),
-        child: chld,
+        child: child,
       ),
     );
   }

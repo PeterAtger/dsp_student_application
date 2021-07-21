@@ -30,6 +30,9 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       Tokens.signInToken = signInData['token'];
     ProfileData.getProfileInfo();
     emit(AuthenticationState(data: signInData, code: code1));
+
+    if (signInData.containsKey('token'))
+      Tokens.signInToken = signInData['token'];
   }
 
   Future<void> signUpPostRequest(
