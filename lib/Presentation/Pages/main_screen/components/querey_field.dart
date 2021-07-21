@@ -22,16 +22,19 @@ class QueryField extends StatelessWidget {
       radius: 32,
       chld: Column(
         children: [
-          BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
-            builder: (context, state) {
-              return TextFieldCreation(
-                  size: size,
-                  text: state.isConnected
-                      ? LocaleKeys.write_new_query.tr()
-                      : "No internet coneection",
-                  maximumLines: (size.height * 0.3 / 22).floor(),
-                  border: false);
-            },
+          Expanded(
+            child:
+                BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
+              builder: (context, state) {
+                return TextFieldCreation(
+                    size: size,
+                    text: state.isConnected
+                        ? LocaleKeys.write_new_query.tr()
+                        : "No internet coneection",
+                    maximumLines: (size.height * 0.3 / 22).floor(),
+                    border: false);
+              },
+            ),
           ),
           UrgantBar(),
         ],

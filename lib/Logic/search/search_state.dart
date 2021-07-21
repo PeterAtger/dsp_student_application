@@ -1,8 +1,16 @@
 part of 'search_cubit.dart';
 
 @immutable
-class SearchState {
-  final List<String> searchResults;
+abstract class SearchState {}
 
-  SearchState({this.searchResults});
+class SearchFlipperState extends SearchState {
+  final int isFlipped;
+
+  SearchFlipperState(this.isFlipped);
+}
+
+class SearchResultsState extends SearchState {
+  final List<Widget> answers;
+
+  SearchResultsState(this.answers);
 }

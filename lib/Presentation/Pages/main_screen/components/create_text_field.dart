@@ -25,6 +25,7 @@ class TextFieldCreation extends StatelessWidget {
           ? null
           : BoxDecoration(
               borderRadius: BorderRadius.circular(32.0),
+              color: AppColors.cGreen,
               border: Border.all(
                 width: 2,
                 color: AppColors.cDarkGrey,
@@ -39,7 +40,9 @@ class TextFieldCreation extends StatelessWidget {
             onChanged: (String txt) {
               print(txt);
             },
-            maxLines: maximumLines,
+            expands: true,
+            maxLines: null,
+            minLines: null,
             decoration: InputDecoration(
               hintText: text,
               hintStyle: AppFonts.bodyText1,
