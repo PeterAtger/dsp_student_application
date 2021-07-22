@@ -77,7 +77,7 @@ class _SignInState extends State<SignIn> {
                       return BlocListener<AuthenticationCubit,
                           AuthenticationState>(
                         listener: (context, state) async {
-                          if (state.code != null) {
+                          if (state.code != null && state.isSignIn) {
                             if (state.code <= 299 && state.code >= 200) {
                               await ProfileData.getProfileInfo();
                               Navigator.of(context)

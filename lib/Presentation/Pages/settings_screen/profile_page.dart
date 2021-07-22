@@ -81,8 +81,8 @@ class _ProfileState extends State<Profile> {
                           child: Center(
                             child: state.imagePath != null
                                 ? Container(
-                                    height: 96,
-                                    width: 96,
+                                    height: 0.1 * size.height,
+                                    width: 0.1 * size.height,
                                     child: Image.file(
                                       File(state.imagePath),
                                       fit: BoxFit.cover,
@@ -93,8 +93,8 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   )
                                 : Container(
-                                    height: 96,
-                                    width: 96,
+                                    height: 0.1 * size.height,
+                                    width: 0.1 * size.height,
                                     decoration: BoxDecoration(
                                       color: AppColors.cWhite,
                                       shape: BoxShape.circle,

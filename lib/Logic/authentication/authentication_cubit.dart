@@ -29,7 +29,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     if (signInData.containsKey('token'))
       Tokens.signInToken = signInData['token'];
     ProfileData.getProfileInfo();
-    emit(AuthenticationState(data: signInData, code: code1));
+    emit(AuthenticationState(data: signInData, code: code1, isSignIn: true));
 
     if (signInData.containsKey('token'))
       Tokens.signInToken = signInData['token'];
@@ -56,7 +56,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     if (signUpData.containsKey('token'))
       Tokens.signInToken = signUpData['token'];
     ProfileData.getProfileInfo();
-    emit(AuthenticationState(data: signUpData, code: code2));
+    emit(AuthenticationState(data: signUpData, code: code2, isSignIn: false));
   }
 
   void setGrade(userGrade) {
