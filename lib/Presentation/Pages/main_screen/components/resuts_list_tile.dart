@@ -19,14 +19,8 @@ class ResultListTile extends StatelessWidget {
             child: Container(
               height: 36,
               decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: AppColors.cLightGrey,
-                        spreadRadius: 4,
-                        blurRadius: 4)
-                  ],
-                  color: AppColors.cWhite,
-                  borderRadius: BorderRadius.circular(32)),
+                color: AppColors.cWhite,
+              ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Align(

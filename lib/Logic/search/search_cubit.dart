@@ -29,7 +29,9 @@ class SearchCubit extends Cubit<SearchState> {
         final List results = json.decode(utf8.decode(response.bodyBytes));
         List<Widget> resultContainers = [];
         if (results != []) {
-          for (int i = 0; i < results.length; i++) {
+          for (int i = 0;
+              i < results.length && results[i]['diacritized'] != null;
+              i++) {
             resultContainers
                 .add(ResultListTile(text: results[i]['diacritized']));
           }

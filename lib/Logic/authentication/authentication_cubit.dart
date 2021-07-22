@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:dsp_student_application/Constants/constants.dart';
+import 'package:dsp_student_application/Data/Repositories/answered_questions/answered_questions.dart';
 import 'package:dsp_student_application/Data/Repositories/authentication.dart';
 import 'package:dsp_student_application/Data/Repositories/profile_data/profile_data.dart';
 import 'package:dsp_student_application/Data/Repositories/user_data.dart';
@@ -29,10 +30,9 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     if (signInData.containsKey('token'))
       Tokens.signInToken = signInData['token'];
     ProfileData.getProfileInfo();
-    emit(AuthenticationState(data: signInData, code: code1, isSignIn: true));
+    AnsweredQuestionsData.listOfAnswers = [];
 
-    if (signInData.containsKey('token'))
-      Tokens.signInToken = signInData['token'];
+    emit(AuthenticationState(data: signInData, code: code1, isSignIn: true));
   }
 
   Future<void> signUpPostRequest(
@@ -56,6 +56,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     if (signUpData.containsKey('token'))
       Tokens.signInToken = signUpData['token'];
     ProfileData.getProfileInfo();
+    AnsweredQuestionsData.listOfAnswers = [];
     emit(AuthenticationState(data: signUpData, code: code2, isSignIn: false));
   }
 

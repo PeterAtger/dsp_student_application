@@ -4,7 +4,7 @@ import 'package:dsp_student_application/Presentation/Theme/theme.dart';
 import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart' as easyLocaliztion;
 
 class UploadButton extends StatelessWidget {
   const UploadButton({
@@ -64,6 +64,7 @@ class UploadButton extends StatelessWidget {
           Center(
             child: AutoSizeText(
               LocaleKeys.disclaimer.tr(),
+              textDirection: TextDirection.ltr,
               style: AppFonts.captionText,
               maxLines: 1,
             ),

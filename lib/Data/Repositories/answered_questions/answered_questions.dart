@@ -4,7 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AnsweredQuestionsData {
   const AnsweredQuestionsData();
 
-  static bool listChanged = true;
   static List<String> listOfAnswers = [];
 
   static Future<List<String>> getAnswers() async {
@@ -17,7 +16,6 @@ class AnsweredQuestionsData {
     if (!listOfAnswers.contains(answer)) {
       listOfAnswers.add(answer);
     }
-    listChanged = true;
     _saveToPhone();
   }
 

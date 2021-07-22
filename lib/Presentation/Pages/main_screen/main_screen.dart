@@ -124,6 +124,8 @@ class _ScreenBodyState extends State<ScreenBody>
                                     flipOnTouch: false,
                                     front: QueryField(size: size),
                                     back: Container(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 8),
                                       clipBehavior: Clip.antiAlias,
                                       decoration: BoxDecoration(
                                         border: Border.all(
