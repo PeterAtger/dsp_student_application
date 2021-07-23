@@ -29,7 +29,6 @@ class ProfileData {
       fullName = profileData['data']['full_name'];
       email = profileData['data']['email'];
       grade = Grade.values[profileData['data']['student']['grade'] - 1];
-      // rating = profileData['data']['teacher']['rating'];
     }
 
     return (code);

@@ -23,8 +23,7 @@ class SearchCubit extends Cubit<SearchState> {
       final headers = {"Content-type": "application/json"};
 
       final Response response = await get(url, headers: headers);
-      // print('Status code: ${response.statusCode}');
-      // print('Body: ${response.body}');
+      print('Status code: ${response.statusCode}');
       if (response.statusCode < 299) {
         final List results = json.decode(utf8.decode(response.bodyBytes));
         List<Widget> resultContainers = [];
@@ -36,8 +35,18 @@ class SearchCubit extends Cubit<SearchState> {
                 .add(ResultListTile(text: results[i]['diacritized']));
           }
           emit(SearchResultsState(resultContainers));
+        } else {
+          emit(SearchResultsState([ResultListTile(text: '')]));
         }
+      } else {
+        emit(SearchResultsState([ResultListTile(text: '')]));
       }
+    } else {
+      emit(SearchResultsState([
+        ResultListTile(
+          text: '',
+        )
+      ]));
     }
   }
 }

@@ -38,6 +38,10 @@ class _SearchBarState extends State<SearchBar> {
           child: Container(
               height: 52,
               child: TextField(
+                onChanged: (value) {
+                  print(value);
+                  context.read<SearchCubit>().getSearchResults(value);
+                },
                 controller: this.widget.controller,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(16),

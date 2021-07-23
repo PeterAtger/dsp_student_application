@@ -1,10 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:dsp_student_application/Data/Models/profile_data.dart';
-import 'package:dsp_student_application/Data/Repositories/authentication.dart';
 import 'package:dsp_student_application/Data/Repositories/profile_data/profile_data.dart';
 import 'package:meta/meta.dart';
 
 part 'profile_data_state.dart';
+
+// NOT IMPORTANTTTT YOU CAN REMOVE THIS CLASS LATER
 
 class ProfileDataCubit extends Cubit<ProfileDataState> {
   ProfileDataCubit()
@@ -13,10 +14,10 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
             email: 'N/A',
             rating: ' ',
             statusCode: null,
-            grade: Grade.Primary));
+            grade: null));
 
   void showProfileData() async {
-    print(Tokens.signInToken);
+    print(ProfileData.grade);
     if (ProfileData.fullName == null) {
       await ProfileData.getProfileInfo();
     }

@@ -1,3 +1,4 @@
+import 'package:dsp_student_application/Data/Repositories/profile_data/profile_data.dart';
 import 'package:dsp_student_application/Logic/search/search_cubit.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/querey_field.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/search_bar.dart';
@@ -107,12 +108,10 @@ class _ScreenBodyState extends State<ScreenBody>
                                 size: size,
                                 controller: _textController
                                   ..addListener(() {
-                                    if (cardKey.currentState.isFront ||
-                                        _textController.text == '')
+                                    if (cardKey.currentState.isFront &&
+                                        _textController.text != '') {
                                       context.read<SearchCubit>().flipper(1);
-                                    context
-                                        .read<SearchCubit>()
-                                        .getSearchResults(_textController.text);
+                                    }
                                   }),
                               ),
                               SizedBox(height: 32),
@@ -141,7 +140,8 @@ class _ScreenBodyState extends State<ScreenBody>
                                                 CrossAxisAlignment.stretch,
                                             children: state
                                                         is SearchResultsState &&
-                                                    state.answers != []
+                                                    state.answers != [] &&
+                                                    _textController.text != ''
                                                 ? state.answers
                                                 : [
                                                     Row(

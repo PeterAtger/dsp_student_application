@@ -136,16 +136,16 @@ class _ProfileState extends State<Profile> {
                           height: 24,
                         ),
                         TeacherProfileInf(
-                          field1: '${LocaleKeys.grade.tr()}: ',
-                          field2: state.grade != null
-                              ? state.grade.toString().split('.').last
+                          field1: '${LocaleKeys.grade.tr()} ',
+                          field2: ProfileData.grade != null
+                              ? ProfileData.grade.toString().split('.').last
                               : 'Tester',
                         ),
                         SizedBox(
                           height: 24,
                         ),
                         TeacherProfileInf(
-                          field1: '${LocaleKeys.user_since.tr()}: ',
+                          field1: '${LocaleKeys.user_since.tr()} ',
                           field2: '1+ years',
                         ),
                         SizedBox(height: 32),
