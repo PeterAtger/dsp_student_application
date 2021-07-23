@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dsp_student_application/Logic/internet_connection/internetconnection_cubit.dart';
 import 'package:dsp_student_application/Logic/search/search_cubit.dart';
 import 'package:dsp_student_application/Presentation/Theme/theme.dart';
@@ -24,6 +26,13 @@ class SearchBar extends StatefulWidget {
 
 class _SearchBarState extends State<SearchBar> {
   GlobalKey<FlipCardState> iconKey = GlobalKey<FlipCardState>();
+  Timer _debounce;
+  @override
+  void dispose() {
+    _debounce?.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InternetconnectionCubit, InternetconnectionState>(
@@ -39,8 +48,11 @@ class _SearchBarState extends State<SearchBar> {
               height: 52,
               child: TextField(
                 onChanged: (value) {
-                  print(value);
-                  context.read<SearchCubit>().getSearchResults(value);
+                  if (_debounce?.isActive ?? false) _debounce.cancel();
+                  _debounce = Timer(const Duration(milliseconds: 500), () {
+                    print(value);
+                    context.read<SearchCubit>().getSearchResults(value);
+                  });
                 },
                 controller: this.widget.controller,
                 decoration: InputDecoration(

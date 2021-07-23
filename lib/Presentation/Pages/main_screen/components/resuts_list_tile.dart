@@ -5,9 +5,11 @@ class ResultListTile extends StatelessWidget {
   const ResultListTile({
     Key key,
     this.text,
+    this.error = false,
   }) : super(key: key);
 
   final String text;
+  final bool error;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,9 @@ class ResultListTile extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: Text(
                     this.text,
-                    style: AppFonts.bodyText1,
+                    style: this.error
+                        ? AppFonts.bodyText1.copyWith(color: Colors.red)
+                        : AppFonts.bodyText1,
                     overflow: TextOverflow.fade,
                     textDirection: TextDirection.rtl,
                   ),

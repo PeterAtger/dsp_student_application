@@ -21,6 +21,7 @@ class SearchCubit extends Cubit<SearchState> {
     if (query != '') {
       final url = Uri.parse('$BASEURL/sentences/?search=$query');
       final headers = {"Content-type": "application/json"};
+      // print(query);
 
       final Response response = await get(url, headers: headers);
       print('Status code: ${response.statusCode}');
@@ -34,19 +35,22 @@ class SearchCubit extends Cubit<SearchState> {
             resultContainers
                 .add(ResultListTile(text: results[i]['diacritized']));
           }
-          emit(SearchResultsState(resultContainers));
-        } else {
-          emit(SearchResultsState([ResultListTile(text: '')]));
+          resultContainers.isNotEmpty
+              ? emit(SearchResultsState(resultContainers))
+              : emit(SearchResultsState([
+                  ResultListTile(
+                      text: 'عفواً، ليس لدينا تشكيل لهذة الجملة', error: true)
+                ]));
         }
-      } else {
-        emit(SearchResultsState([ResultListTile(text: '')]));
+        // else {
+        // emit(SearchResultsState([ResultListTile(text: ' ')]));
+        // }
       }
+      //  else {
+      // emit(SearchResultsState([ResultListTile(text: ' ')]));
+      // }
     } else {
-      emit(SearchResultsState([
-        ResultListTile(
-          text: '',
-        )
-      ]));
+      emit(SearchResultsState([ResultListTile(text: ' ')]));
     }
   }
 }
