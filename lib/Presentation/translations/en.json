@@ -62,5 +62,6 @@
   "urgent": "Urgent ",
   "disclaimer": "*Disclaimer: The file size should not exceed 10 kbs",
   "user_since": "User Since: ",
-  "Enthusiast": "Enthusiast"
+  "Enthusiast": "Enthusiast",
+  "ErrorSearch": "Sorry, we found nothing"
 }

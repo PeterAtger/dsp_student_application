@@ -105,9 +105,6 @@ class _SignInState extends State<SignIn> {
                             textcolor: AppColors.cGreen,
                             buttoncolor: AppColors.cWhite,
                             onButtonPress: () {
-                              print("email is :${emailFieldController.text}");
-                              print(
-                                  "password is :${passwordFieldController.text}");
                               FocusScope.of(context).unfocus();
                               if (state.isConnected == false) {
                                 ScaffoldMessenger.of(context)

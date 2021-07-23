@@ -65,4 +65,5 @@ abstract class LocaleKeys {
   static const disclaimer = 'disclaimer';
   static const user_since = 'user_since';
   static const Enthusiast = 'Enthusiast';
+  static const ErrorSearch = 'ErrorSearch';
 }

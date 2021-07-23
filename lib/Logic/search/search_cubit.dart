@@ -3,9 +3,11 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:dsp_student_application/Constants/constants.dart';
 import 'package:dsp_student_application/Presentation/Pages/main_screen/components/resuts_list_tile.dart';
+import 'package:dsp_student_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 part 'search_state.dart';
 
@@ -38,8 +40,7 @@ class SearchCubit extends Cubit<SearchState> {
           resultContainers.isNotEmpty
               ? emit(SearchResultsState(resultContainers))
               : emit(SearchResultsState([
-                  ResultListTile(
-                      text: 'عفواً، ليس لدينا تشكيل لهذة الجملة', error: true)
+                  ResultListTile(text: LocaleKeys.ErrorSearch.tr(), error: true)
                 ]));
         }
         // else {
