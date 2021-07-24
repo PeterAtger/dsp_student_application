@@ -3,9 +3,11 @@ import 'dart:io';
 import 'package:adobe_xd/adobe_xd.dart';
 import 'package:dsp_student_application/Data/Repositories/answered_questions/answered_questions.dart';
 import 'package:dsp_student_application/Data/Repositories/profile_data/profile_data.dart';
+import 'package:dsp_student_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_student_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_student_application/Logic/profile_data/profile_data_cubit.dart';
 import 'package:dsp_student_application/Logic/profile_image/profile_image_cubit.dart';
+import 'package:dsp_student_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_student_application/Presentation/Global_components/GradientLine.dart';
 import 'package:dsp_student_application/Presentation/Global_components/TitleBar.dart';
 import 'package:dsp_student_application/Presentation/Pages/settings_screen/local_components/QuestionButton.dart';
@@ -152,21 +154,31 @@ class _ProfileState extends State<Profile> {
                         GradientLine(size: size),
                         SizedBox(height: 16),
                         QuestionButton(
-                          size: size,
-                          text:
-                              '${LocaleKeys.AnsweredQuestions.tr()}: ${AnsweredQuestionsData.listOfAnswers != null ? AnsweredQuestionsData.listOfAnswers.length : '-'}',
-                          green: false,
-                          onPressed:
-                              context.read<NavbarCubit>().goToAnsweredQuestions,
-                        ),
+                            size: size,
+                            text:
+                                '${LocaleKeys.AnsweredQuestions.tr()}: ${AnsweredQuestionsData.listOfAnswers != null ? AnsweredQuestionsData.listOfAnswers.length : '-'}',
+                            green: false,
+                            onPressed: () {
+                              context
+                                  .read<NavbarCubit>()
+                                  .goToAnsweredQuestions();
+                              context
+                                  .read<AnsweredQuestionsCubit>()
+                                  .goToAnsweredQuestions();
+                            }),
                         SizedBox(height: 16),
                         QuestionButton(
-                          size: size,
-                          text: '${LocaleKeys.WaitingQuestion.tr()}: -',
-                          green: true,
-                          onPressed:
-                              context.read<NavbarCubit>().goToWaitingQuestions,
-                        ),
+                            size: size,
+                            text: '${LocaleKeys.WaitingQuestion.tr()}: -',
+                            green: true,
+                            onPressed: () {
+                              context
+                                  .read<NavbarCubit>()
+                                  .goToWaitingQuestions();
+                              context
+                                  .read<WaitingQuestionsCubit>()
+                                  .goToWaitingQuestion();
+                            }),
                       ],
                     ),
                   ),
