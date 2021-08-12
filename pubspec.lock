@@ -120,6 +120,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -176,6 +177,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.5.0"
+
   flutter:
     dependency: "direct main"
     description: flutter
@@ -329,6 +331,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+
   path:
     dependency: transitive
     description:
@@ -469,6 +472,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+
   sky_engine:
     dependency: transitive
     description: flutter
@@ -575,3 +579,4 @@ packages:
 sdks:
   dart: ">=2.12.0 <3.0.0"
   flutter: ">=1.24.0-7.0"
+
