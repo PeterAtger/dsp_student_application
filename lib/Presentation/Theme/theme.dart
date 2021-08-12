@@ -1,27 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppFonts {
-  static final String _fontfamily = 'lato';
+  const AppFonts();
+  static final TextStyle heading1 = GoogleFonts.lato(
+      fontSize: 101, fontWeight: FontWeight.w300, letterSpacing: -1.5);
 
-  static final TextStyle heading1 =
-      TextStyle(fontSize: 48, fontFamily: _fontfamily);
   static final TextStyle heading2 =
-      TextStyle(fontSize: 32, fontFamily: _fontfamily);
-  static final TextStyle heading3 = TextStyle(
-      fontSize: 22, fontFamily: _fontfamily, fontWeight: FontWeight.bold);
+      GoogleFonts.lato(fontSize: 63, fontWeight: FontWeight.w300);
 
-  static final TextStyle buttonText =
-      TextStyle(fontSize: 24, fontFamily: _fontfamily);
-  static final TextStyle smallButtonText =
-      TextStyle(fontSize: 18, fontFamily: _fontfamily);
+  static final TextStyle heading3 =
+      GoogleFonts.lato(fontSize: 50, fontWeight: FontWeight.w400);
 
-  static final TextStyle appText =
-      TextStyle(fontSize: 22, fontFamily: _fontfamily);
+  static final TextStyle heading4 = GoogleFonts.lato(
+      fontSize: 36, fontWeight: FontWeight.w400, letterSpacing: 0.25);
 
-  static final TextStyle versionControl =
-      TextStyle(fontSize: 15, fontFamily: _fontfamily);
-  static final TextStyle captionText =
-      TextStyle(fontSize: 13, fontFamily: _fontfamily);
+  static final TextStyle heading5 =
+      GoogleFonts.lato(fontSize: 25, fontWeight: FontWeight.w400);
+
+  static final TextStyle heading6 = GoogleFonts.lato(
+      fontSize: 21, fontWeight: FontWeight.w500, letterSpacing: 0.15);
+
+  static final TextStyle button = GoogleFonts.lato(
+      fontSize: 15, fontWeight: FontWeight.w500, letterSpacing: 1.25);
+
+  static final TextStyle bodyText1 = GoogleFonts.lato(
+      fontSize: 17, fontWeight: FontWeight.w400, letterSpacing: 0.5);
+
+  static final TextStyle captionText = GoogleFonts.lato(
+      fontSize: 13, fontWeight: FontWeight.w400, letterSpacing: 0.4);
+}
+
+class AppColors {
+  const AppColors();
+  // static final MaterialColor cGreen =
+  //     MaterialColor(0xFF1BB7A5, _ColorMaps.cGreenMap);
+
+  // static final MaterialColor cPurple =
+  //     MaterialColor(0xFF51006F, _ColorMaps.cPurpleMap);
+
+  static final MaterialColor cLightGrey =
+      MaterialColor(0xFFE7E7E7, _ColorMaps.cLightGreyMap);
+  static final MaterialColor cDarkGrey =
+      MaterialColor(0xFF5D5D5D, _ColorMaps.cDarkGreyMap);
+  static final MaterialColor cWhite =
+      MaterialColor(0xFFFFFFFF, _ColorMaps.cWhite);
+
+  static final MaterialColor cPurple =
+      MaterialColor(0xFF370B64, _ColorMaps.cPurpleMap);
+  static final MaterialColor cGreen =
+      MaterialColor(0xFF128C7E, _ColorMaps.cGreenMap);
 }
 
 class _ColorMaps {
@@ -116,26 +144,4 @@ class _ColorMaps {
     800: Color.fromRGBO(23, 153, 138, 0.9),
     900: Color.fromRGBO(23, 153, 138, 1),
   };
-}
-
-class AppColors {
-  // static final MaterialColor cGreen =
-  //     MaterialColor(0xFF1BB7A5, _ColorMaps.cGreenMap);
-
-  // static final MaterialColor cPurple =
-  //     MaterialColor(0xFF51006F, _ColorMaps.cPurpleMap);
-
-  static final MaterialColor cLightGrey =
-      MaterialColor(0xFFE7E7E7, _ColorMaps.cLightGreyMap);
-  static final MaterialColor cDarkGrey =
-      MaterialColor(0xFFD5D5D5, _ColorMaps.cDarkGreyMap);
-  static final MaterialColor cWhite =
-      MaterialColor(0xFFFFFFFF, _ColorMaps.cWhite);
-
-  // This is just a precaution if the colors aren't looking good
-  static final MaterialColor cPurple =
-      MaterialColor(0xFF370B64, _ColorMaps.cPurpleMap);
-
-  static final MaterialColor cGreen =
-      MaterialColor(0xFF17998a, _ColorMaps.cGreenMap);
 }
